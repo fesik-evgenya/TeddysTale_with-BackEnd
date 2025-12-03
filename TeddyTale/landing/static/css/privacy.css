@@ -1,0 +1,171 @@
+/* ===== СТИЛИ ДЛЯ СТРАНИЦЫ ПОЛИТИКИ КОНФИДЕНЦИАЛЬНОСТИ ===== */
+
+/* Основная секция политики конфиденциальности */
+.privacy-policy {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+    margin-top: 80px;
+    min-height: calc(100vh - 80px);
+}
+
+.privacy-content {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 30px 0;
+}
+
+.privacy-title {
+    font-family: 'Lora', serif;
+    font-size: 32px;
+    color: var(--color-gray);
+    font-weight: 400;
+    line-height: 42px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.privacy-update {
+    font-size: 14px;
+    color: var(--color-pink_middle);
+    text-align: center;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+.privacy-section {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(232, 180, 184, 0.2);
+}
+
+.privacy-section:last-of-type {
+    border-bottom: none;
+}
+
+.privacy-section h2 {
+    font-family: 'Lora', serif;
+    font-size: 24px;
+    color: var(--color-gray);
+    font-weight: 500;
+    line-height: 32px;
+    margin-bottom: 20px;
+}
+
+.privacy-section p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: var(--color-gray);
+}
+
+.privacy-section ul {
+    margin: 15px 0;
+    padding-left: 25px;
+}
+
+.privacy-section li {
+    position: relative;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: var(--color-gray);
+}
+
+.privacy-section li::before {
+    content: '•';
+    color: var(--color-pink);
+    font-weight: bold;
+    position: absolute;
+    left: -15px;
+}
+
+.privacy-contacts {
+    background-color: rgba(255, 249, 245, 0.7);
+    border-radius: 8px;
+    padding: 25px;
+    margin-top: 40px;
+    border: 1px solid rgba(232, 180, 184, 0.3);
+}
+
+.privacy-contacts h3 {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    color: var(--color-gray);
+    font-weight: 500;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.privacy-contacts p {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.privacy-contacts a {
+    color: var(--color-pink);
+    transition: color 0.3s ease;
+}
+
+.privacy-contacts a:hover {
+    color: var(--color-pink_middle);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .privacy-policy {
+        margin-top: 70px;
+        padding: 15px 10px;
+    }
+
+    .privacy-content {
+        padding: 20px 0;
+    }
+
+    .privacy-title {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .privacy-section {
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+    }
+
+    .privacy-section h2 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .privacy-section p {
+        font-size: 15px;
+    }
+
+    .privacy-section ul {
+        padding-left: 20px;
+    }
+
+    .privacy-contacts {
+        padding: 20px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .privacy-title {
+        font-size: 22px;
+        line-height: 30px;
+    }
+
+    .privacy-section h2 {
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    .privacy-section p {
+        font-size: 14px;
+    }
+
+    .privacy-contacts h3 {
+        font-size: 18px;
+    }
+}

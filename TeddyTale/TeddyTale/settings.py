@@ -11,10 +11,10 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -37,11 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_cleanup.apps.CleanupConfig',
+
+    'landing',
+    'teddy_admin',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -102,19 +107,38 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-RU'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
-
+USE_L10N = True
 USE_TZ = True
+
+# Форматы дат для русского языка
+DATE_FORMAT = 'd E Y'  # 15 января 2024
+DATETIME_FORMAT = 'd E Y H:i'  # 15 января 2024 14:30
+SHORT_DATE_FORMAT = 'd.m.Y'  # 15.01.2024
+SHORT_DATETIME_FORMAT = 'd.m.Y H:i'  # 15.01.2024 14:30
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+
+
+# Где ищем статические файлы
+STATICFILES_DIRS = [
+    BASE_DIR / "landing/static",  # путь к статике приложения
+]
+
+# Для продакшена (когда DEBUG = False)
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# Настройки для медиафайлов (изображения)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / "media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

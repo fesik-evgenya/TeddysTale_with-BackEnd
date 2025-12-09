@@ -12,25 +12,47 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+import environ
+
+# ====================
+# ИНИЦИАЛИЗАЦИЯ ПЕРЕМЕННЫХ ОКРУЖЕНИЯ
+# ====================
+
+# Загружаем переменные окружения из .env файла
+load_dotenv()
+
+# Инициализация environ для удобной работы с переменными
+env = environ.Env(
+    # Устанавливаем значения по умолчанию для разработки
+    DEBUG=(bool, True),
+    SECRET_KEY=(str, 'django-insecure-fallback-key-for-development-only'),
+    ALLOWED_HOSTS=(list, ['127.0.0.1', 'localhost']),
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
+# ====================
+# БЕЗОПАСНОСТЬ
+# ====================
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-g@496s)4eec(q3ax1=1(1hy&u+-h!0=mj9pj9y@rd(xpwbs-9#'
+# Читаем секретный ключ из переменной окружения или используем fallback
+SECRET_KEY = env('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = []
+# Разрешенные хосты
+ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS')
 
-
-# Application definition
+# ====================
+# ПРИЛОЖЕНИЯ
+# ====================
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,7 +63,69 @@ INSTALLED_APPS = [
 
     'landing',
     'teddy_admin',
+    'TeddyTale',
 ]
+
+# ====================
+# БАЗА ДАННЫХ
+# ====================
+
+# Настройки базы данных из переменных окружения
+DATABASES = {
+    'default': {
+        'ENGINE': env('DATABASE_ENGINE', default='django.db.backends.sqlite3'),
+        'NAME': BASE_DIR / env('DATABASE_NAME', default='db.sqlite3'),
+        'USER': env('DATABASE_USER', default=''),
+        'PASSWORD': env('DATABASE_PASSWORD', default=''),
+        'HOST': env('DATABASE_HOST', default=''),
+        'PORT': env('DATABASE_PORT', default=''),
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+        } if env('DATABASE_ENGINE', default='') == 'django.db.backends.mysql' else {},
+    }
+}
+
+# Альтернативный вариант с DATABASE_URL (более современный)
+# DATABASES = {
+#     'default': env.db(default='sqlite:///db.sqlite3')
+# }
+
+# ====================
+# НАСТРОЙКИ БЕЗОПАСНОСТИ
+# ====================
+
+# URL для входа в стандартную админку Django
+LOGIN_URL = '/enter-admin-panel/'
+
+# Настройки безопасности
+SESSION_COOKIE_NAME = 'teddy_admin_session'
+CSRF_COOKIE_NAME = 'teddy_admin_csrftoken'
+
+SESSION_COOKIE_AGE = env.int('SESSION_COOKIE_AGE', default=1209600)  # 2 недели
+SESSION_SAVE_EVERY_REQUEST = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = 'DENY'
+
+# Настройки CSRF
+CSRF_USE_SESSIONS = False
+CSRF_COOKIE_HTTPONLY = False  # Должно быть False для доступа JavaScript
+CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', default=False)  # True если используем HTTPS
+CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=[
+    'http://127.0.0.1:8000',
+    'http://localhost:8000',
+])
+
+# Дополнительные настройки безопасности для продакшена
+if not DEBUG:
+    SECURE_SSL_REDIRECT = env.bool('SECURE_SSL_REDIRECT', default=False)
+    SECURE_HSTS_SECONDS = env.int('SECURE_HSTS_SECONDS', default=0)
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool('SECURE_HSTS_INCLUDE_SUBDOMAINS', default=False)
+    SECURE_HSTS_PRELOAD = env.bool('SECURE_HSTS_PRELOAD', default=False)
+    SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', default=True)
+    CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', default=True)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -59,7 +143,11 @@ ROOT_URLCONF = 'TeddyTale.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'templates',            # Глобальные шаблоны
+            BASE_DIR / 'landing/templates',    # Шаблоны приложения landing
+            BASE_DIR / 'templates/templates',  # Шаблоны кастомной админки
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -73,20 +161,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'TeddyTale.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-
-# Password validation
-# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
+# ====================
+# ВАЛИДАЦИЯ ПАРОЛЕЙ
+# ====================
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -103,13 +180,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# ====================
+# МЕЖДУНАРОДНЫЕ НАСТРОЙКИ
+# ====================
 
-# Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
+LANGUAGE_CODE = env('LANGUAGE_CODE', default='ru-RU')
 
-LANGUAGE_CODE = 'ru-RU'
-
-TIME_ZONE = 'Europe/Moscow'
+TIME_ZONE = env('TIME_ZONE', default='Europe/Moscow')
 
 USE_I18N = True
 USE_L10N = True
@@ -121,26 +198,185 @@ DATETIME_FORMAT = 'd E Y H:i'  # 15 января 2024 14:30
 SHORT_DATE_FORMAT = 'd.m.Y'  # 15.01.2024
 SHORT_DATETIME_FORMAT = 'd.m.Y H:i'  # 15.01.2024 14:30
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
+# ====================
+# СТАТИЧЕСКИЕ И МЕДИА ФАЙЛЫ
+# ====================
 
 STATIC_URL = '/static/'
 
-
 # Где ищем статические файлы
 STATICFILES_DIRS = [
-    BASE_DIR / "landing/static",  # путь к статике приложения
-]
+    BASE_DIR / "static",
+    ]
 
 # Для продакшена (когда DEBUG = False)
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = BASE_DIR / env('STATIC_ROOT', default='staticfiles')
 
 # Настройки для медиафайлов (изображения)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_ROOT = BASE_DIR / env('MEDIA_ROOT', default='media')
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
+# ====================
+# НАСТРОЙКИ LOGGING
+# ====================
+
+# Уровень логирования из .env
+LOG_LEVEL = env('LOG_LEVEL', default='INFO')
+
+# Настройки логирования с ротацией
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+        'detailed': {
+            'format': '[{asctime}] {levelname} {name} - {message}',
+            'style': '{',
+            'datefmt': '%Y-%m-%d %H:%M:%S',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': LOG_LEVEL,
+            'class': 'logging.StreamHandler',
+            'formatter': 'detailed',
+        },
+        'file': {
+            'level': 'WARNING',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': BASE_DIR / 'logs' / 'django.log',
+            'formatter': 'verbose',
+            'maxBytes': env.int('LOG_MAX_BYTES', default=1048576),  # 1 MB по умолчанию
+            'backupCount': env.int('LOG_BACKUP_COUNT', default=3),  # 3 резервные копии
+            'encoding': 'utf-8',
+        },
+        'landing_file': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': BASE_DIR / 'logs' / 'landing.log',
+            'formatter': 'detailed',
+            'maxBytes': env.int('LOG_MAX_BYTES', default=1048576),
+            'backupCount': env.int('LOG_BACKUP_COUNT', default=3),
+            'encoding': 'utf-8',
+        },
+        'error_file': {
+            'level': 'ERROR',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': BASE_DIR / 'logs' / 'errors.log',
+            'formatter': 'verbose',
+            'maxBytes': env.int('LOG_MAX_BYTES', default=1048576),
+            'backupCount': env.int('LOG_BACKUP_COUNT', default=3),
+            'encoding': 'utf-8',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file', 'error_file'],
+            'level': LOG_LEVEL,
+            'propagate': True,
+        },
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'WARNING',
+            'propagate': False,
+        },
+        'django.security': {
+            'handlers': ['error_file'],
+            'level': 'WARNING',
+            'propagate': False,
+        },
+        'landing': {
+            'handlers': ['console', 'landing_file', 'error_file'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'teddy_admin': {
+            'handlers': ['console', 'error_file'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    },
+    'root': {
+        'handlers': ['console', 'error_file'],
+        'level': 'WARNING',
+    },
+}
+
+# ====================
+# ПРОЧИЕ НАСТРОЙКИ
+# ====================
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Jazzmin настройки
+JAZZMIN_SETTINGS = {
+    "site_title": "Teddy'sTale",
+    "site_header": "Управление контентом",
+    "welcome_sign": "Добро пожаловать!",
+    "site_logo": "assets/icon/main_logo.svg",
+    "site_logo_classes": "navbar-logo",
+    "site_icon": "assets/icon/favicon.svg",
+
+    # Меню
+    "topmenu_links": [
+        {"name": "Сайт", "url": "/", "new_window": True},
+    ],
+
+    # Боковое меню
+    "navigation_expanded": True,
+    "hide_apps": [],
+    "hide_models": [],
+    "order_with_respect_to": [
+        "main.PageSection",
+        "main.SectionContent",
+        "main.ShopItem",
+        "main.UploadedImage",
+        "main.SiteSettings",
+        "main.ChangeLog",
+    ],
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.group": "fas fa-users",
+        "main.PageSection": "fas fa-th-large",
+        "main.SectionContent": "fas fa-edit",
+        "main.ShopItem": "fas fa-shopping-bag",
+        "main.SiteSettings": "fas fa-cog",
+        "main.ChangeLog": "fas fa-history",
+        "main.UploadedImage": "fas fa-image",
+    },
+
+    # Внешний вид
+    "show_sidebar": True,
+    "use_custom_cdn": False,
+    "show_ui_builder": False,
+    "changeform_format": "vertical_tabs",
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": False,
+    "brand_small_text": False,
+    "brand_colour": "navbar-light",
+    "accent": "accent-pink",
+    "navbar": "navbar-white navbar-light",
+    "no_navbar_border": False,
+    "sidebar": "sidebar-dark-pink",
+    "sidebar_nav_small_text": False,
+    "sidebar_disable_expand": True,
+    "sidebar_collapse": False,
+    "theme": "default",
+    "dark_mode_theme": None,
+    "button_classes": {
+        "primary": "btn-outline-pink",
+        "secondary": "btn-outline-secondary",
+    }
+}

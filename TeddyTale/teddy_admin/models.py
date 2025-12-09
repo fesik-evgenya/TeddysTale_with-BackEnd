@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
-
 import os
 
 
@@ -15,7 +14,7 @@ class PageSection(models.Model):
     ]
 
     section_key = models.CharField(max_length=50, unique=True, choices=SECTION_TYPES,
-                                                               verbose_name='Ключ секции')
+                                   verbose_name='Ключ секции')
     name = models.CharField(max_length=100, verbose_name='Название секции')
     description = models.TextField(blank=True, verbose_name='Описание')
     is_active = models.BooleanField(blank=True, verbose_name='Активна')
@@ -108,7 +107,7 @@ class UploadedImage(models.Model):
     stored_filename = models.CharField(max_length=255, unique=True, verbose_name='Имя в системе')
     file_path = models.CharField(max_length=500, verbose_name='Путь к файлу')
     file_size = models.IntegerField(verbose_name='Размер файла')
-    mime_types = models.CharField(max_length=100, verbose_name='Тип файла')
+    mime_type = models.CharField(max_length=100, verbose_name='Тип файла')  # Исправлено с mime_types
 
     # размеры изображения
     width = models.IntegerField(blank=True, null=True, verbose_name='Ширина')
@@ -142,7 +141,7 @@ class SiteSettings(models.Model):
     setting_key = models.CharField(max_length=50, unique=True, verbose_name='Ключ настройки')
     setting_value = models.TextField(blank=True, null=True, verbose_name='Значение')
     setting_type = models.CharField(max_length=20, choices=SETTING_TYPES, default='text',
-                                                                          verbose_name='Тип значения')
+                                    verbose_name='Тип значения')
     category = models.CharField(max_length=50, default='general', verbose_name='Категория')
     description = models.TextField(blank=True, verbose_name='Описание')
     is_public = models.BooleanField(default=False, verbose_name='Публичная')
@@ -157,6 +156,7 @@ class SiteSettings(models.Model):
     def __str__(self):
         return self.setting_key
 
+
 class ChangeLog(models.Model):
     ACTIONS = [
         ('CREATE','Создание'),
@@ -165,7 +165,7 @@ class ChangeLog(models.Model):
     ]
 
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True,
-                                                                         verbose_name='Пользователь')
+                             verbose_name='Пользователь')
     changed_table = models.CharField(max_length=50, verbose_name='Таблица')
     record_id = models.IntegerField(null=True, blank=True, verbose_name='ID записи')
     action = models.CharField(max_length=10, choices=ACTIONS, verbose_name='Действие')

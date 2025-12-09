@@ -1,0 +1,77 @@
+{% load static %}
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-content_left">
+                <div class="footer-logo_container">
+                    <span class="footer-logo">Teddy's Tale</span>
+                </div>
+                <p class="footer-content_slogan">Авторские мишки Тедди ручной работы</p>
+                <a href="{% url 'teddy_admin_custom:custom-login' %}" class="enter-adminPanel">
+                    <img src="{% static 'assets/icon/enter_Admin-Panel.svg' %}" alt="Панель администратора" class="enter-adminPanel_icon" loading="lazy">
+                </a>
+            </div>
+
+            <div class="footer-content-info">
+                <div class="footer-content_center">
+                    <h4 class="footer-center_title">Навигация</h4>
+                    <ul class="footer__links">
+                        <li><a href="{% url 'landing:index' %}">Главная</a></li>
+                        <li><a href="{% url 'landing:index' %}#collection">Коллекция</a></li>
+                        <li><a href="{% url 'landing:index' %}#about">О мастере</a></li>
+                        <li><a href="{% url 'landing:index' %}#contacts">Контакты</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-content_right">
+                    <h4 class="footer-right_title">Контакты</h4>
+                    <div class="footer-right_contacts">
+                        <!-- Динамические данные из базы -->
+                        <p>Телефон: <a href="tel:{{ contacts_phone|default:'+7 (999) 999-99-99'|slice:'2:'|cut:' '|cut:'-'|cut:'('|cut:')' }}" class="footer-phone">
+                            {{ contacts_phone|default:'+7 (999) 999-99-99' }}
+                        </a></p>
+                        <p>Email: <a href="mailto:{{ contacts_email|default:'example@example.ru' }}" class="footer-email">
+                            {{ contacts_email|default:'example@example.ru' }}
+                        </a></p>
+                        <p class="address-footer">Адрес: г. {{ contacts_city|default:'Санкт-Петербург' }},<br>{{ contacts_address|default:'ул. Среднерогатская' }}</p>
+                    </div>
+                    <div class="footer-right_links">
+                        <!-- Динамические ссылки на соцсети -->
+                        {% if contacts_vk %}
+                        <a href="{{ contacts_vk }}" aria-label="VKontakte" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'assets/icon/VK.svg' %}" alt="VK" class="footer-social_icon" loading="lazy" width="24" height="24">
+                        </a>
+                        {% endif %}
+
+                        {% if contacts_whatsapp %}
+                        <a href="{{ contacts_whatsapp }}" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'assets/icon/WhatsApp.svg' %}" alt="WhatsApp" class="footer-social_iconWA" loading="lazy" width="32" height="32">
+                        </a>
+                        {% endif %}
+
+                        {% if contacts_telegram %}
+                        <a href="{{ contacts_telegram }}" aria-label="Telegram" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'assets/icon/Telegramm.svg' %}" alt="Telegram" class="footer-social_icon" loading="lazy" width="24" height="24">
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <svg width="100%" height="1" viewBox="0 0 1120 1" fill="none" class="footer-divider">
+            <line opacity="0.3" y1="0.5" x2="1120" y2="0.5" stroke="#E8B4B8"/>
+        </svg>
+
+        <div class="footer-afterword">
+            <p class="footer-rights">
+                © {% now "Y" %} Teddy's Tale. Все права защищены.<br>
+                Авторские мишки Тедди ручной работы.
+            </p>
+            <p class="footer-autor">
+                design and development by © Fesik |
+                <a href="{% url 'landing:privacy' %}">Политика конфиденциальности</a>
+            </p>
+        </div>
+    </div>
+</footer>

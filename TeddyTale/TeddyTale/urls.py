@@ -1,8 +1,23 @@
-from django.contrib import admin
 from django.urls import path, include
+from django.contrib import admin
+from django.views.generic import RedirectView
+from django.conf import settings
+from django.conf.urls.static import static
 
+# Меняем URL стандартной админки
+admin.site.site_url = '/panel/'  # Для ссылок "Вернуться на сайт"
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('landing.urls'))
+    path('panel/', admin.site.urls),  # Стандартная админка
+
+    # Кастомная админка с префиксом admin-custom/
+    path('admin-custom/', include('teddy_admin.urls_custom')),
+    path('', include(('landing.urls', 'landing'), namespace='landing')),  # Лендинг
+
+    # Перенаправления для старых путей
+    path('enter-admin-panel/', RedirectView.as_view(url='/admin-custom/enter/', permanent=False)),
 ]
+
+# Добавляем обработку медиафайлов в режиме DEBUG
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

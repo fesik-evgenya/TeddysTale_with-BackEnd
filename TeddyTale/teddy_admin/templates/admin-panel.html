@@ -1,0 +1,391 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Админ - Панель | Мишки Тедди ручной работы{% endblock %}
+
+{% block meta %}
+{{ block.super }}
+<meta name="robots" content="noindex, nofollow">
+<meta name="csrf-token" content="{{ csrf_token }}">
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/admin-panel.css' %}">
+{% endblock %}
+
+{% block fonts %}
+<link rel="preload" href="{% static 'assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2' %}" as="font"
+      type="font/woff2" crossorigin>
+<link rel="preload" href="{% static 'assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff' %}" as="font"
+      type="font/woff" crossorigin>
+<link rel="preload" href="{% static 'assets/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.woff2' %}" as="font"
+      type="font/woff2" crossorigin>
+<link rel="preload" href="{% static 'assets/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.woff' %}" as="font"
+      type="font/woff" crossorigin>
+<link rel="preload" href="{% static 'assets/fonts/Lora/Lora.woff2' %}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{% static 'assets/fonts/Lora/Lora.woff' %}" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="{% static 'assets/fonts/Lora/Lora-Italic.woff2' %}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{% static 'assets/fonts/Lora/Lora-Italic.woff' %}" as="font" type="font/woff" crossorigin>
+{% endblock %}
+
+{% block header %}
+{% include 'includes/header_admin.html' %}
+{% endblock %}
+
+{% block content %}
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+<!-- Meta - Информация -->
+<main class="content-adminPanel">
+
+    <!-- Meta - Информация -->
+    <h2 class="title-adminPanel">Title</h2>
+    <form class="form-fields" id="adminPanel-title" data-section="meta" data-content-key="title">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" value="{{ meta_contents.title.value|default:'' }}"
+               required>
+        <button type="submit" class="btn btn_change">Изменить</button>
+    </form>
+    <form class="form-fields" id="adminPanel-keyWords" data-section="meta" data-content-key="keywords">
+        <label for="keyWords">Key words</label>
+        <textarea name="keyWords" id="keyWords" required>
+            {{ meta_contents.keywords.value|default:'' }}
+        </textarea>
+        <button type="submit" class="btn btn_change">Изменить</button>
+    </form>
+    <form class="form-fields" id="adminPanel-Description" data-section="meta" data-content-key="description">
+        <label for="description">Description</label>
+        <textarea name="description" id="description" required>
+            {{ meta_contents.description.value|default:'' }}
+        </textarea>
+        <button type="submit" class="btn btn_change">Изменить</button>
+    </form>
+
+    <!-- Hero - секция -->
+    <h2 class="heroSection-adminPanel" id="hero">Hero - секция</h2>
+    <form class="form-fields" id="adminPanel-titleHero" data-section="hero" data-content-key="titleHero">
+        <label for="titleHero">Заголовок</label>
+        <input type="text" name="titleHero" id="titleHero"
+               value="{{ hero_contents.titleHero.value|default:'' }}" required>
+        <button type="submit" class="btn btn_change">Изменить</button>
+    </form>
+    <form class="form-fields" id="adminPanel-descriptionHero" data-section="hero" data-content-key="descriptionHero">
+        <label for="descriptionHero">Описание</label>
+        <textarea name="descriptionHero" id="descriptionHero" required>
+            {{ hero_contents.descriptionHero.value|default:'' }}
+        </textarea>
+        <button type="submit" class="btn btn_change">Изменить</button>
+    </form>
+    <form class="form-fields image-block" id="adminPanel-imageHero" data-section="hero" data-content-key="heroImage">
+        <div class="image-control-info">
+            <!-- Поле для отображения существующего файла -->
+            <div class="image-set-display">
+                {% if hero_contents.heroImage.value %}
+                <img src="{{ MEDIA_URL }}{{ hero_contents.heroImage.value }}" alt="Hero-изображение">
+                {% else %}
+                <img src="{% static 'assets/image/Hero_pic.webp' %}" alt="Hero-изображение">
+                {% endif %}
+            </div>
+            <div class="image-info">
+                <span class="image_title">Изображение</span>
+                <p class="image-requirements">(540px * 400px)<br>Поддерживаемые форматы:<br>JPG, PNG, WEBP.<br>Максимальный
+                    размер: 1MB</p>
+            </div>
+        </div>
+        <!-- Контейнер для элементов управления загрузкой -->
+        <div class="upload-controls">
+            <span class="">
+                {% if hero_contents.heroImage.value %}
+                    {{ hero_contents.heroImage.value|cut:"uploaded_images/" }}
+                {% else %}
+                    Hero_pic.webp
+                {% endif %}
+            </span>
+            <!-- Скрытый input для выбора файла -->
+            <input type="file" id="imageUpload" class="file-input" accept="image/*" name="heroImage">
+            <!-- Кнопка для отправки формы и загрузки в БД -->
+            <button type="submit" class="btn upload-submit-button">Загрузить</button>
+        </div>
+    </form>
+
+    <!-- Магазин товаров -->
+    <div class="shop" id="shop">
+        <h2 class="shop-title">Магазин товаров</h2>
+        <label for="slotSelector" class="visually-hidden">Выберите слот товара для редактирования</label>
+        <select id="slotSelector" onchange="scrollToSlot(this.value)">
+            <option value="">Выбрать слот</option>
+            <option value="slot1">слот 1</option>
+            <option value="slot2">слот 2</option>
+            <option value="slot3">слот 3</option>
+            <option value="slot4">слот 4</option>
+            <option value="slot5">слот 5</option>
+            <option value="slot6">слот 6</option>
+            <option value="slot7">слот 7</option>
+            <option value="slot8">слот 8</option>
+            <option value="slot9">слот 9</option>
+        </select>
+    </div>
+
+    {% for item in shop_items %}
+    <!-- слот {{ item.slot_number }} -->
+    <h3 class="slot-title">Товар {{ item.slot_number }}</h3>
+    <div class="card" id="slot{{ item.slot_number }}">
+        <form class="form-fields" id="adminPanel-slot{{ item.slot_number }}_title" data-item-id="{{ item.id }}"
+              data-field="title">
+            <label for="titleSlot{{ item.slot_number }}">Название</label>
+            <input type="text" name="titleSlot{{ item.slot_number }}" id="titleSlot{{ item.slot_number }}"
+                   value="{{ item.title }}" required>
+            <button type="submit" class="btn btn_change">Изменить</button>
+        </form>
+        <form class="form-fields" id="adminPanel-slot{{ item.slot_number }}_description" data-item-id="{{ item.id }}"
+              data-field="description">
+            <label for="descriptionSlot{{ item.slot_number }}">Описание</label>
+            <textarea name="descriptionSlot{{ item.slot_number }}" id="descriptionSlot{{ item.slot_number }}"
+                      required>{{ item.description }}</textarea>
+            <button type="submit" class="btn btn_change">Изменить</button>
+        </form>
+        <form class="form-fields" id="adminPanel-slot{{ item.slot_number }}_price" data-item-id="{{ item.id }}"
+              data-field="price">
+            <label for="priceSlot{{ item.slot_number }}">Цена</label>
+            <input type="text" name="priceSlot{{ item.slot_number }}" id="priceSlot{{ item.slot_number }}"
+                   value="{{ item.price }}" required>
+            <button type="submit" class="btn btn_change">Изменить</button>
+        </form>
+        <form class="form-fields" id="slot{{ item.slot_number }}-image" data-item-id="{{ item.id }}" data-field="image">
+            <!-- Поле для отображения существующего файла -->
+            <div class="image-control-info">
+                <div class="image-set-display">
+                    {% if item.image %}
+                    <img src="{{ item.image.url }}" alt="Тедди слот {{ item.slot_number }}">
+                    {% else %}
+                    <img src="{% static 'assets/image/Teddy_Maikl.webp' %}" alt="Тедди слот {{ item.slot_number }}">
+                    {% endif %}
+                </div>
+                <div class="image-info">
+                    <span class="image_title">Изображение</span>
+                    <p class="image-requirements">(280px * 200px)<br>Поддерживаемые форматы:<br>JPG, PNG, WEBP.<br>Максимальный
+                        размер: 1MB</p>
+                </div>
+            </div>
+
+            <!-- Контейнер для элементов управления загрузкой -->
+            <div class="upload-controls">
+                <span class="image-set_name">
+                    {% if item.image %}
+                        {{ item.image.name|cut:"shop_items/" }}
+                    {% else %}
+                        Teddy_Maikl.webp
+                    {% endif %}
+                </span>
+                <!-- Скрытый input для выбора файла -->
+                <input type="file" id="image{{ item.slot_number }}Upload" class="file-input" accept="image/*"
+                       name="imageSlot{{ item.slot_number }}">
+                <!-- Кнопка для отправки формы и загрузки в БД -->
+                <button type="submit" class="btn upload-submit-button">Загрузить</button>
+            </div>
+        </form>
+    </div>
+    {% endfor %}
+
+    <!-- Создаем пустые слоты для отсутствующих товаров -->
+    {% for slot_num in "123456789" %}
+    {% with slot_num=slot_num|add:"0" %}
+    {% if slot_num not in shop_items_slot_numbers %}
+    <!-- слот {{ slot_num }} -->
+    <h3 class="slot-title">Товар {{ slot_num }}</h3>
+    <div class="card" id="slot{{ slot_num }}">
+        <form class="form-fields" id="adminPanel-slot{{ slot_num }}_title" data-slot="{{ slot_num }}"
+              data-field="title">
+            <label for="titleSlot{{ slot_num }}">Название</label>
+            <input type="text" name="titleSlot{{ slot_num }}" id="titleSlot{{ slot_num }}" value=""
+                   required>
+            <button type="submit" class="btn btn_change">Изменить</button>
+        </form>
+        <form class="form-fields" id="adminPanel-slot{{ slot_num }}_description" data-slot="{{ slot_num }}"
+              data-field="description">
+            <label for="descriptionSlot{{ slot_num }}">Описание</label>
+            <textarea name="descriptionSlot{{ slot_num }}" id="descriptionSlot{{ slot_num }}" required>
+                </textarea>
+            <button type="submit" class="btn btn_change">Изменить</button>
+        </form>
+        <form class="form-fields" id="adminPanel-slot{{ slot_num }}_price" data-slot="{{ slot_num }}"
+              data-field="price">
+            <label for="priceSlot{{ slot_num }}">Цена</label>
+            <input type="text" name="priceSlot{{ slot_num }}" id="priceSlot{{ slot_num }}" value="" required>
+            <button type="submit" class="btn btn_change">Изменить</button>
+        </form>
+        <form class="form-fields" id="slot{{ slot_num }}-image" data-slot="{{ slot_num }}" data-field="image">
+            <div class="image-control-info">
+                <div class="image-set-display">
+                    <img src="{% static 'assets/image/Teddy_Maikl.webp' %}" alt="Тедди слот {{ slot_num }}">
+                </div>
+                <div class="image-info">
+                    <span class="image_title">Изображение</span>
+                    <p class="image-requirements">(280px * 200px)<br>Поддерживаемые форматы:<br>JPG, PNG, WEBP.<br>Максимальный
+                        размер: 1MB</p>
+                </div>
+            </div>
+            <div class="upload-controls">
+                <span class="image-set_name">Teddy_Maikl.webp</span>
+                <input type="file" id="image{{ slot_num }}Upload" class="file-input" accept="image/*"
+                       name="imageSlot{{ slot_num }}">
+                <button type="submit" class="btn upload-submit-button">Загрузить</button>
+            </div>
+        </form>
+    </div>
+    {% endif %}
+    {% endwith %}
+    {% endfor %}
+
+    <!-- секция <О мастере> -->
+    <h2 class="about-title" id="about">секция "О мастере"</h2>
+    <form class="form-fields" id="about-block1_title" data-section="about" data-content-key="aboutTitleBlock1">
+        <label for="aboutTitleBlock1">Заголовок 1</label>
+        <input type="text" name="aboutTitleBlock1" id="aboutTitleBlock1"
+               value="{{ about_contents.aboutTitleBlock1.value|default:'' }}" required>
+        <button type="submit" class="btn btn_change">Изменить</button>
+    </form>
+    <form class="form-fields" id="about-block1_description" data-section="about"
+          data-content-key="aboutDescriptionBlock1">
+        <label for="aboutDescriptionBlock1">Описание 1</label>
+        <textarea name="aboutDescriptionBlock1" id="aboutDescriptionBlock1" required>
+        {{ about_contents.aboutDescriptionBlock1.value|default:'' }}
+    </textarea>
+        <button type="submit" class="btn btn_change">Изменить</button>
+    </form>
+    <form class="form-fields" id="about-block2_description" data-section="about"
+          data-content-key="aboutDescriptionBlock2">
+        <label for="aboutDescriptionBlock2">Описание 2</label>
+        <textarea name="aboutDescriptionBlock2" id="aboutDescriptionBlock2">
+        {{ about_contents.aboutDescriptionBlock2.value|default:'' }}
+    </textarea>
+        <button type="submit" class="btn btn_change">Изменить</button>
+    </form>
+    <form class="form-fields" id="about-block2_title" data-section="about" data-content-key="aboutTitleBlock2">
+        <label for="aboutTitleBlock2">Заголовок 2</label>
+        <input type="text" name="aboutTitleBlock2" id="aboutTitleBlock2"
+               value="{{ about_contents.aboutTitleBlock2.value|default:'' }}" required>
+        <button type="submit" class="btn btn_change">Изменить</button>
+    </form>
+    <form class="form-fields" id="about-block2_slot1" data-section="about" data-content-key="aboutSlot1Block2">
+        <label for="aboutSlot1Block2">Слот 1</label>
+        <input type="text" name="aboutSlot1Block2" id="aboutSlot1Block2"
+               value="{{ about_contents.aboutSlot1Block2.value|default:'' }}" required>
+        <button type="submit" class="btn btn_change">Изменить</button>
+    </form>
+    <form class="form-fields" id="about-block2_slot2" data-section="about" data-content-key="aboutSlot2Block2">
+        <label for="aboutSlot2Block2">Слот 2</label>
+        <input type="text" name="aboutSlot2Block2" id="aboutSlot2Block2"
+               value="{{ about_contents.aboutSlot2Block2.value|default:'' }}" required>
+        <button type="submit" class="btn btn_change">Изменить</button>
+    </form>
+    <form class="form-fields" id="about-block2_slot3" data-section="about" data-content-key="aboutSlot3Block2">
+        <label for="aboutSlot3Block2">Слот 3</label>
+        <input type="text" name="aboutSlot3Block2" id="aboutSlot3Block2"
+               value="{{ about_contents.aboutSlot3Block2.value|default:'' }}" required>
+        <button type="submit" class="btn btn_change">Изменить</button>
+    </form>
+    <form class="form-fields" id="about-block2_slot4" data-section="about" data-content-key="aboutSlot4Block2">
+        <label for="aboutSlot4Block2">Слот 4</label>
+        <input type="text" name="aboutSlot4Block2" id="aboutSlot4Block2"
+               value="{{ about_contents.aboutSlot4Block2.value|default:'' }}" required>
+        <button type="submit" class="btn btn_change">Изменить</button>
+    </form>
+    <form class="form-fields" id="about-image" data-section="about" data-content-key="aboutImage">
+        <div class="image-control-info">
+            <!-- Поле для отображения существующего файла -->
+            <div class="image-set-display">
+                {% if about_contents.aboutImage.value %}
+                <img src="/media/{{ about_contents.aboutImage.value }}" alt="Фото мастера">
+                {% else %}
+                <img src="{% static 'assets/image/Avatar.webp' %}" alt="Фото мастера">
+                {% endif %}
+            </div>
+            <div class="image-info">
+                <span class="image_title">Изображение</span>
+                <p class="image-requirements">(480px * 400px)<br>Поддерживаемые форматы:<br>JPG, PNG, WEBP.
+                    <br>Максимальный размер: 2MB</p>
+            </div>
+        </div>
+        <!-- Контейнер для элементов управления загрузкой -->
+        <div class="upload-controls">
+            <span class="image-set_name">
+                {% if about_contents.aboutImage.value %}
+                    {{ about_contents.aboutImage.value|cut:"uploaded_images/" }}
+                {% else %}
+                    Avatar.webp
+                {% endif %}
+            </span>
+            <!-- Скрытый input для выбора файла -->
+            <input type="file" id="imageAboutUpload" class="file-input" accept="image/*" name="imageAbout">
+            <!-- Кнопка для отправки формы и загрузки в БД -->
+            <button type="submit" class="btn upload-submit-button">Загрузить</button>
+        </div>
+    </form>
+
+    <!-- Контакты -->
+    <h2 class="about-title" id="contacts">Контакты</h2>
+    <form class="form-fields" id="contacts-city" data-section="contacts" data-content-key="contactsCity">
+        <label for="contactsCity">Город</label>
+        <input type="text" name="contactsCity" id="contactsCity"
+               value="{{ contacts_contents.contactsCity.value|default:'' }}" required>
+        <button type="submit" class="btn btn_change">Изменить</button>
+    </form>
+    <form class="form-fields" id="contacts-address" data-section="contacts" data-content-key="contactsAddress">
+        <label for="contactsAddress">Адрес</label>
+        <input type="text" name="contactsAddress" id="contactsAddress"
+               value="{{ contacts_contents.contactsAddress.value|default:'' }}" required>
+        <button type="submit" class="btn btn_change">Изменить</button>
+    </form>
+    <form class="form-fields" id="contacts-point">
+        <h3 class="slot-title">Координаты точки на карте</h3>
+        <label for="contactsPoints_latitude">Широта</label>
+        <input type="text" name="contactsPoints_latitude" id="contactsPoints_latitude"
+               data-section="contacts" data-content-key="contactsPoints_latitude"
+               value="{{ contacts_contents.contactsPoints_latitude.value|default:'' }}" required>
+        <label for="contactsPoints_longitude">Долгота</label>
+        <input type="text" name="contactsPoints_longitude" id="contactsPoints_longitude"
+               data-section="contacts" data-content-key="contactsPoints_longitude"
+               value="{{ contacts_contents.contactsPoints_longitude.value|default:'' }}" required>
+        <button type="submit" class="btn btn_change">Изменить</button>
+    </form>
+    <form class="form-fields" id="contacts-phone" data-section="contacts" data-content-key="contactsPhone">
+        <label for="contactsPhone">Телефон</label>
+        <input type="text" name="contactsPhone" id="contactsPhone"
+               value="{{ contacts_contents.contactsPhone.value|default:'' }}" required>
+        <button type="submit" class="btn btn_change">Изменить</button>
+    </form>
+    <form class="form-fields" id="contacts-email" data-section="contacts" data-content-key="contactsEmail">
+        <label for="contactsEmail">Email</label>
+        <input type="text" name="contactsEmail" id="contactsEmail"
+               value="{{ contacts_contents.contactsEmail.value|default:'' }}" required>
+        <button type="submit" class="btn btn_change">Изменить</button>
+    </form>
+    <form class="form-fields" id="contacts-VK" data-section="contacts" data-content-key="contactsVK">
+        <label for="contactsVK">VK</label>
+        <input type="text" name="contactsVK" id="contactsVK"
+               value="{{ contacts_contents.contactsVK.value|default:'' }}" required>
+        <button type="submit" class="btn btn_change">Изменить</button>
+    </form>
+    <form class="form-fields" id="contacts-WhatsApp" data-section="contacts" data-content-key="contactsWhatsApp">
+        <label for="contactsWhatsApp">WhatsApp</label>
+        <input type="text" name="contactsWhatsApp" id="contactsWhatsApp"
+               value="{{ contacts_contents.contactsWhatsApp.value|default:'' }}" required>
+        <button type="submit" class="btn btn_change">Изменить</button>
+    </form>
+    <form class="form-fields" id="contacts-Telegramm" data-section="contacts" data-content-key="contactsTelegramm">
+        <label for="contactsTelegramm">Telegram</label>
+        <input type="text" name="contactsTelegramm" id="contactsTelegramm"
+               value="{{ contacts_contents.contactsTelegramm.value|default:'' }}" required>
+        <button type="submit" class="btn btn_change">Изменить</button>
+    </form>
+</main>
+{% endblock %}
+
+{% block footer %}
+{% include 'includes/footer_admin.html' %}
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/admin-panel.js' %}"></script>
+{% endblock %}

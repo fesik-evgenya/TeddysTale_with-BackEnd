@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Мишки Тедди ручной работы{% endblock %}</title>
+
+    {% block meta %}
+    <meta name="description" content="Авторские мишки Тедди ручной работы для вашей коллекции">
+    <meta name="keywords" content="мишки тедди, ручная работа, авторские игрушки">
+    <meta name="robots" content="index, follow">
+    {% endblock %}
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'assets/icon/favicon.svg' %}" type="image/svg+xml">
+
+    <!-- CSS -->
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock %}
+
+    <!-- Предзагрузка шрифтов -->
+    {% block fonts %}
+    <link rel="preload" href="{% static 'fonts/Montserrat/Montserrat-VariableFont_wght.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{% static 'fonts/Montserrat/Montserrat-VariableFont_wght.woff' %}" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="{% static 'fonts/Lora/Lora.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{% static 'fonts/Lora/Lora.woff' %}" as="font" type="font/woff" crossorigin>
+    {% endblock %}
+
+    <meta name="language" content="Russian">
+    <meta name="author" content="Fesik Evgeniya">
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+{% block header %}{% endblock %}
+
+<main class="main">
+    {% block content %}{% endblock %}
+</main>
+
+{% block footer %}{% endblock %}
+
+{% block scripts %}{% endblock %}
+</body>
+</html>

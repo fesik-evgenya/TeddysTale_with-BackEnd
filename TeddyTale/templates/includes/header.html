@@ -1,0 +1,32 @@
+<header>
+    <div class="menu">
+        <span class="logo">Teddy's Tale</span>
+        <!-- Бургер-меню (только мобилка) -->
+        <button class="hamburger" aria-label="Меню" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <!-- Десктопная навигация -->
+        <nav class="desktop-navigation">
+            <ul class="header-navigation">
+                <li><a href="{% url 'landing:index' %}">Главная</a></li>
+                <li><a href="{% url 'landing:index' %}#collection">Коллекция</a></li>
+                <li><a href="{% url 'landing:index' %}#about">О мастере</a></li>
+                <li><a href="{% url 'landing:index' %}#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Мобильное меню (только мобилка) -->
+<nav class="mobile-menu" aria-label="Мобильное меню">
+    <span class="mobile-logo">Teddy's Tale</span>
+    <ul class="header-navigation">
+        <li><a href="{% url 'landing:index' %}">Главная</a></li>
+        <li><a href="{% url 'landing:index' %}#collection">Коллекция</a></li>
+        <li><a href="{% url 'landing:index' %}#about">О мастере</a></li>
+        <li><a href="{% url 'landing:index' %}#contacts">Контакты</a></li>
+    </ul>
+    <button class="close-mobile-menu" aria-label="Закрыть меню">X</button>
+</nav>

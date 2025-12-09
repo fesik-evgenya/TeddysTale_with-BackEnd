@@ -1,0 +1,33 @@
+{% load static %}
+<header>
+  <div class="menu">
+    <span class="logo">Teddy's Tale</span>
+    <button class="hamburger" aria-label="Меню" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    <nav class="desktop-navigation">
+      <ul class="header-navigation">
+        <li><a href="#hero">Hero-секция</a></li>
+        <li><a href="#shop">Магазин товаров</a></li>
+        <li><a href="#about">О мастере</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+        <li><a href="{% url 'teddy_admin_custom:custom-logout' %}" class="out-adminPanel">
+          <img src="{% static 'assets/icon/out_Admin-Panel.svg' %}" alt="Выйти из админ-панели" class="out-adminPanel_icon" loading="lazy">
+        </a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<nav class="mobile-menu" aria-label="Мобильное меню">
+  <span class="mobile-logo">Teddy's Tale</span>
+  <ul class="header-navigation">
+    <li><a href="#hero">Hero-секция</a></li>
+    <li><a href="#shop">Магазин товаров</a></li>
+    <li><a href="#about">О мастере</a></li>
+    <li><a href="#contacts">Контакты</a></li>
+  </ul>
+  <button class="close-mobile-menu" aria-label="Закрыть меню">X</button>
+</nav>

@@ -46,9 +46,9 @@ SECRET_KEY = env('DJANGO_SECRET_KEY')
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 # Разрешенные хосты
-ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS')
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('*')
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
@@ -139,10 +139,9 @@ CSRF_USE_SESSIONS = True
 CSRF_COOKIE_HTTPONLY = True  # Должно быть False для доступа JavaScript
 # True если используем HTTPS
 CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', default=False)
-CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=[
-    'http://127.0.0.1:8000',
-    'http://localhost:8000',
-])
+# CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', 'http://localhost:8000,http://127.0.0.1:8000').split(',')
+# if RENDER_EXTERNAL_HOSTNAME:
+#     CSRF_TRUSTED_ORIGINS.append(f'https://{RENDER_EXTERNAL_HOSTNAME}')
 
 # Дополнительные настройки безопасности для продакшена
 if not DEBUG:

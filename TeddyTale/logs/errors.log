@@ -1,0 +1,984 @@
+ERROR 2025-12-09 21:08:48,984 log 1596 2272 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endif'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 156, in index
+    return render(request, 'index.html', context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 199, in render
+    template = context.template.engine.select_template(template_name)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 208, in select_template
+    return self.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 577, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 13: 'endif'. Did you forget to register or load this tag?
+ERROR 2025-12-09 21:08:48,984 log 1596 2272 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endif'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 156, in index
+    return render(request, 'index.html', context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 199, in render
+    template = context.template.engine.select_template(template_name)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 208, in select_template
+    return self.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 577, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 13: 'endif'. Did you forget to register or load this tag?
+ERROR 2025-12-09 21:08:48,997 basehttp 1596 2272 "GET / HTTP/1.1" 500 304473
+ERROR 2025-12-09 21:08:48,997 basehttp 1596 2272 "GET / HTTP/1.1" 500 304473
+ERROR 2025-12-11 08:06:40,598 log 5816 17092 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 239, in index
+    return render(request, 'index.html', context)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\base.py", line 172, in render
+    with context.bind_template(self):
+         ~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Евгения\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\context.py", line 260, in bind_template
+    processors = template.engine.template_context_processors + self._processors
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\engine.py", line 118, in template_context_processors
+    return tuple(import_string(path) for path in context_processors)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\engine.py", line 118, in <genexpr>
+    return tuple(import_string(path) for path in context_processors)
+                 ~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\utils\module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+  File "C:\Users\Евгения\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'landing.context_processors'
+ERROR 2025-12-11 08:06:40,598 log 5816 17092 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 239, in index
+    return render(request, 'index.html', context)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\base.py", line 172, in render
+    with context.bind_template(self):
+         ~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Евгения\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\context.py", line 260, in bind_template
+    processors = template.engine.template_context_processors + self._processors
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\engine.py", line 118, in template_context_processors
+    return tuple(import_string(path) for path in context_processors)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\engine.py", line 118, in <genexpr>
+    return tuple(import_string(path) for path in context_processors)
+                 ~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\utils\module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+  File "C:\Users\Евгения\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'landing.context_processors'
+ERROR 2025-12-11 08:06:40,617 log 5816 17092 "GET / HTTP/1.1" 500 163579
+ERROR 2025-12-11 08:06:40,617 log 5816 17092 "GET / HTTP/1.1" 500 163579
+ERROR 2025-12-11 08:06:45,235 log 5816 17092 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 239, in index
+    return render(request, 'index.html', context)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\base.py", line 172, in render
+    with context.bind_template(self):
+         ~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Евгения\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\context.py", line 260, in bind_template
+    processors = template.engine.template_context_processors + self._processors
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\engine.py", line 118, in template_context_processors
+    return tuple(import_string(path) for path in context_processors)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\engine.py", line 118, in <genexpr>
+    return tuple(import_string(path) for path in context_processors)
+                 ~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\utils\module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+  File "C:\Users\Евгения\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'landing.context_processors'
+ERROR 2025-12-11 08:06:45,235 log 5816 17092 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 239, in index
+    return render(request, 'index.html', context)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\base.py", line 172, in render
+    with context.bind_template(self):
+         ~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Евгения\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\context.py", line 260, in bind_template
+    processors = template.engine.template_context_processors + self._processors
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\engine.py", line 118, in template_context_processors
+    return tuple(import_string(path) for path in context_processors)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\engine.py", line 118, in <genexpr>
+    return tuple(import_string(path) for path in context_processors)
+                 ~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\utils\module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+  File "C:\Users\Евгения\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'landing.context_processors'
+ERROR 2025-12-11 08:06:45,247 log 5816 17092 "GET / HTTP/1.1" 500 163579
+ERROR 2025-12-11 08:06:45,247 log 5816 17092 "GET / HTTP/1.1" 500 163579
+ERROR 2025-12-11 08:51:15,840 log 4984 7688 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 239, in index
+    return render(request, 'index.html', context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 706, in __init__
+    self.args_check(filter_name, filter_func, args)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 768, in args_check
+    raise TemplateSyntaxError(
+        "%s requires %d arguments, %d provided" % (name, alen - dlen, plen)
+    )
+django.template.exceptions.TemplateSyntaxError: default requires 2 arguments, 1 provided
+ERROR 2025-12-11 08:51:15,840 log 4984 7688 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 239, in index
+    return render(request, 'index.html', context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 706, in __init__
+    self.args_check(filter_name, filter_func, args)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 768, in args_check
+    raise TemplateSyntaxError(
+        "%s requires %d arguments, %d provided" % (name, alen - dlen, plen)
+    )
+django.template.exceptions.TemplateSyntaxError: default requires 2 arguments, 1 provided
+ERROR 2025-12-11 08:51:15,866 basehttp 4984 7688 "GET / HTTP/1.1" 500 297452
+ERROR 2025-12-11 08:51:15,866 basehttp 4984 7688 "GET / HTTP/1.1" 500 297452
+ERROR 2025-12-11 08:54:48,670 log 15060 9896 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 249, in index
+    Простая статическая страница без динамического контента
+        ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 706, in __init__
+    self.args_check(filter_name, filter_func, args)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 768, in args_check
+    raise TemplateSyntaxError(
+        "%s requires %d arguments, %d provided" % (name, alen - dlen, plen)
+    )
+django.template.exceptions.TemplateSyntaxError: default requires 2 arguments, 1 provided
+ERROR 2025-12-11 08:54:48,670 log 15060 9896 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 249, in index
+    Простая статическая страница без динамического контента
+        ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 706, in __init__
+    self.args_check(filter_name, filter_func, args)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 768, in args_check
+    raise TemplateSyntaxError(
+        "%s requires %d arguments, %d provided" % (name, alen - dlen, plen)
+    )
+django.template.exceptions.TemplateSyntaxError: default requires 2 arguments, 1 provided
+ERROR 2025-12-11 08:54:48,687 basehttp 15060 9896 "GET / HTTP/1.1" 500 296786
+ERROR 2025-12-11 08:54:48,687 basehttp 15060 9896 "GET / HTTP/1.1" 500 296786
+ERROR 2025-12-11 08:55:18,284 log 12960 2152 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 243, in index
+    return render(request, 'index.html', context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 706, in __init__
+    self.args_check(filter_name, filter_func, args)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 768, in args_check
+    raise TemplateSyntaxError(
+        "%s requires %d arguments, %d provided" % (name, alen - dlen, plen)
+    )
+django.template.exceptions.TemplateSyntaxError: default requires 2 arguments, 1 provided
+ERROR 2025-12-11 08:55:18,284 log 12960 2152 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 243, in index
+    return render(request, 'index.html', context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 706, in __init__
+    self.args_check(filter_name, filter_func, args)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 768, in args_check
+    raise TemplateSyntaxError(
+        "%s requires %d arguments, %d provided" % (name, alen - dlen, plen)
+    )
+django.template.exceptions.TemplateSyntaxError: default requires 2 arguments, 1 provided
+ERROR 2025-12-11 08:55:18,296 basehttp 12960 2152 "GET / HTTP/1.1" 500 297452
+ERROR 2025-12-11 08:55:18,296 basehttp 12960 2152 "GET / HTTP/1.1" 500 297452
+ERROR 2025-12-11 09:02:24,444 log 5408 15112 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 243, in index
+    return render(request, 'index.html', context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 706, in __init__
+    self.args_check(filter_name, filter_func, args)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 768, in args_check
+    raise TemplateSyntaxError(
+        "%s requires %d arguments, %d provided" % (name, alen - dlen, plen)
+    )
+django.template.exceptions.TemplateSyntaxError: default requires 2 arguments, 1 provided
+ERROR 2025-12-11 09:02:24,444 log 5408 15112 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 243, in index
+    return render(request, 'index.html', context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 706, in __init__
+    self.args_check(filter_name, filter_func, args)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 768, in args_check
+    raise TemplateSyntaxError(
+        "%s requires %d arguments, %d provided" % (name, alen - dlen, plen)
+    )
+django.template.exceptions.TemplateSyntaxError: default requires 2 arguments, 1 provided
+ERROR 2025-12-11 09:02:24,461 basehttp 5408 15112 "GET / HTTP/1.1" 500 297480
+ERROR 2025-12-11 09:02:24,461 basehttp 5408 15112 "GET / HTTP/1.1" 500 297480
+ERROR 2025-12-11 09:14:01,469 log 10604 10140 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 251, in index
+    return render(request, 'index.html', context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 706, in __init__
+    self.args_check(filter_name, filter_func, args)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 768, in args_check
+    raise TemplateSyntaxError(
+        "%s requires %d arguments, %d provided" % (name, alen - dlen, plen)
+    )
+django.template.exceptions.TemplateSyntaxError: default requires 2 arguments, 1 provided
+ERROR 2025-12-11 09:14:01,469 log 10604 10140 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 251, in index
+    return render(request, 'index.html', context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 706, in __init__
+    self.args_check(filter_name, filter_func, args)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 768, in args_check
+    raise TemplateSyntaxError(
+        "%s requires %d arguments, %d provided" % (name, alen - dlen, plen)
+    )
+django.template.exceptions.TemplateSyntaxError: default requires 2 arguments, 1 provided
+ERROR 2025-12-11 09:14:01,488 basehttp 10604 10140 "GET / HTTP/1.1" 500 298472
+ERROR 2025-12-11 09:14:01,488 basehttp 10604 10140 "GET / HTTP/1.1" 500 298472

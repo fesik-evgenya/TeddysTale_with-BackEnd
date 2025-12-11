@@ -1,0 +1,860 @@
+WARNING 2025-12-09 19:59:13,016 basehttp 3032 8584 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-09 19:59:13,016 basehttp 3032 10132 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-09 19:59:13,058 basehttp 3032 9904 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-09 19:59:13,057 basehttp 3032 9816 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-09 20:28:01,155 basehttp 3032 7712 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-09 20:28:01,156 basehttp 3032 11992 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-09 20:28:01,215 basehttp 3032 1820 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-09 20:28:01,222 basehttp 3032 8916 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-09 20:28:12,524 log 3032 7028 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-09 20:28:12,543 log 3032 1632 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-09 20:28:12,430 log 3032 3996 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-09 20:28:12,545 basehttp 3032 7028 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-09 20:28:12,546 basehttp 3032 1632 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-09 20:28:12,579 basehttp 3032 3996 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-09 20:28:12,608 log 3032 1632 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-09 20:28:12,629 log 3032 7028 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-09 20:28:12,647 log 3032 3996 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-09 20:28:12,653 basehttp 3032 7028 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-09 20:28:12,654 basehttp 3032 3996 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-09 20:28:12,654 basehttp 3032 1632 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-09 20:52:45,157 basehttp 1596 8436 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-09 20:52:45,173 basehttp 1596 808 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-09 20:52:45,210 basehttp 1596 1312 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-09 20:52:45,210 basehttp 1596 2288 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-09 21:00:56,382 log 1596 9956 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:00:56,385 basehttp 1596 9956 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:02:28,426 basehttp 1596 5256 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-09 21:02:28,464 basehttp 1596 13272 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-09 21:02:28,467 basehttp 1596 9880 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-09 21:02:28,582 basehttp 1596 3108 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-09 21:02:29,083 log 1596 7588 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:02:29,124 basehttp 1596 7588 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:02:54,641 basehttp 1596 10132 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-09 21:02:54,654 basehttp 1596 7532 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-09 21:02:54,680 basehttp 1596 5596 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-09 21:02:54,667 basehttp 1596 9956 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-09 21:02:55,411 log 1596 7036 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:02:55,422 basehttp 1596 7036 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:03:26,097 basehttp 1596 7588 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-09 21:03:26,112 basehttp 1596 7648 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-09 21:03:26,142 basehttp 1596 3028 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-09 21:03:26,130 basehttp 1596 5580 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-09 21:03:26,632 log 1596 7036 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:03:26,649 basehttp 1596 7036 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:04:00,182 basehttp 1596 3192 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-09 21:04:00,208 basehttp 1596 12900 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-09 21:04:00,241 basehttp 1596 11648 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-09 21:04:00,241 basehttp 1596 752 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-09 21:04:00,245 log 1596 6864 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:04:00,261 basehttp 1596 6864 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:07:16,043 basehttp 1596 6188 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-09 21:07:16,103 basehttp 1596 6864 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-09 21:07:16,104 basehttp 1596 9996 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-09 21:07:16,065 basehttp 1596 3108 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-09 21:07:16,624 log 1596 1612 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:07:16,722 basehttp 1596 1612 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:08:20,769 basehttp 1596 7828 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-09 21:08:20,828 basehttp 1596 4556 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-09 21:08:20,829 basehttp 1596 1612 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-09 21:08:20,907 log 1596 13044 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:08:20,795 basehttp 1596 2544 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-09 21:08:20,923 basehttp 1596 13044 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:08:28,746 basehttp 1596 1364 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-09 21:08:28,780 basehttp 1596 4944 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-09 21:08:28,781 basehttp 1596 13044 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-09 21:08:28,781 basehttp 1596 12456 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+ERROR 2025-12-09 21:08:48,984 log 1596 2272 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endif'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 156, in index
+    return render(request, 'index.html', context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 199, in render
+    template = context.template.engine.select_template(template_name)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 208, in select_template
+    return self.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 577, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 13: 'endif'. Did you forget to register or load this tag?
+ERROR 2025-12-09 21:08:48,997 basehttp 1596 2272 "GET / HTTP/1.1" 500 304473
+WARNING 2025-12-09 21:09:18,222 basehttp 1596 7580 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-09 21:09:18,285 basehttp 1596 8604 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-09 21:09:18,302 basehttp 1596 2312 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-09 21:09:18,303 basehttp 1596 12056 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-09 21:09:22,339 log 1596 2272 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:09:22,346 basehttp 1596 2272 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:09:34,027 log 1596 10416 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:09:34,106 log 1596 3512 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-09 21:09:34,123 basehttp 1596 10416 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:09:34,133 basehttp 1596 3512 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-09 21:09:34,127 log 1596 8728 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-09 21:09:34,215 log 1596 11916 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-09 21:09:34,221 basehttp 1596 11916 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-09 21:09:34,239 basehttp 1596 8728 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-09 21:09:34,296 log 1596 3512 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-09 21:09:34,337 basehttp 1596 3512 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-09 21:09:34,376 log 1596 8728 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-09 21:09:34,388 log 1596 11916 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-09 21:09:34,390 basehttp 1596 8728 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-09 21:09:34,390 basehttp 1596 11916 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-09 21:22:35,016 log 1596 9904 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:22:35,025 log 1596 10400 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-09 21:22:35,044 log 1596 3880 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-09 21:22:35,055 log 1596 340 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-09 21:22:35,058 basehttp 1596 9904 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:22:35,065 basehttp 1596 3880 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-09 21:22:35,064 basehttp 1596 10400 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-09 21:22:35,069 basehttp 1596 340 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-09 21:22:35,192 log 1596 3880 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-09 21:22:35,196 basehttp 1596 3880 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-09 21:22:35,283 log 1596 340 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-09 21:22:35,295 log 1596 10400 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-09 21:22:35,296 basehttp 1596 340 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-09 21:22:35,297 basehttp 1596 10400 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-09 21:23:44,339 log 1596 10400 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:23:44,343 basehttp 1596 10400 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:23:44,508 log 1596 10400 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-09 21:23:44,515 log 1596 340 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-09 21:23:44,521 basehttp 1596 10400 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-09 21:23:44,522 log 1596 9608 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-09 21:23:44,523 basehttp 1596 340 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-09 21:23:44,524 basehttp 1596 9608 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-09 21:23:44,618 log 1596 9608 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-09 21:23:44,622 log 1596 340 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-09 21:23:44,631 log 1596 10400 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-09 21:23:44,632 basehttp 1596 340 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-09 21:23:44,632 basehttp 1596 9608 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-09 21:23:44,633 basehttp 1596 10400 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-09 21:37:14,734 log 2468 7948 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:37:14,740 basehttp 2468 7948 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:37:15,097 log 2468 12568 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-09 21:37:15,113 log 2468 12432 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-09 21:37:15,128 basehttp 2468 12568 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-09 21:37:15,129 basehttp 2468 12432 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-09 21:37:15,133 log 2468 3988 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-09 21:37:15,135 basehttp 2468 3988 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-09 21:37:15,227 log 2468 12568 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-09 21:37:15,228 log 2468 12432 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-09 21:37:15,230 log 2468 3988 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-09 21:37:15,231 basehttp 2468 12568 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-09 21:37:15,231 basehttp 2468 3988 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-09 21:37:15,232 basehttp 2468 12432 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-09 21:37:22,208 log 2468 3988 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-09 21:37:22,236 basehttp 2468 3988 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-09 21:37:22,255 log 2468 3544 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-09 21:37:22,280 basehttp 2468 3544 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-09 21:37:22,313 log 2468 12432 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:37:22,346 basehttp 2468 12432 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:37:22,413 log 2468 7948 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-09 21:37:22,449 basehttp 2468 7948 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-09 21:37:22,511 log 2468 12568 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-09 21:37:22,702 log 2468 3544 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-09 21:37:22,605 basehttp 2468 12568 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-09 21:37:22,761 basehttp 2468 3544 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-09 21:37:22,784 log 2468 7948 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-09 21:37:22,786 basehttp 2468 7948 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-09 21:37:43,662 log 2468 3932 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:37:43,663 basehttp 2468 3932 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:37:44,070 log 2468 2288 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-09 21:37:44,088 basehttp 2468 2288 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-09 21:37:44,236 log 2468 3932 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-09 21:37:44,216 log 2468 4580 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-09 21:37:44,246 basehttp 2468 3932 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-09 21:37:44,248 basehttp 2468 4580 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-09 21:37:44,255 log 2468 9704 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-09 21:37:44,256 basehttp 2468 9704 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-09 21:37:44,505 log 2468 3932 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-09 21:37:44,506 basehttp 2468 3932 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-09 21:37:44,523 log 2468 4580 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-09 21:37:44,532 basehttp 2468 4580 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-09 21:39:20,016 log 2468 12020 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:39:20,087 basehttp 2468 12020 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:39:20,367 log 2468 2444 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-09 21:39:20,372 basehttp 2468 2444 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-09 21:39:20,391 log 2468 2524 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-09 21:39:20,393 basehttp 2468 2524 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-09 21:39:20,657 log 2468 2524 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-09 21:39:20,659 basehttp 2468 2524 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-09 21:39:20,691 log 2468 1156 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-09 21:39:20,720 basehttp 2468 1156 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-09 21:39:20,807 log 2468 2444 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-09 21:39:20,822 basehttp 2468 2444 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-09 21:39:20,851 log 2468 12016 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-09 21:39:20,854 basehttp 2468 12016 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-09 21:39:29,904 log 2468 12016 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:39:29,908 basehttp 2468 12016 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:39:30,205 log 2468 2444 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-09 21:39:30,220 basehttp 2468 2444 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-09 21:39:30,352 log 2468 1156 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-09 21:39:30,376 log 2468 2524 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-09 21:39:30,374 basehttp 2468 1156 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-09 21:39:30,450 basehttp 2468 2524 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-09 21:39:30,689 log 2468 12016 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-09 21:39:30,705 basehttp 2468 12016 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-09 21:39:30,711 log 2468 6244 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-09 21:39:30,715 basehttp 2468 6244 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-09 21:39:30,736 log 2468 2444 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-09 21:39:30,749 basehttp 2468 2444 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-09 21:40:07,160 log 2468 2444 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:40:07,172 basehttp 2468 2444 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:40:07,243 log 2468 2444 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:40:07,247 basehttp 2468 2444 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:40:10,944 log 2468 2444 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:40:11,165 basehttp 2468 2444 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:40:11,235 log 2468 12016 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-09 21:40:11,248 basehttp 2468 12016 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-09 21:40:11,411 log 2468 1156 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-09 21:40:11,416 basehttp 2468 1156 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-09 21:40:11,614 log 2468 12020 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-09 21:40:11,542 log 2468 6244 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-09 21:40:11,617 basehttp 2468 12020 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-09 21:40:11,620 basehttp 2468 6244 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-09 21:40:11,633 log 2468 13000 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-09 21:40:11,648 basehttp 2468 13000 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-09 21:40:11,721 log 2468 6244 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-09 21:40:11,734 basehttp 2468 6244 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-09 21:40:16,584 basehttp 2468 13000 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-09 21:40:16,622 basehttp 2468 12016 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-09 21:40:16,609 basehttp 2468 1156 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-09 21:40:16,608 basehttp 2468 12020 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-09 21:40:16,665 log 2468 6244 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:40:16,755 basehttp 2468 6244 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:40:22,995 log 2468 9404 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:40:23,019 basehttp 2468 9404 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:40:23,436 log 2468 4360 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-09 21:40:23,440 log 2468 7892 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-09 21:40:23,467 log 2468 7468 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-09 21:40:23,483 basehttp 2468 4360 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-09 21:40:23,491 basehttp 2468 7892 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-09 21:40:23,531 basehttp 2468 7468 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-09 21:40:23,694 log 2468 4360 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-09 21:40:23,750 log 2468 7468 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-09 21:40:23,753 log 2468 7892 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-09 21:40:23,755 basehttp 2468 4360 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-09 21:40:23,767 basehttp 2468 7892 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-09 21:40:23,756 basehttp 2468 7468 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-09 21:43:03,805 log 2468 10628 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:43:03,844 basehttp 2468 10628 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:43:04,514 log 2468 6860 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-09 21:43:04,548 log 2468 8268 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-09 21:43:04,594 basehttp 2468 6860 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-09 21:43:04,698 basehttp 2468 8268 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-09 21:43:04,909 log 2468 12152 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-09 21:43:04,928 log 2468 6860 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-09 21:43:04,967 basehttp 2468 6860 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-09 21:43:04,962 log 2468 8268 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-09 21:43:04,979 basehttp 2468 8268 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-09 21:43:04,974 basehttp 2468 12152 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-09 21:43:05,106 log 2468 8268 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-09 21:43:05,115 basehttp 2468 8268 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-09 21:43:25,900 log 2468 8268 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:43:25,912 basehttp 2468 8268 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:43:26,177 log 2468 12152 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-09 21:43:26,247 basehttp 2468 12152 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-09 21:43:26,407 log 2468 8268 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-09 21:43:26,410 basehttp 2468 8268 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-09 21:43:26,504 log 2468 2132 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-09 21:43:26,575 log 2468 1596 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-09 21:43:26,597 basehttp 2468 1596 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-09 21:43:26,612 basehttp 2468 2132 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-09 21:43:26,825 log 2468 10628 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-09 21:43:26,839 basehttp 2468 10628 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-09 21:43:26,890 log 2468 2132 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-09 21:43:26,891 basehttp 2468 2132 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-09 21:55:23,390 log 2468 7364 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-09 21:55:23,432 log 2468 8556 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-09 21:55:23,598 log 2468 4388 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:55:23,609 basehttp 2468 7364 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-09 21:55:23,687 basehttp 2468 4388 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:55:23,730 log 2468 5008 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-09 21:55:23,743 basehttp 2468 8556 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-09 21:55:23,835 basehttp 2468 5008 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-09 21:55:24,057 log 2468 11684 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-09 21:55:24,106 log 2468 7364 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-09 21:55:24,108 basehttp 2468 11684 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-09 21:55:24,124 basehttp 2468 7364 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-09 21:55:24,130 log 2468 1568 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-09 21:55:24,133 basehttp 2468 1568 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-09 21:58:47,953 log 2468 1568 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-09 21:58:47,985 basehttp 2468 1568 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-09 21:58:48,360 log 2468 7364 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-09 21:58:48,389 basehttp 2468 7364 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-09 21:58:48,486 log 2468 4388 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-09 21:58:48,497 basehttp 2468 4388 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-09 21:58:48,602 log 2468 8556 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-09 21:58:48,654 basehttp 2468 8556 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-09 21:58:48,697 log 2468 1568 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-09 21:58:48,727 basehttp 2468 1568 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-09 21:58:48,863 log 2468 4388 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-09 21:58:48,915 basehttp 2468 4388 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-09 21:58:48,931 log 2468 1568 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-09 21:58:48,932 basehttp 2468 1568 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-09 22:00:44,518 basehttp 2468 4388 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-09 22:00:44,530 basehttp 2468 8556 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-09 22:00:44,558 basehttp 2468 11684 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-09 22:00:44,558 basehttp 2468 7364 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+ERROR 2025-12-11 08:06:40,598 log 5816 17092 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 239, in index
+    return render(request, 'index.html', context)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\base.py", line 172, in render
+    with context.bind_template(self):
+         ~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Евгения\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\context.py", line 260, in bind_template
+    processors = template.engine.template_context_processors + self._processors
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\engine.py", line 118, in template_context_processors
+    return tuple(import_string(path) for path in context_processors)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\engine.py", line 118, in <genexpr>
+    return tuple(import_string(path) for path in context_processors)
+                 ~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\utils\module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+  File "C:\Users\Евгения\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'landing.context_processors'
+ERROR 2025-12-11 08:06:40,617 log 5816 17092 "GET / HTTP/1.1" 500 163579
+WARNING 2025-12-11 08:06:41,199 log 5816 17092 Not Found: /favicon.ico
+WARNING 2025-12-11 08:06:41,205 log 5816 17092 "GET /favicon.ico HTTP/1.1" 404 3201
+ERROR 2025-12-11 08:06:45,235 log 5816 17092 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 239, in index
+    return render(request, 'index.html', context)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\base.py", line 172, in render
+    with context.bind_template(self):
+         ~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Евгения\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\context.py", line 260, in bind_template
+    processors = template.engine.template_context_processors + self._processors
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\engine.py", line 118, in template_context_processors
+    return tuple(import_string(path) for path in context_processors)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\template\engine.py", line 118, in <genexpr>
+    return tuple(import_string(path) for path in context_processors)
+                 ~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+  File "C:\Users\Евгения\PycharmProjects\Python_Web_2025\.venv\Lib\site-packages\django\utils\module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+  File "C:\Users\Евгения\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'landing.context_processors'
+ERROR 2025-12-11 08:06:45,247 log 5816 17092 "GET / HTTP/1.1" 500 163579
+WARNING 2025-12-11 08:11:52,299 log 4224 3576 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-11 08:11:52,315 log 4224 2052 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-11 08:11:52,364 log 4224 8252 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-11 08:11:52,313 log 4224 12552 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-11 08:18:39,510 basehttp 17328 4404 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-11 08:18:39,511 basehttp 17328 8564 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-11 08:18:39,537 basehttp 17328 15272 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-11 08:18:39,578 basehttp 17328 16336 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-11 08:18:45,469 log 17328 16528 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-11 08:18:45,593 basehttp 17328 16528 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-11 08:18:45,603 log 17328 3520 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-11 08:18:45,605 basehttp 17328 3520 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-11 08:18:45,669 log 17328 4372 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-11 08:18:45,709 log 17328 16528 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-11 08:18:45,706 basehttp 17328 4372 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-11 08:18:45,721 basehttp 17328 16528 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-11 08:18:45,724 log 17328 3520 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-11 08:18:45,732 basehttp 17328 3520 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-11 08:18:45,831 log 17328 16528 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-11 08:18:45,832 basehttp 17328 16528 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-11 08:18:49,475 basehttp 17328 16528 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-11 08:18:49,496 basehttp 17328 3520 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-11 08:18:49,507 basehttp 17328 15088 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-11 08:18:49,507 basehttp 17328 4372 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-11 08:27:58,092 basehttp 17328 16828 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-11 08:27:58,104 basehttp 17328 5252 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-11 08:27:58,139 basehttp 17328 3376 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-11 08:27:58,155 basehttp 17328 14148 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-11 08:35:05,827 basehttp 17328 14556 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-11 08:35:05,828 basehttp 17328 6204 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-11 08:35:05,864 basehttp 17328 14696 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-11 08:35:05,849 basehttp 17328 3880 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-11 08:35:58,895 basehttp 17328 2544 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-11 08:35:58,895 basehttp 17328 13004 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-11 08:35:58,965 basehttp 17328 4752 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-11 08:35:59,131 basehttp 17328 5844 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-11 08:36:44,198 basehttp 17328 16564 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-11 08:36:44,208 basehttp 17328 10776 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-11 08:36:44,227 basehttp 17328 10108 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-11 08:36:44,227 basehttp 17328 1688 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-11 08:36:46,469 basehttp 17328 4008 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-11 08:36:46,482 basehttp 17328 8464 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-11 08:36:46,508 basehttp 17328 10688 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-11 08:36:46,510 basehttp 17328 8484 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-11 08:37:22,009 basehttp 17328 15596 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-11 08:37:22,020 basehttp 17328 15660 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-11 08:37:22,050 basehttp 17328 8588 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-11 08:37:22,067 basehttp 17328 1560 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-11 08:37:46,396 basehttp 17328 7552 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-11 08:37:46,420 basehttp 17328 14836 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-11 08:37:46,429 basehttp 17328 17340 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-11 08:37:46,456 basehttp 17328 4652 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-11 08:37:48,933 basehttp 17328 13752 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-11 08:37:48,945 basehttp 17328 4572 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-11 08:37:48,959 basehttp 17328 9020 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-11 08:37:48,967 basehttp 17328 17148 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-11 08:38:11,347 basehttp 17328 15368 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-11 08:38:11,357 basehttp 17328 14868 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-11 08:38:11,379 basehttp 17328 9524 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-11 08:38:11,396 basehttp 17328 16032 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-11 08:48:20,555 basehttp 17328 16852 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-11 08:48:20,617 basehttp 17328 1416 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-11 08:48:20,649 basehttp 17328 15036 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-11 08:48:20,670 basehttp 17328 7676 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+ERROR 2025-12-11 08:51:15,840 log 4984 7688 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 239, in index
+    return render(request, 'index.html', context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 706, in __init__
+    self.args_check(filter_name, filter_func, args)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 768, in args_check
+    raise TemplateSyntaxError(
+        "%s requires %d arguments, %d provided" % (name, alen - dlen, plen)
+    )
+django.template.exceptions.TemplateSyntaxError: default requires 2 arguments, 1 provided
+ERROR 2025-12-11 08:51:15,866 basehttp 4984 7688 "GET / HTTP/1.1" 500 297452
+ERROR 2025-12-11 08:54:48,670 log 15060 9896 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 249, in index
+    Простая статическая страница без динамического контента
+        ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 706, in __init__
+    self.args_check(filter_name, filter_func, args)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 768, in args_check
+    raise TemplateSyntaxError(
+        "%s requires %d arguments, %d provided" % (name, alen - dlen, plen)
+    )
+django.template.exceptions.TemplateSyntaxError: default requires 2 arguments, 1 provided
+ERROR 2025-12-11 08:54:48,687 basehttp 15060 9896 "GET / HTTP/1.1" 500 296786
+ERROR 2025-12-11 08:55:18,284 log 12960 2152 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 243, in index
+    return render(request, 'index.html', context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 706, in __init__
+    self.args_check(filter_name, filter_func, args)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 768, in args_check
+    raise TemplateSyntaxError(
+        "%s requires %d arguments, %d provided" % (name, alen - dlen, plen)
+    )
+django.template.exceptions.TemplateSyntaxError: default requires 2 arguments, 1 provided
+ERROR 2025-12-11 08:55:18,296 basehttp 12960 2152 "GET / HTTP/1.1" 500 297452
+ERROR 2025-12-11 09:02:24,444 log 5408 15112 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 243, in index
+    return render(request, 'index.html', context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 706, in __init__
+    self.args_check(filter_name, filter_func, args)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 768, in args_check
+    raise TemplateSyntaxError(
+        "%s requires %d arguments, %d provided" % (name, alen - dlen, plen)
+    )
+django.template.exceptions.TemplateSyntaxError: default requires 2 arguments, 1 provided
+ERROR 2025-12-11 09:02:24,461 basehttp 5408 15112 "GET / HTTP/1.1" 500 297480
+ERROR 2025-12-11 09:14:01,469 log 10604 10140 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\landing\views.py", line 251, in index
+    return render(request, 'index.html', context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 706, in __init__
+    self.args_check(filter_name, filter_func, args)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\template\base.py", line 768, in args_check
+    raise TemplateSyntaxError(
+        "%s requires %d arguments, %d provided" % (name, alen - dlen, plen)
+    )
+django.template.exceptions.TemplateSyntaxError: default requires 2 arguments, 1 provided
+ERROR 2025-12-11 09:14:01,488 basehttp 10604 10140 "GET / HTTP/1.1" 500 298472
+WARNING 2025-12-11 09:23:41,085 basehttp 16312 11440 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-11 09:23:41,128 basehttp 16312 10096 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-11 09:23:41,145 basehttp 16312 248 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-11 09:23:41,203 basehttp 16312 6324 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-11 09:36:02,045 basehttp 16312 5604 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-11 09:36:02,058 basehttp 16312 9668 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-11 09:36:02,148 basehttp 16312 15144 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-11 09:36:02,251 basehttp 16312 8760 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-11 09:48:57,448 log 16312 2968 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-11 09:48:57,451 basehttp 16312 2968 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-11 09:48:57,480 log 16312 4240 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-11 09:48:57,490 log 16312 4928 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-11 09:48:57,534 basehttp 16312 4928 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-11 09:48:57,583 basehttp 16312 4240 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-11 09:48:57,614 log 16312 2968 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-11 09:48:57,641 basehttp 16312 2968 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-11 09:48:57,717 log 16312 4928 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-11 09:48:57,724 basehttp 16312 4928 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-11 09:48:57,779 log 16312 4240 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-11 09:48:57,782 basehttp 16312 4240 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303

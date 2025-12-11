@@ -1,15 +1,15 @@
-# Файл: render.yaml
-# Расположение: В корне Git-репозитория (TeddysTale_with-BackEnd/)
-
 services:
   - type: web
     name: teddystale
     runtime: python
     plan: free
-    # Ключевое изменение: сборка и запуск происходят в подпапке проекта
-    buildCommand: "cd TeddyTale && chmod a+x build.sh && ./build.sh"
-    startCommand: "cd TeddyTale && gunicorn TeddyTale.wsgi:application"
+    # 1. Устанавливаем PYTHONPATH в корень репозитория
+    # 2. Указываем полный путь к модулю настроек Django
     envVars:
+      - key: PYTHONPATH
+        value: "/opt/render/project/src"
+      - key: DJANGO_SETTINGS_MODULE
+        value: "TeddyTale.TeddyTale.settings"
       - key: DEBUG
         value: "False"
       - key: DJANGO_SECRET_KEY
@@ -19,9 +19,24 @@ services:
     envVarFiles:
       - source: render
         type: auto
+    
+    # Сборка и запуск происходят в поддиректории TeddyTale
+    buildCommand: |
+      cd TeddyTale
+      chmod a+x build.sh
+      ./build.sh
+      echo "=== Структура после сборки ==="
+      find . -type f -name "*.py" | head -20
+      pwd
+      ls -la
+    startCommand: |
+      cd TeddyTale
+      echo "Запуск из директории: $(pwd)"
+      echo "DJANGO_SETTINGS_MODULE = $DJANGO_SETTINGS_MODULE"
+      gunicorn TeddyTale.wsgi:application
 
 databases:
   - name: teddystaledb
     plan: free
     databaseName: teddystale
-    user: dev
+    user: teddystale_user

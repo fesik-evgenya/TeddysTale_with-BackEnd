@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: teddystale  # Название вашего сервиса
+    runtime: python
+    plan: free  # Или "starter" / "professional" для платных тарифов
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn TeddyTale.wsgi:application"
+    envVars:
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true  # Render сам сгенерирует сложный ключ
+      - key: WEB_CONCURRENCY
+        value: 4
+    # Автоматически добавляет хост в ALLOWED_HOSTS
+    envVarFiles:
+      - source: render
+        type: auto
+
+databases:
+  - name: teddystaledb
+    plan: free  # Бесплатный план Postgres
+    databaseName: teddystale
+    user: dev

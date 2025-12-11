@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+import dj_database_url
 import environ
 
 # ====================
@@ -42,10 +43,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 # Разрешенные хосты
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS')
+
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('*')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # ====================
 # ПРИЛОЖЕНИЯ
@@ -71,25 +76,44 @@ INSTALLED_APPS = [
 # ====================
 
 # Настройки базы данных из переменных окружения
-DATABASES = {
-    'default': {
-        'ENGINE': env('DATABASE_ENGINE', default='django.db.backends.sqlite3'),
-        'NAME': BASE_DIR / env('DATABASE_NAME', default='db.sqlite3'),
-        'USER': env('DATABASE_USER', default=''),
-        'PASSWORD': env('DATABASE_PASSWORD', default=''),
-        'HOST': env('DATABASE_HOST', default=''),
-        'PORT': env('DATABASE_PORT', default=''),
-        'OPTIONS': {
-            'charset': 'utf8mb4',
-        } if env('DATABASE_ENGINE', default='') ==
-                                            'django.db.backends.mysql' else {},
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': env('DATABASE_ENGINE', default='django.db.backends.sqlite3'),
+#         'NAME': BASE_DIR / env('DATABASE_NAME', default='db.sqlite3'),
+#         'USER': env('DATABASE_USER', default=''),
+#         'PASSWORD': env('DATABASE_PASSWORD', default=''),
+#         'HOST': env('DATABASE_HOST', default=''),
+#         'PORT': env('DATABASE_PORT', default=''),
+#         'OPTIONS': {
+#             'charset': 'utf8mb4',
+#         } if env('DATABASE_ENGINE', default='') ==
+#                                             'django.db.backends.mysql' else {},
+#     }
+# }
 
 # Альтернативный вариант с DATABASE_URL (более современный)
 # DATABASES = {
 #     'default': env.db(default='sqlite:///db.sqlite3')
 # }
+
+# Разделяем настройки для разработки и продакшена
+if 'DATABASE_URL' in os.environ:
+    # Используем PostgreSQL на Render
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.environ.get('DATABASE_URL'),
+            conn_max_age=600,
+            conn_health_checks=True,
+        )
+    }
+else:
+    # Локальная разработка с SQLite
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # ====================
 # НАСТРОЙКИ БЕЗОПАСНОСТИ
@@ -111,8 +135,8 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = 'DENY'
 
 # Настройки CSRF
-CSRF_USE_SESSIONS = False
-CSRF_COOKIE_HTTPONLY = False  # Должно быть False для доступа JavaScript
+CSRF_USE_SESSIONS = True
+CSRF_COOKIE_HTTPONLY = True  # Должно быть False для доступа JavaScript
 # True если используем HTTPS
 CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', default=False)
 CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=[
@@ -132,6 +156,7 @@ if not DEBUG:
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -218,7 +243,8 @@ STATICFILES_DIRS = [
     ]
 
 # Для продакшена (когда DEBUG = False)
-STATIC_ROOT = BASE_DIR / env('STATIC_ROOT', default='staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Настройки для медиафайлов (изображения)
 MEDIA_URL = '/media/'

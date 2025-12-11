@@ -1,24 +1,27 @@
+# Файл: render.yaml
+# Расположение: В корне Git-репозитория (TeddysTale_with-BackEnd/)
+
 services:
   - type: web
-    name: teddystale  # Название вашего сервиса
+    name: teddystale
     runtime: python
-    plan: free  # Или "starter" / "professional" для платных тарифов
-    buildCommand: "./build.sh"
-    startCommand: "gunicorn TeddyTale.wsgi:application"
+    plan: free
+    # Ключевое изменение: сборка и запуск происходят в подпапке проекта
+    buildCommand: "cd TeddyTale && chmod a+x build.sh && ./build.sh"
+    startCommand: "cd TeddyTale && gunicorn TeddyTale.wsgi:application"
     envVars:
       - key: DEBUG
         value: "False"
-      - key: SECRET_KEY
-        generateValue: true  # Render сам сгенерирует сложный ключ
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
       - key: WEB_CONCURRENCY
         value: 4
-    # Автоматически добавляет хост в ALLOWED_HOSTS
     envVarFiles:
       - source: render
         type: auto
 
 databases:
   - name: teddystaledb
-    plan: free  # Бесплатный план Postgres
+    plan: free
     databaseName: teddystale
     user: dev

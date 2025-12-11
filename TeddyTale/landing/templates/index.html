@@ -5,10 +5,13 @@
 
 {% block meta %}
 {{ block.super }}
-<meta name="description" content="{{ meta_description|default:'Авторские мишки Тедди ручной работы для вашей коллекции. Уникальные художественные медведи из мохера и традиционных материалов. Закажите своего эксклюзивного Тедди у мастера' }}">
-<meta name="keywords" content="{{ meta_keywords|default:'коллекционные мишки тедди, авторский мишка тедди, медведи тедди ручной работы, мишки тедди на заказ, эксклюзивный мишка тедди, тедди для коллекции' }}">
+<meta name="description"
+      content="{{ meta_description|default:'Авторские мишки Тедди ручной работы для вашей коллекции. Уникальные художественные медведи из мохера и традиционных материалов. Закажите своего эксклюзивного Тедди у мастера' }}">
+<meta name="keywords"
+      content="{{ meta_keywords|default:'коллекционные мишки тедди, авторский мишка тедди, медведи тедди ручной работы, мишки тедди на заказ, эксклюзивный мишка тедди, тедди для коллекции' }}">
 <meta property="og:title" content="{{ meta_title|default:'Мишки Тедди ручной работы' }}">
-<meta property="og:description" content="{{ meta_description|default:'Авторские мишки Тедди ручной работы для вашей коллекции. Уникальные художественные медведи из мохера и традиционных материалов. Закажите своего эксклюзивного Тедди у мастера' }}">
+<meta property="og:description"
+      content="{{ meta_description|default:'Авторские мишки Тедди ручной работы для вашей коллекции. Уникальные художественные медведи из мохера и традиционных материалов. Закажите своего эксклюзивного Тедди у мастера' }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://TeddysTale.ru">
 <meta property="og:image" content="{% static 'assets/image/Hero_pic.webp' %}">
@@ -25,8 +28,8 @@
     // Передаем данные в JS для карты
     var mapData = {
         latitude: {{ contacts_latitude|default:"59.819987" }},
-    longitude: {{ contacts_longitude|default:"30.337649" }},
-    city: "{{ contacts_city|default:'Санкт-Петербург' }}",
+        longitude: {{ contacts_longitude|default:"30.337649" }},
+        city: "{{ contacts_city|default:'Санкт-Петербург' }}",
         address: "{{ contacts_address|default:'ул. Среднерогатская' }}"
     };
 </script>
@@ -94,7 +97,8 @@
                     </div>
                     <div class="card-content">
                         <h3 class="card-content_title">Уникальный мишка {{ forloop.counter }}</h3>
-                        <p class="card-content_description">Мастер создаёт нового уникального мишку. Скоро здесь появится информация о нём.</p>
+                        <p class="card-content_description">Мастер создаёт нового уникального мишку. Скоро здесь
+                            появится информация о нём.</p>
                         <span class="price">Бесценно</span>
                         <a href="#contacts" class="btn btn-card">Узнать первым</a>
                     </div>
@@ -127,7 +131,7 @@
             <div class="about-content_right">
                 <h2 class="about-content_title">{{ about_title1|default:"История мастера" }}</h2>
                 <p class="about-content_description">{{ about_description1|default:"Добро пожаловать в мой мир handmade-творчества!<br>Уже более 5 лет я создаю уникальных мишек Тедди, каждый из которых становится особенным другом для своего владельца."|safe }}</p>
-                <p class="about-content_description">Моя философия — это внимание к деталям, использование только качественных материалов и вложение души в каждое творение.</p>
+                <p class="about-content_description">{{ about_description2|default:"Моя философия — это внимание к деталям, использование только качественных материалов и вложение души в каждое творение."|safe }}</p>
 
                 <div class="trust-me">
                     <h3 class="about-content_listTitle">{{ about_title2|default:"Почему мне доверяют" }}</h3>
@@ -185,7 +189,8 @@
 
                         <div class="contact-item">
                             <img src="{% static 'assets/icon/phone.svg' %}" alt="Телефон" class="contact-item_icon">
-                            <a href="tel:{{ contacts_phone|default:'+79999999999' }}" class="contact-item_link">{{ contacts_phone|default:"+7 (999) 999 - 99 - 99" }}</a>
+                            <a href="tel:{{ contacts_phone|default:'+79999999999' }}" class="contact-item_link">
+                                {{ contacts_phone|default:"+7 (999) 999 - 99 - 99" }}</a>
                         </div>
 
                         <div class="points-divider">
@@ -199,24 +204,28 @@
 
                         <div class="contact-item">
                             <img src="{% static 'assets/icon/email.svg' %}" alt="Email" class="contact-item_icon">
-                            <a href="mailto:{{ contacts_email|default:'example@example.ru' }}" class="contact-item_link">{{ contacts_email|default:"example@example.ru" }}</a>
+                            <a href="mailto:{{ contacts_email|default:'example@example.ru' }}"
+                               class="contact-item_link">{{ contacts_email|default:"example@example.ru" }}</a>
                         </div>
                     </div>
                     <div class="contacts-social">
                         <h3 class="contacts-social_title">Я в социальных сетях</h3>
                         <div class="contacts-social_links">
-                            <a href="{{ contacts_vk|default:'https://vk.com/id39146412' }}" aria-label="VKontakte" class="contact-link">
+                            <a href="{{ contacts_vk|default:'https://vk.com/id39146412' }}" aria-label="VKontakte"
+                               class="contact-link">
                                 <img src="{% static 'assets/icon/VK.svg' %}" alt="VK" class="contact-social_icon"
                                      loading="lazy">
                             </a>
 
-                            <a href="{{ contacts_whatsapp|default:'https://wa.me/79111292655' }}" aria-label="WhatsApp" class="contact-link">
+                            <a href="{{ contacts_whatsapp|default:'https://wa.me/79111292655' }}" aria-label="WhatsApp"
+                               class="contact-link">
                                 <img src="{% static 'assets/icon/WhatsApp.svg' %}" alt="WhatsApp"
                                      class="contact-social_iconWA"
                                      loading="lazy">
                             </a>
 
-                            <a href="{{ contacts_telegram|default:'https://t.me/Elen0Fil' }}" aria-label="Telegram" class="contact-link">
+                            <a href="{{ contacts_telegram|default:'https://t.me/Elen0Fil' }}" aria-label="Telegram"
+                               class="contact-link">
                                 <img src="{% static 'assets/icon/Telegramm.svg' %}" alt="Telegram"
                                      class="contact-social_icon"
                                      loading="lazy">

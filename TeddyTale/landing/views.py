@@ -117,6 +117,14 @@ def index(request):
                                                    'качественных материалов'
                                                    ' и вложение души в каждое'
                                                    ' творение.'))
+            context['about_description2'] = (about_contents
+                                             .get('aboutDescriptionBlock2',
+                                                   'Моя философия — это '
+                                                   'внимание к деталям, '
+                                                   'использование только'
+                                                   ' качественных материалов'
+                                                   ' и вложение души в каждое'
+                                                   ' творение.'))
             context['about_title2'] = about_contents.get('aboutTitleBlock2',
                                                          'Почему мне доверяют')
             context['about_item1'] = about_contents.get('aboutSlot1Block2',
@@ -143,6 +151,10 @@ def index(request):
                                             'использование только качественных'
                                              ' материалов и вложение души в'
                                              ' каждое творение.')
+            context['about_description2'] = ('Моя философия — это внимание '
+                                             'к деталям, использование только'
+                                             ' качественных материалов и '
+                                             'вложение души в каждое творение.')
             context['about_title2'] = 'Почему мне доверяют'
             context['about_item1'] = '5+ лет опыта в создании мишек Тедди'
             context['about_item2'] = '200+ довольных клиентов'

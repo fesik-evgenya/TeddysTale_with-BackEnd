@@ -81,7 +81,8 @@ DATABASES = {
         'PORT': env('DATABASE_PORT', default=''),
         'OPTIONS': {
             'charset': 'utf8mb4',
-        } if env('DATABASE_ENGINE', default='') == 'django.db.backends.mysql' else {},
+        } if env('DATABASE_ENGINE', default='') ==
+                                            'django.db.backends.mysql' else {},
     }
 }
 
@@ -112,7 +113,8 @@ X_FRAME_OPTIONS = 'DENY'
 # Настройки CSRF
 CSRF_USE_SESSIONS = False
 CSRF_COOKIE_HTTPONLY = False  # Должно быть False для доступа JavaScript
-CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', default=False)  # True если используем HTTPS
+# True если используем HTTPS
+CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', default=False)
 CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=[
     'http://127.0.0.1:8000',
     'http://localhost:8000',
@@ -122,7 +124,8 @@ CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=[
 if not DEBUG:
     SECURE_SSL_REDIRECT = env.bool('SECURE_SSL_REDIRECT', default=False)
     SECURE_HSTS_SECONDS = env.int('SECURE_HSTS_SECONDS', default=0)
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool('SECURE_HSTS_INCLUDE_SUBDOMAINS', default=False)
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool('SECURE_HSTS_INCLUDE_SUBDOMAINS',
+                                              default=False)
     SECURE_HSTS_PRELOAD = env.bool('SECURE_HSTS_PRELOAD', default=False)
     SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', default=True)
     CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', default=True)
@@ -154,6 +157,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'landing.context_processors.yandex_maps_api_key',
             ],
         },
     },
@@ -167,16 +171,20 @@ WSGI_APPLICATION = 'TeddyTale.wsgi.application'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation'
+                '                   .UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation'
+                '                   .MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation'
+                '              .CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation'
+                '              .NumericPasswordValidator',
     },
 ]
 
@@ -229,7 +237,8 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'format': '{levelname} {asctime} {module} {process:d} {thread:d}'
+                      ' {message}',
             'style': '{',
         },
         'simple': {
@@ -253,8 +262,10 @@ LOGGING = {
             'class': 'logging.handlers.RotatingFileHandler',
             'filename': BASE_DIR / 'logs' / 'django.log',
             'formatter': 'verbose',
-            'maxBytes': env.int('LOG_MAX_BYTES', default=1048576),  # 1 MB по умолчанию
-            'backupCount': env.int('LOG_BACKUP_COUNT', default=3),  # 3 резервные копии
+             # 1 MB по умолчанию
+            'maxBytes': env.int('LOG_MAX_BYTES', default=1048576),
+             # 3 резервные копии
+            'backupCount': env.int('LOG_BACKUP_COUNT', default=3),
             'encoding': 'utf-8',
         },
         'landing_file': {
@@ -380,3 +391,10 @@ JAZZMIN_UI_TWEAKS = {
         "secondary": "btn-outline-secondary",
     }
 }
+
+# ====================
+# API КЛЮЧИ
+# ====================
+
+# Ключ Яндекс.Карт
+YANDEX_MAPS_API_KEY = env('YANDEX_MAPS_API_KEY', default='')

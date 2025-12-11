@@ -26,12 +26,15 @@ def custom_admin_login(request):
 
     # Загружаем контакты из базы данных для футера
     try:
-        contacts_section = PageSection.objects.filter(section_key='contacts').first()
+        contacts_section = (PageSection.objects
+                            .filter(section_key='contacts').first())
         contacts_contents = {}
 
         if contacts_section:
             # Получаем содержимое секции контактов
-            contents = SectionContent.objects.filter(section=contacts_section).order_by('order_index')
+            contents = (SectionContent.objects
+                        .filter(section=contacts_section)
+                        .order_by('order_index'))
             for content in contents:
                 contacts_contents[content.content_key] = {
                     'value': content.value,
@@ -61,13 +64,20 @@ def custom_admin_login(request):
     # Создаем переменные для футера из contacts_contents
     context = {
         'error': error,
-        'contacts_phone': contacts_contents.get('contactsPhone', {}).get('value', '+7 (999) 999-99-99'),
-        'contacts_email': contacts_contents.get('contactsEmail', {}).get('value', 'example@example.ru'),
-        'contacts_city': contacts_contents.get('contactsCity', {}).get('value', 'Санкт-Петербург'),
-        'contacts_address': contacts_contents.get('contactsAddress', {}).get('value', 'ул. Среднерогатская'),
-        'contacts_vk': contacts_contents.get('contactsVK', {}).get('value', ''),
-        'contacts_whatsapp': contacts_contents.get('contactsWhatsApp', {}).get('value', ''),
-        'contacts_telegram': contacts_contents.get('contactsTelegramm', {}).get('value', ''),
+        'contacts_phone': contacts_contents.get('contactsPhone', {})
+                                           .get('value', '+7 (999) 999-99-99'),
+        'contacts_email': contacts_contents.get('contactsEmail', {})
+                                           .get('value', 'example@example.ru'),
+        'contacts_city': contacts_contents.get('contactsCity', {})
+                                          .get('value', 'Санкт-Петербург'),
+        'contacts_address': contacts_contents.get('contactsAddress', {})
+                                          .get('value', 'ул. Среднерогатская'),
+        'contacts_vk': contacts_contents.get('contactsVK', {})
+                                        .get('value', ''),
+        'contacts_whatsapp': contacts_contents.get('contactsWhatsApp', {})
+                                              .get('value', ''),
+        'contacts_telegram': contacts_contents.get('contactsTelegramm', {})
+                                              .get('value', ''),
     }
 
     return render(request, 'enter-admin-panel.html', context)
@@ -82,15 +92,18 @@ def custom_admin_panel(request):
     check_site_admin_access(request.user)
 
     # Получаем все секции
-    page_sections = PageSection.objects.filter(is_active=True).order_by('order_index')
+    page_sections = (PageSection.objects.filter(is_active=True)
+                                        .order_by('order_index'))
     all_sections = PageSection.objects.all().order_by('order_index')
-    shop_items = ShopItem.objects.filter(is_active=True).order_by('slot_number')
+    shop_items = (ShopItem.objects.filter(is_active=True)
+                                  .order_by('slot_number'))
 
     # Создаем словарь для хранения содержимого каждой секции
     section_contents = {}
 
     for section in page_sections:
-        contents = SectionContent.objects.filter(section=section).order_by('order_index')
+        contents = (SectionContent.objects.filter(section=section)
+                                  .order_by('order_index'))
         content_dict = {}
         for content in contents:
             content_dict[content.content_key] = {
@@ -128,13 +141,20 @@ def custom_admin_panel(request):
         'uploaded_images': uploaded_images,
         'MEDIA_URL': settings.MEDIA_URL,
         # Добавляем отдельные переменные для футера (для совместимости)
-        'contacts_phone': contacts_contents.get('contactsPhone', {}).get('value', '+7 (999) 999-99-99'),
-        'contacts_email': contacts_contents.get('contactsEmail', {}).get('value', 'example@example.ru'),
-        'contacts_city': contacts_contents.get('contactsCity', {}).get('value', 'Санкт-Петербург'),
-        'contacts_address': contacts_contents.get('contactsAddress', {}).get('value', 'ул. Среднерогатская'),
-        'contacts_vk': contacts_contents.get('contactsVK', {}).get('value', ''),
-        'contacts_whatsapp': contacts_contents.get('contactsWhatsApp', {}).get('value', ''),
-        'contacts_telegram': contacts_contents.get('contactsTelegramm', {}).get('value', ''),
+        'contacts_phone': contacts_contents.get('contactsPhone', {})
+                                           .get('value', '+7 (999) 999-99-99'),
+        'contacts_email': contacts_contents.get('contactsEmail', {})
+                                           .get('value', 'example@example.ru'),
+        'contacts_city': contacts_contents.get('contactsCity', {})
+                                           .get('value', 'Санкт-Петербург'),
+        'contacts_address': contacts_contents.get('contactsAddress', {})
+                                          .get('value', 'ул. Среднерогатская'),
+        'contacts_vk': contacts_contents.get('contactsVK', {})
+                                        .get('value', ''),
+        'contacts_whatsapp': contacts_contents.get('contactsWhatsApp', {})
+                                              .get('value', ''),
+        'contacts_telegram': contacts_contents.get('contactsTelegramm', {})
+                                              .get('value', ''),
     }
 
     return render(request, 'admin-panel.html', context)
@@ -318,7 +338,8 @@ def upload_image_ajax(request):
         if image_file.content_type not in allowed_types:
             return JsonResponse({
                 'status': 'error',
-                'message': 'Неподдерживаемый тип файла. Разрешены: JPEG, PNG, WEBP, GIF'
+                'message': 'Неподдерживаемый тип файла.'
+                           ' Разрешены: JPEG, PNG, WEBP, GIF'
             }, status=400)
 
         max_size = 5 * 1024 * 1024
@@ -365,7 +386,8 @@ def upload_image_ajax(request):
 
         # Удаляем старый файл, если он существует
         if old_image and old_image.file_path:
-            old_file_path = os.path.join(settings.MEDIA_ROOT, old_image.file_path)
+            old_file_path = os.path.join(settings.MEDIA_ROOT, old_image
+                                   .file_path)
             if os.path.exists(old_file_path):
                 os.remove(old_file_path)
             # Удаляем запись из базы данных
@@ -452,7 +474,8 @@ def upload_shop_item_image_ajax(request, item_id):
         if image_file.content_type not in allowed_types:
             return JsonResponse({
                 'status': 'error',
-                'message': 'Неподдерживаемый тип файла. Разрешены: JPEG, PNG, WEBP, GIF'
+                'message': 'Неподдерживаемый тип файла. Разрешены:'
+                           ' JPEG, PNG, WEBP, GIF'
             }, status=400)
 
         max_size = 5 * 1024 * 1024  # 5MB
@@ -496,7 +519,8 @@ def upload_shop_item_image_ajax(request, item_id):
             'data': {
                 'id': shop_item.id,
                 'image_url': shop_item.image.url,
-                'image_name': shop_item.image.name.split('/')[-1] if shop_item.image else '',
+                'image_name': shop_item.image.name
+                                    .split('/')[-1] if shop_item.image else '',
             }
         })
 

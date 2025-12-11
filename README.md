@@ -245,22 +245,132 @@ update-site-settings/                # Обновление глобальных
 2. Установите зависимости:
 
    <span style="color: red;">_pip install -r requirements.txt_</span>
+3. Создайте и настройте файл .env (как описано ниже)
 
-3. Примените миграции:
+4. Примените миграции:
 
    <span style="color: red;">_python manage.py migrate_</span>
 
-4. Создайте суперпользователя:
+5. Создайте суперпользователя:
 
    <span style="color: red;">_python manage.py createsuperuser_</span>
 
-5. Запустите сервер:
+6. Запустите сервер:
 
    <span style="color: red;">_python manage.py runserver_</span>
 
 <span style="color: red;">Стандартная админ-панель будет доступна по адресу: http://127.0.0.1:8000/panel/</span>.
 <span style="color: red;">Кастомная AJAX-админка будет доступна по адресу: http://127.0.0.1:8000/admin-custom/enter/</span>.
 
+## Настройка переменных окружения (.env)
+
+Перед запуском проекта необходимо создать файл `.env` в корневой директории проекта и настроить переменные окружения. Для удобства создайте файл на основе шаблона:
+
+1. **Создайте файл `.env` в корне проекта:**
+Заполните его необходимыми значениями. 
+2. Пример минимальной конфигурации для разработки:
+
+```
+env
+# ====================
+# ОСНОВНЫЕ НАСТРОЙКИ DJANGO
+# ====================
+
+# СЕКРЕТНЫЙ КЛЮЧ DJANGO (обязательно измените в продакшене!)
+DJANGO_SECRET_KEY=Your_Secret_Key
+
+# Режим отладки (True - разработка, False - продакшен)
+DJANGO_DEBUG=True
+
+# Разрешенные хосты (через запятую)
+DJANGO_ALLOWED_HOSTS=127.0.0.1,localhost
+
+# ====================
+# БАЗА ДАННЫХ
+# ====================
+
+# SQLite (по умолчанию для разработки)
+DATABASE_ENGINE=django.db.backends.sqlite3
+DATABASE_NAME=db.sqlite3
+
+# PostgreSQL (раскомментировать для продакшена)
+# DATABASE_URL=postgresql://пользователь:пароль@хост:порт/название_бд
+# DATABASE_ENGINE=django.db.backends.postgresql
+# DATABASE_NAME=teddystale_db
+# DATABASE_USER=postgres_user
+# DATABASE_PASSWORD=очень_сложный_пароль_тут
+# DATABASE_HOST=localhost
+# DATABASE_PORT=5432
+
+# ====================
+# БЕЗОПАСНОСТЬ
+# ====================
+
+# CSRF (межсайтовая защита)
+CSRF_COOKIE_SECURE=False  # True для HTTPS
+CSRF_TRUSTED_ORIGINS=http://127.0.0.1:8000,http://localhost:8000
+
+# Сессии
+SESSION_COOKIE_SECURE=False  # True для HTTPS
+SESSION_COOKIE_AGE=1209600  # 2 недели в секундах
+
+# ====================
+# ПУТИ К ФАЙЛАМ
+# ====================
+
+# Пути для медиа и статических файлов
+MEDIA_ROOT=media
+STATIC_ROOT=staticfiles
+
+# ====================
+# ЛОГИРОВАНИЕ
+# ====================
+
+# Уровень логирования (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+LOG_LEVEL=DEBUG
+
+# Максимальный размер лог-файла (в байтах)
+LOG_MAX_BYTES=1048576  # 1MB
+
+# Количество резервных копий логов
+LOG_BACKUP_COUNT=3
+
+# ====================
+# ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ
+# ====================
+
+# Временная зона
+TIME_ZONE=Europe/Moscow
+
+# Язык
+LANGUAGE_CODE=ru-RU
+
+# Email настройки (для будущего использования)
+# EMAIL_HOST=smtp.gmail.com
+# EMAIL_PORT=587
+# EMAIL_USE_TLS=True
+# EMAIL_HOST_USER=ваш_email@gmail.com
+# EMAIL_HOST_PASSWORD=пароль_приложения
+# DEFAULT_FROM_EMAIL=Teddy's Tale <ваш_email@gmail.com>
+
+# ====================
+# РЕЖИМ ПРОДАКШЕНА (раскомментировать при развертывании)
+# ====================
+
+# SECURE_SSL_REDIRECT=True  # Перенаправление на HTTPS
+# SECURE_HSTS_SECONDS=31536000  # HSTS на год
+# SECURE_HSTS_INCLUDE_SUBDOMAINS=True
+# SECURE_HSTS_PRELOAD=True
+# SECURE_CONTENT_TYPE_NOSNIFF=True
+# SECURE_BROWSER_XSS_FILTER=True
+# X_FRAME_OPTIONS=DENY
+
+# ====================
+# API КЛЮЧИ
+# ====================
+YANDEX_MAPS_API_KEY=Your_Secret_Key
+
+```
 ### Контакты
 Проект разработан для мастера авторских мишек Тедди.
 По вопросам настройки и доработки обращайтесь к разработчику: 

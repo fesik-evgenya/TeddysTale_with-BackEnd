@@ -20,7 +20,7 @@
 {% block extra_head %}
 {{ block.super }}
 <!-- Загрузка карты Яндекс -->
-<script src="https://api-maps.yandex.ru/2.1/?apikey=cd75c453-5925-4862-8f2e-acd46e2b692a&lang=ru_RU"></script>
+<script src="https://api-maps.yandex.ru/2.1/?apikey={{ YANDEX_MAPS_API_KEY }}&lang=ru_RU"></script>
 <script>
     // Передаем данные в JS для карты
     var mapData = {

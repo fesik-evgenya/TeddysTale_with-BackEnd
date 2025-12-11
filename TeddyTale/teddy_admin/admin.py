@@ -27,26 +27,28 @@ class ShopItemAdmin(admin.ModelAdmin):
 
     def image_preview(self, obj):
         if obj.image:
-            return format_html('<img src="{}" width="50" height="50" style="object-fit: cover;" />',
-                               obj.image.url)
+            return format_html('<img src="{}" width="50" height="50" '
+                               'style="object-fit: cover;" />', obj.image.url)
         return "Нет изображения"
     image_preview.short_description = 'Превью'
 
 @admin.register(UploadedImage)
 class UploadedImageAdmin(admin.ModelAdmin):
-    list_display = ['original_filename','image_preview','file_size','uploaded_at', 'is_active']
+    list_display = ['original_filename','image_preview','file_size',
+                    'uploaded_at', 'is_active']
     list_filter = ['is_active', 'section_type']
     search_fields = ['original_filename', 'stored_filename']
     ordering = ['uploaded_at', 'last_accessed']
 
     def image_preview(self, obj):
-        return format_html('<img src="/media/{}" width="50" height="50" style="object-fit: cover;" / >',
-                           obj.file_path)
+        return format_html('<img src="/media/{}" width="50" height="50"'
+                           ' style="object-fit: cover;" / >', obj.file_path)
     image_preview.short_description = 'Превью'
 
 @admin.register(SiteSettings)
 class SiteSettingsAdmin(admin.ModelAdmin):  # Изменено имя класса для ясности
-    list_display = ['setting_key','setting_value_preview','category','is_public']
+    list_display = ['setting_key','setting_value_preview','category',
+                    'is_public']
     list_filter = ['category', 'is_public']
     search_fields = ['setting_key', 'description']
 
@@ -77,7 +79,8 @@ class ChangeLogAdmin(admin.ModelAdmin):
 
 @admin.register(SectionContent)
 class SectionContentAdmin(admin.ModelAdmin):
-    list_display = ['section','content_key','label','content_type', 'value_preview']
+    list_display = ['section','content_key','label','content_type',
+                    'value_preview']
     list_filter = ['section', 'content_type']
     search_fields = ['label', 'content_key', 'value']
     list_editable = ['label']
@@ -85,7 +88,8 @@ class SectionContentAdmin(admin.ModelAdmin):
     def value_preview(self, obj):
         if obj.value:
             if obj.content_type == 'image':
-                return format_html('<img src="/media/{}" width="50" height="50" />', obj.value)
+                return format_html('<img src="/media/{}" width="50"'
+                                   ' height="50" />', obj.value)
             value = obj.value
             if len(value) > 50:
                 return value[:50] + '...'

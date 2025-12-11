@@ -90,7 +90,7 @@ def custom_admin_required_ajax(view_func):
 
 def custom_admin_method_required(method_list=None):
     """
-    Декоратор для методов, который проверяет права только для указанных HTTP-методов.
+    Декоратор для методов, который проверяет права  для указанных HTTP-методов.
     Использование: @custom_admin_method_required(['POST', 'PUT', 'DELETE'])
     """
     if method_list is None:
@@ -114,7 +114,8 @@ def custom_admin_method_required(method_list=None):
                 return redirect('/enter-admin-panel/')
 
             if not is_site_admin(request.user):
-                raise PermissionDenied("У вас нет прав для выполнения этого действия")
+                raise PermissionDenied("У вас нет прав для выполнения этого"
+                                       " действия")
 
             return view_func(request, *args, **kwargs)
 
@@ -160,7 +161,8 @@ def custom_admin_required_with_logging(view_func):
 class CustomAdminRequiredMixin:
     """
     Миксин для Class-Based Views.
-    Использование в классе: class MyView(CustomAdminRequiredMixin, TemplateView):
+    Использование в классе: class MyView(CustomAdminRequiredMixin,
+                                         TemplateView):
     """
 
     def dispatch(self, request, *args, **kwargs):
@@ -181,7 +183,7 @@ class CustomAdminRequiredMixin:
 # Утилиты для работы с декораторами
 def get_admin_required_decorator(ajax=False, logging=False, methods=None):
     """
-    Фабрика декораторов. Возвращает нужный декоратор в зависимости от параметров.
+    Фабрика декораторов. Возвращает нуж. декоратор в зависимости от параметров.
 
     Параметры:
     - ajax: bool - для AJAX-запросов (возвращает JSON)

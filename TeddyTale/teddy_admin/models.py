@@ -13,13 +13,15 @@ class PageSection(models.Model):
         ('contacts', 'Контакты'),
     ]
 
-    section_key = models.CharField(max_length=50, unique=True, choices=SECTION_TYPES,
+    section_key = models.CharField(max_length=50, unique=True,
+                                   choices=SECTION_TYPES,
                                    verbose_name='Ключ секции')
     name = models.CharField(max_length=100, verbose_name='Название секции')
     description = models.TextField(blank=True, verbose_name='Описание')
     is_active = models.BooleanField(blank=True, verbose_name='Активна')
     order_index = models.IntegerField(default=0, verbose_name='Порядок')
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Создано')
+    created_at = models.DateTimeField(auto_now_add=True,
+                                      verbose_name='Создано')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Обновлено')
 
     class Meta:
@@ -50,12 +52,16 @@ class SectionContent(models.Model):
     )
     content_key = models.CharField(max_length=50, verbose_name='Ключ контента')
     content_type = models.CharField(max_length=20, verbose_name='Тип контента')
-    label = models.CharField(max_length=100, choices=CONTENT_TYPES, verbose_name='Название поля')
+    label = models.CharField(max_length=100, choices=CONTENT_TYPES,
+                             verbose_name='Название поля')
     value = models.TextField(blank=True, null=True, verbose_name='Значение')
-    placeholder = models.TextField(blank=True, verbose_name='Пример заполнения')
+    placeholder = models.TextField(blank=True,
+                                   verbose_name='Пример заполнения')
     help_text = models.TextField(blank=True, verbose_name='Подсказка')
-    max_length = models.IntegerField(blank=True, null=True, verbose_name='Макс. длина')
-    is_required = models.BooleanField(default=True, verbose_name='Обязательное')
+    max_length = models.IntegerField(blank=True, null=True,
+                                     verbose_name='Макс. длина')
+    is_required = models.BooleanField(default=True,
+                                      verbose_name='Обязательное')
     order_index = models.IntegerField(default=0, verbose_name='Порядок')
 
     created_at = models.DateTimeField(auto_now_add=True)
@@ -72,14 +78,17 @@ class SectionContent(models.Model):
 
 
 class ShopItem(models.Model):
-    slot_number = models.IntegerField(unique=True, validators=[MinValueValidator(1), MaxValueValidator(9)],
+    slot_number = models.IntegerField(unique=True,
+                                      validators=[MinValueValidator(1),
+                                                  MaxValueValidator(9)],
                                       verbose_name='Номер слота (1-9)')
     title = models.CharField(max_length=200, verbose_name='Название товара')
     description = models.TextField(verbose_name='Описание товара')
     price = models.CharField(max_length=50, verbose_name='Цена')
 
     # изображение товара
-    image = models.ImageField(upload_to='shop_items/', verbose_name='Изображение товара')
+    image = models.ImageField(upload_to='shop_items/',
+                              verbose_name='Изображение товара')
     is_active = models.BooleanField(default=True, verbose_name='Активен')
     order_index = models.IntegerField(default=0, verbose_name='Порядок')
 
@@ -103,23 +112,30 @@ class ShopItem(models.Model):
 
 
 class UploadedImage(models.Model):
-    original_filename = models.CharField(max_length=255, verbose_name='Исходное имя файла')
-    stored_filename = models.CharField(max_length=255, unique=True, verbose_name='Имя в системе')
+    original_filename = models.CharField(max_length=255,
+                                         verbose_name='Исходное имя файла')
+    stored_filename = models.CharField(max_length=255, unique=True,
+                                       verbose_name='Имя в системе')
     file_path = models.CharField(max_length=500, verbose_name='Путь к файлу')
     file_size = models.IntegerField(verbose_name='Размер файла')
-    mime_type = models.CharField(max_length=100, verbose_name='Тип файла')  # Исправлено с mime_types
+    mime_type = models.CharField(max_length=100, verbose_name='Тип файла')
 
     # размеры изображения
     width = models.IntegerField(blank=True, null=True, verbose_name='Ширина')
     height = models.IntegerField(blank=True, null=True, verbose_name='Высота')
 
     # для связи с контентом
-    section_type = models.CharField(max_length=50, blank=True, verbose_name='Тип секции')
-    content_key = models.CharField(max_length=50, blank=True, verbose_name='Ключ контента')
-    uploaded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True,
+    section_type = models.CharField(max_length=50, blank=True,
+                                    verbose_name='Тип секции')
+    content_key = models.CharField(max_length=50, blank=True,
+                                   verbose_name='Ключ контента')
+    uploaded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True,
+                                    blank=True,
                                     verbose_name='Загрузил')
-    uploaded_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата загрузки')
-    last_accessed = models.DateTimeField(null=True, blank=True, verbose_name='Последний доступ')
+    uploaded_at = models.DateTimeField(auto_now_add=True,
+                                       verbose_name='Дата загрузки')
+    last_accessed = models.DateTimeField(null=True, blank=True,
+                                         verbose_name='Последний доступ')
     is_active = models.BooleanField(default=True, verbose_name='Активен')
 
     class Meta:
@@ -138,11 +154,15 @@ class SiteSettings(models.Model):
         ('json', 'JSON'),
     ]
 
-    setting_key = models.CharField(max_length=50, unique=True, verbose_name='Ключ настройки')
-    setting_value = models.TextField(blank=True, null=True, verbose_name='Значение')
-    setting_type = models.CharField(max_length=20, choices=SETTING_TYPES, default='text',
+    setting_key = models.CharField(max_length=50, unique=True,
+                                   verbose_name='Ключ настройки')
+    setting_value = models.TextField(blank=True, null=True,
+                                     verbose_name='Значение')
+    setting_type = models.CharField(max_length=20, choices=SETTING_TYPES,
+                                    default='text',
                                     verbose_name='Тип значения')
-    category = models.CharField(max_length=50, default='general', verbose_name='Категория')
+    category = models.CharField(max_length=50, default='general',
+                                verbose_name='Категория')
     description = models.TextField(blank=True, verbose_name='Описание')
     is_public = models.BooleanField(default=False, verbose_name='Публичная')
 
@@ -164,16 +184,23 @@ class ChangeLog(models.Model):
         ('DELETE','Удаление'),
     ]
 
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True,
-                             verbose_name='Пользователь')
-    changed_table = models.CharField(max_length=50, verbose_name='Таблица')
-    record_id = models.IntegerField(null=True, blank=True, verbose_name='ID записи')
-    action = models.CharField(max_length=10, choices=ACTIONS, verbose_name='Действие')
-    old_value = models.TextField(blank=True, null=True, verbose_name='Старое значение')
-    new_value = models.TextField(blank=True, null=True, verbose_name='Новое значение')
-    ip_address = models.GenericIPAddressField(blank=True, null=True, verbose_name='IP адрес')
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True,
+                             blank=True, verbose_name='Пользователь')
+    changed_table = models.CharField(max_length=50,
+                                     verbose_name='Таблица')
+    record_id = models.IntegerField(null=True, blank=True,
+                                    verbose_name='ID записи')
+    action = models.CharField(max_length=10, choices=ACTIONS,
+                              verbose_name='Действие')
+    old_value = models.TextField(blank=True, null=True,
+                                 verbose_name='Старое значение')
+    new_value = models.TextField(blank=True, null=True,
+                                 verbose_name='Новое значение')
+    ip_address = models.GenericIPAddressField(blank=True, null=True,
+                                              verbose_name='IP адрес')
     user_agent = models.TextField(blank=True, verbose_name='User Agent')
-    changed_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата изменения')
+    changed_at = models.DateTimeField(auto_now_add=True,
+                                      verbose_name='Дата изменения')
 
     class Meta:
         verbose_name = 'Лог изменения'

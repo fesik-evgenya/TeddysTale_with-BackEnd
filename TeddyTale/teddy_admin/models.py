@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.conf import settings
 import os
 
 
@@ -141,6 +142,36 @@ class UploadedImage(models.Model):
     class Meta:
         verbose_name = 'Загруженное изображение'
         verbose_name_plural = 'Загруженные изображения'
+
+    def save(self, *args, **kwargs):
+        # Если это обновление существующей записи, удаляем старый файл
+        if self.pk:
+            try:
+                old_instance = UploadedImage.objects.get(pk=self.pk)
+                if old_instance.file_path != self.file_path:
+                    old_file_path = os.path.join(settings.MEDIA_ROOT,
+                                                 old_instance.file_path)
+                    if os.path.exists(old_file_path):
+                        os.remove(old_file_path)
+            except UploadedImage.DoesNotExist:
+                pass
+
+        # Если это новая запись, создаем папку если не существует
+        if not self.pk:
+            file_dir = os.path.join(settings.MEDIA_ROOT,
+                                    os.path.dirname(self.file_path))
+            os.makedirs(file_dir, exist_ok=True)
+
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        # Удаляем файл при удалении записи
+        if self.file_path:
+            file_path = os.path.join(settings.MEDIA_ROOT, self.file_path)
+            if os.path.exists(file_path):
+                os.remove(file_path)
+
+        super().delete(*args, **kwargs)
 
     def __str__(self):
         return self.original_filename

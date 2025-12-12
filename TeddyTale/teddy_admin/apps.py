@@ -7,5 +7,4 @@ class TeddyAdminConfig(AppConfig):
     verbose_name = 'Администрирование'
 
     def ready(self):
-        # Импортируем сигналы, если они есть
         import teddy_admin.signals

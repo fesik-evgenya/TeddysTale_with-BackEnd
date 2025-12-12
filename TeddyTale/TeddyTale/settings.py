@@ -46,9 +46,9 @@ SECRET_KEY = env('DJANGO_SECRET_KEY')
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 # Разрешенные хосты
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS')
 
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('*')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
@@ -97,23 +97,23 @@ INSTALLED_APPS = [
 # }
 
 # Разделяем настройки для разработки и продакшена
-if 'DATABASE_URL' in os.environ:
-    # Используем PostgreSQL на Render
-    DATABASES = {
-        'default': dj_database_url.config(
-            default=os.environ.get('DATABASE_URL'),
-            conn_max_age=600,
-            conn_health_checks=True,
-        )
+# if 'DATABASE_URL' in os.environ:
+#     # Используем PostgreSQL на Render
+#     DATABASES = {
+#         'default': dj_database_url.config(
+#             default=os.environ.get('DATABASE_URL'),
+#             conn_max_age=600,
+#             conn_health_checks=True,
+#         )
+#     }
+# else:
+#     # Локальная разработка с SQLite
+DATABASES = {
+    'default': {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': BASE_DIR / 'db.sqlite3',
     }
-else:
-    # Локальная разработка с SQLite
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+}
 
 # ====================
 # НАСТРОЙКИ БЕЗОПАСНОСТИ
@@ -139,9 +139,10 @@ CSRF_USE_SESSIONS = True
 CSRF_COOKIE_HTTPONLY = True  # Должно быть False для доступа JavaScript
 # True если используем HTTPS
 CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', default=False)
-# CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', 'http://localhost:8000,http://127.0.0.1:8000').split(',')
-# if RENDER_EXTERNAL_HOSTNAME:
-#     CSRF_TRUSTED_ORIGINS.append(f'https://{RENDER_EXTERNAL_HOSTNAME}')
+CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=[
+    'http://127.0.0.1:8000',
+    'http://localhost:8000',
+])
 
 # Дополнительные настройки безопасности для продакшена
 if not DEBUG:
@@ -287,9 +288,9 @@ LOGGING = {
             'class': 'logging.handlers.RotatingFileHandler',
             'filename': BASE_DIR / 'logs' / 'django.log',
             'formatter': 'verbose',
-             # 1 MB по умолчанию
+            # 1 MB по умолчанию
             'maxBytes': env.int('LOG_MAX_BYTES', default=1048576),
-             # 3 резервные копии
+            # 3 резервные копии
             'backupCount': env.int('LOG_BACKUP_COUNT', default=3),
             'encoding': 'utf-8',
         },

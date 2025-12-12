@@ -65,19 +65,19 @@ def custom_admin_login(request):
     context = {
         'error': error,
         'contacts_phone': contacts_contents.get('contactsPhone', {})
-                                           .get('value', '+7 (999) 999-99-99'),
+        .get('value', '+7 (999) 999-99-99'),
         'contacts_email': contacts_contents.get('contactsEmail', {})
-                                           .get('value', 'example@example.ru'),
+        .get('value', 'example@example.ru'),
         'contacts_city': contacts_contents.get('contactsCity', {})
-                                          .get('value', 'Санкт-Петербург'),
+        .get('value', 'Санкт-Петербург'),
         'contacts_address': contacts_contents.get('contactsAddress', {})
-                                          .get('value', 'ул. Среднерогатская'),
+        .get('value', 'ул. Среднерогатская'),
         'contacts_vk': contacts_contents.get('contactsVK', {})
-                                        .get('value', ''),
+        .get('value', ''),
         'contacts_whatsapp': contacts_contents.get('contactsWhatsApp', {})
-                                              .get('value', ''),
+        .get('value', ''),
         'contacts_telegram': contacts_contents.get('contactsTelegramm', {})
-                                              .get('value', ''),
+        .get('value', ''),
     }
 
     return render(request, 'enter-admin-panel.html', context)
@@ -93,17 +93,17 @@ def custom_admin_panel(request):
 
     # Получаем все секции
     page_sections = (PageSection.objects.filter(is_active=True)
-                                        .order_by('order_index'))
+                     .order_by('order_index'))
     all_sections = PageSection.objects.all().order_by('order_index')
     shop_items = (ShopItem.objects.filter(is_active=True)
-                                  .order_by('slot_number'))
+                  .order_by('slot_number'))
 
     # Создаем словарь для хранения содержимого каждой секции
     section_contents = {}
 
     for section in page_sections:
         contents = (SectionContent.objects.filter(section=section)
-                                  .order_by('order_index'))
+                    .order_by('order_index'))
         content_dict = {}
         for content in contents:
             content_dict[content.content_key] = {
@@ -142,19 +142,19 @@ def custom_admin_panel(request):
         'MEDIA_URL': settings.MEDIA_URL,
         # Добавляем отдельные переменные для футера (для совместимости)
         'contacts_phone': contacts_contents.get('contactsPhone', {})
-                                           .get('value', '+7 (999) 999-99-99'),
+        .get('value', '+7 (999) 999-99-99'),
         'contacts_email': contacts_contents.get('contactsEmail', {})
-                                           .get('value', 'example@example.ru'),
+        .get('value', 'example@example.ru'),
         'contacts_city': contacts_contents.get('contactsCity', {})
-                                           .get('value', 'Санкт-Петербург'),
+        .get('value', 'Санкт-Петербург'),
         'contacts_address': contacts_contents.get('contactsAddress', {})
-                                          .get('value', 'ул. Среднерогатская'),
+        .get('value', 'ул. Среднерогатская'),
         'contacts_vk': contacts_contents.get('contactsVK', {})
-                                        .get('value', ''),
+        .get('value', ''),
         'contacts_whatsapp': contacts_contents.get('contactsWhatsApp', {})
-                                              .get('value', ''),
+        .get('value', ''),
         'contacts_telegram': contacts_contents.get('contactsTelegramm', {})
-                                              .get('value', ''),
+        .get('value', ''),
     }
 
     return render(request, 'admin-panel.html', context)
@@ -338,8 +338,7 @@ def upload_image_ajax(request):
         if image_file.content_type not in allowed_types:
             return JsonResponse({
                 'status': 'error',
-                'message': 'Неподдерживаемый тип файла.'
-                           ' Разрешены: JPEG, PNG, WEBP, GIF'
+                'message': 'Неподдерживаемый тип файла. Разрешены: JPEG, PNG, WEBP, GIF'
             }, status=400)
 
         max_size = 5 * 1024 * 1024
@@ -352,24 +351,6 @@ def upload_image_ajax(request):
         section_type = request.POST.get('section_type', '')
         content_key = request.POST.get('content_key', '')
 
-        # Проверяем, есть ли старое изображение для этой секции
-        old_image = None
-        try:
-            # Находим запись SectionContent для этой секции
-            section = PageSection.objects.get(section_key=section_type)
-            section_content = SectionContent.objects.get(
-                section=section,
-                content_key=content_key
-            )
-            if section_content.value:
-                # Находим соответствующую запись UploadedImage
-                old_image = UploadedImage.objects.filter(
-                    section_type=section_type,
-                    content_key=content_key
-                ).first()
-        except (PageSection.DoesNotExist, SectionContent.DoesNotExist):
-            pass  # Нет старого изображения
-
         # Генерируем новое имя файла
         original_filename = image_file.name
         file_extension = os.path.splitext(original_filename)[1]
@@ -379,19 +360,32 @@ def upload_image_ajax(request):
         # Создаем директорию если не существует
         os.makedirs(os.path.dirname(f"media/{file_path}"), exist_ok=True)
 
+        # Находим все старые изображения для этой секции и ключа контента
+        old_images = UploadedImage.objects.filter(
+            section_type=section_type,
+            content_key=content_key
+        )
+
+        # Удаляем старые файлы из файловой системы
+        for old_image in old_images:
+            if old_image.file_path:
+                old_file_path = os.path.join(settings.MEDIA_ROOT, old_image.file_path)
+                if os.path.exists(old_file_path):
+                    try:
+                        os.remove(old_file_path)
+                    except Exception as e:
+                        # Логируем ошибку, но продолжаем выполнение
+                        import logging
+                        logger = logging.getLogger(__name__)
+                        logger.error(f"Ошибка при удалении старого файла {old_file_path}: {e}")
+
+        # Удаляем старые записи из базы данных
+        old_images.delete()
+
         # Сохраняем новый файл
         with open(f"media/{file_path}", 'wb') as f:
             for chunk in image_file.chunks():
                 f.write(chunk)
-
-        # Удаляем старый файл, если он существует
-        if old_image and old_image.file_path:
-            old_file_path = os.path.join(settings.MEDIA_ROOT, old_image
-                                   .file_path)
-            if os.path.exists(old_file_path):
-                os.remove(old_file_path)
-            # Удаляем запись из базы данных
-            old_image.delete()
 
         # Создаем новую запись UploadedImage
         uploaded_image = UploadedImage.objects.create(
@@ -474,8 +468,7 @@ def upload_shop_item_image_ajax(request, item_id):
         if image_file.content_type not in allowed_types:
             return JsonResponse({
                 'status': 'error',
-                'message': 'Неподдерживаемый тип файла. Разрешены:'
-                           ' JPEG, PNG, WEBP, GIF'
+                'message': 'Неподдерживаемый тип файла. Разрешены: JPEG, PNG, WEBP, GIF'
             }, status=400)
 
         max_size = 5 * 1024 * 1024  # 5MB
@@ -520,7 +513,7 @@ def upload_shop_item_image_ajax(request, item_id):
                 'id': shop_item.id,
                 'image_url': shop_item.image.url,
                 'image_name': shop_item.image.name
-                                    .split('/')[-1] if shop_item.image else '',
+                .split('/')[-1] if shop_item.image else '',
             }
         })
 

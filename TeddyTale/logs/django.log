@@ -858,3 +858,2020 @@ WARNING 2025-12-11 09:48:57,717 log 16312 4928 Not Found: /TeddysTale/assets/fon
 WARNING 2025-12-11 09:48:57,724 basehttp 16312 4928 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
 WARNING 2025-12-11 09:48:57,779 log 16312 4240 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
 WARNING 2025-12-11 09:48:57,782 basehttp 16312 4240 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+ERROR 2025-12-12 08:47:56,694 basehttp 20268 13384 "GET / HTTP/1.1" 500 59
+ERROR 2025-12-12 08:47:57,396 basehttp 20268 13384 "GET /favicon.ico HTTP/1.1" 500 59
+ERROR 2025-12-12 08:48:19,481 basehttp 20268 8228 "GET / HTTP/1.1" 500 59
+ERROR 2025-12-12 08:48:20,156 basehttp 20268 8228 "GET /favicon.ico HTTP/1.1" 500 59
+ERROR 2025-12-12 08:52:04,597 log 10756 1616 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\middleware\csrf.py", line 403, in process_request
+    csrf_secret = self._get_secret(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\middleware\csrf.py", line 231, in _get_secret
+    csrf_secret = request.session.get(CSRF_SESSION_KEY)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 74, in get
+    return self._session.get(key, default)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+ERROR 2025-12-12 08:52:05,356 log 10756 1616 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\middleware.py", line 48, in process_response
+    if request.session.get_expire_at_browser_close():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 403, in get_expire_at_browser_close
+    if (expiry := self.get("_session_expiry")) is None:
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 74, in get
+    return self._session.get(key, default)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+ERROR 2025-12-12 08:52:05,368 basehttp 10756 1616 "GET / HTTP/1.1" 500 167578
+ERROR 2025-12-12 08:52:08,096 log 10756 21604 Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\middleware\csrf.py", line 403, in process_request
+    csrf_secret = self._get_secret(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\middleware\csrf.py", line 231, in _get_secret
+    csrf_secret = request.session.get(CSRF_SESSION_KEY)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 74, in get
+    return self._session.get(key, default)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+ERROR 2025-12-12 08:52:08,708 log 10756 21604 Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\middleware.py", line 48, in process_response
+    if request.session.get_expire_at_browser_close():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 403, in get_expire_at_browser_close
+    if (expiry := self.get("_session_expiry")) is None:
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 74, in get
+    return self._session.get(key, default)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+ERROR 2025-12-12 08:52:08,721 basehttp 10756 21604 "GET /favicon.ico HTTP/1.1" 500 167395
+ERROR 2025-12-12 08:56:24,745 log 21268 21772 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\middleware\csrf.py", line 403, in process_request
+    csrf_secret = self._get_secret(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\middleware\csrf.py", line 231, in _get_secret
+    csrf_secret = request.session.get(CSRF_SESSION_KEY)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 74, in get
+    return self._session.get(key, default)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+ERROR 2025-12-12 08:56:25,399 log 21268 21772 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\middleware.py", line 48, in process_response
+    if request.session.get_expire_at_browser_close():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 403, in get_expire_at_browser_close
+    if (expiry := self.get("_session_expiry")) is None:
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 74, in get
+    return self._session.get(key, default)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+ERROR 2025-12-12 08:56:25,411 basehttp 21268 21772 "GET / HTTP/1.1" 500 167563
+ERROR 2025-12-12 08:56:26,826 log 21268 18620 Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\middleware\csrf.py", line 403, in process_request
+    csrf_secret = self._get_secret(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\middleware\csrf.py", line 231, in _get_secret
+    csrf_secret = request.session.get(CSRF_SESSION_KEY)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 74, in get
+    return self._session.get(key, default)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+ERROR 2025-12-12 08:56:27,495 log 21268 18620 Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\middleware.py", line 48, in process_response
+    if request.session.get_expire_at_browser_close():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 403, in get_expire_at_browser_close
+    if (expiry := self.get("_session_expiry")) is None:
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 74, in get
+    return self._session.get(key, default)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+ERROR 2025-12-12 08:56:27,504 basehttp 21268 18620 "GET /favicon.ico HTTP/1.1" 500 167243
+ERROR 2025-12-12 08:57:14,256 log 21268 18208 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\middleware\csrf.py", line 403, in process_request
+    csrf_secret = self._get_secret(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\middleware\csrf.py", line 231, in _get_secret
+    csrf_secret = request.session.get(CSRF_SESSION_KEY)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 74, in get
+    return self._session.get(key, default)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+ERROR 2025-12-12 08:57:14,873 log 21268 18208 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\middleware.py", line 48, in process_response
+    if request.session.get_expire_at_browser_close():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 403, in get_expire_at_browser_close
+    if (expiry := self.get("_session_expiry")) is None:
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 74, in get
+    return self._session.get(key, default)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+ERROR 2025-12-12 08:57:14,884 basehttp 21268 18208 "GET / HTTP/1.1" 500 167563
+ERROR 2025-12-12 08:57:16,990 log 21268 22280 Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\middleware\csrf.py", line 403, in process_request
+    csrf_secret = self._get_secret(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\middleware\csrf.py", line 231, in _get_secret
+    csrf_secret = request.session.get(CSRF_SESSION_KEY)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 74, in get
+    return self._session.get(key, default)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+ERROR 2025-12-12 08:57:17,642 log 21268 22280 Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\middleware.py", line 48, in process_response
+    if request.session.get_expire_at_browser_close():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 403, in get_expire_at_browser_close
+    if (expiry := self.get("_session_expiry")) is None:
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 74, in get
+    return self._session.get(key, default)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+ERROR 2025-12-12 08:57:17,667 basehttp 21268 22280 "GET /favicon.ico HTTP/1.1" 500 167243
+ERROR 2025-12-12 08:59:54,499 log 7536 21056 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\middleware\csrf.py", line 403, in process_request
+    csrf_secret = self._get_secret(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\middleware\csrf.py", line 231, in _get_secret
+    csrf_secret = request.session.get(CSRF_SESSION_KEY)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 74, in get
+    return self._session.get(key, default)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+ERROR 2025-12-12 08:59:55,272 log 7536 21056 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\middleware.py", line 48, in process_response
+    if request.session.get_expire_at_browser_close():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 403, in get_expire_at_browser_close
+    if (expiry := self.get("_session_expiry")) is None:
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 74, in get
+    return self._session.get(key, default)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+ERROR 2025-12-12 08:59:55,286 basehttp 7536 21056 "GET / HTTP/1.1" 500 167500
+ERROR 2025-12-12 08:59:57,099 log 7536 21756 Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\middleware\csrf.py", line 403, in process_request
+    csrf_secret = self._get_secret(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\middleware\csrf.py", line 231, in _get_secret
+    csrf_secret = request.session.get(CSRF_SESSION_KEY)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 74, in get
+    return self._session.get(key, default)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+ERROR 2025-12-12 08:59:57,881 log 7536 21756 Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\middleware.py", line 48, in process_response
+    if request.session.get_expire_at_browser_close():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 403, in get_expire_at_browser_close
+    if (expiry := self.get("_session_expiry")) is None:
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 74, in get
+    return self._session.get(key, default)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+ERROR 2025-12-12 08:59:57,895 basehttp 7536 21756 "GET /favicon.ico HTTP/1.1" 500 167317
+ERROR 2025-12-12 09:16:22,512 basehttp 15752 20264 "GET / HTTP/1.1" 500 59
+ERROR 2025-12-12 09:16:23,293 basehttp 15752 20264 "GET /favicon.ico HTTP/1.1" 500 59
+ERROR 2025-12-12 09:19:25,410 log 20732 19572 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\middleware\csrf.py", line 403, in process_request
+    csrf_secret = self._get_secret(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\middleware\csrf.py", line 231, in _get_secret
+    csrf_secret = request.session.get(CSRF_SESSION_KEY)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 74, in get
+    return self._session.get(key, default)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+ERROR 2025-12-12 09:19:26,319 log 20732 19572 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\middleware.py", line 48, in process_response
+    if request.session.get_expire_at_browser_close():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 403, in get_expire_at_browser_close
+    if (expiry := self.get("_session_expiry")) is None:
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 74, in get
+    return self._session.get(key, default)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+ERROR 2025-12-12 09:19:26,337 basehttp 20732 19572 "GET / HTTP/1.1" 500 167772
+ERROR 2025-12-12 09:19:28,301 log 20732 19492 Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\middleware\csrf.py", line 403, in process_request
+    csrf_secret = self._get_secret(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\middleware\csrf.py", line 231, in _get_secret
+    csrf_secret = request.session.get(CSRF_SESSION_KEY)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 74, in get
+    return self._session.get(key, default)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+ERROR 2025-12-12 09:19:29,080 log 20732 19492 Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\middleware.py", line 48, in process_response
+    if request.session.get_expire_at_browser_close():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 403, in get_expire_at_browser_close
+    if (expiry := self.get("_session_expiry")) is None:
+                  ~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 74, in get
+    return self._session.get(key, default)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        session_key=self.session_key, expire_date__gt=timezone.now()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+ERROR 2025-12-12 09:19:29,097 basehttp 20732 19492 "GET /favicon.ico HTTP/1.1" 500 167452
+WARNING 2025-12-12 09:21:41,608 basehttp 9824 19700 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 09:21:41,656 basehttp 9824 11900 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 09:21:41,809 basehttp 9824 21080 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 09:21:41,935 basehttp 9824 18536 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 09:21:50,199 log 9824 21120 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-12 09:21:50,253 log 9824 20108 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-12 09:21:50,262 basehttp 9824 20108 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-12 09:21:50,300 basehttp 9824 21120 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-12 09:21:50,346 log 9824 4460 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-12 09:21:50,370 basehttp 9824 4460 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-12 09:21:50,538 log 9824 20108 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-12 09:21:50,591 log 9824 21120 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-12 09:21:50,621 basehttp 9824 20108 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-12 09:21:50,622 basehttp 9824 21120 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-12 09:21:50,674 log 9824 4460 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-12 09:21:50,694 basehttp 9824 4460 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-12 09:21:52,119 basehttp 9824 18308 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 09:21:52,123 basehttp 9824 20108 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 09:21:52,143 basehttp 9824 4460 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 09:21:52,216 basehttp 9824 21120 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 09:23:25,431 basehttp 9824 19940 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 09:23:25,444 basehttp 9824 16180 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 09:23:25,569 basehttp 9824 1484 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 09:23:25,618 basehttp 9824 5076 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 09:36:44,197 log 9824 15520 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-12 09:36:44,261 basehttp 9824 15520 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-12 09:36:44,276 log 9824 9952 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-12 09:36:44,283 basehttp 9824 9952 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-12 09:36:44,327 log 9824 12632 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-12 09:36:44,392 log 9824 15520 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-12 09:36:44,410 basehttp 9824 12632 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-12 09:36:44,461 basehttp 9824 15520 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-12 09:36:44,507 log 9824 9952 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-12 09:36:44,510 basehttp 9824 9952 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-12 09:36:45,082 log 9824 12632 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-12 09:36:45,092 basehttp 9824 12632 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-12 09:36:52,501 basehttp 9824 5484 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 09:36:52,501 basehttp 9824 21976 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 09:36:52,585 basehttp 9824 18604 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 09:36:52,639 basehttp 9824 20264 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 09:39:27,920 basehttp 9824 20608 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 09:39:27,938 basehttp 9824 19676 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 09:39:27,982 basehttp 9824 17076 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 09:39:28,022 basehttp 9824 20668 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 09:41:36,546 basehttp 9824 12276 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 09:41:36,628 basehttp 9824 21404 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 09:41:36,740 basehttp 9824 15308 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 09:41:36,785 basehttp 9824 14852 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 09:45:01,165 basehttp 9824 21796 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 09:45:01,177 basehttp 9824 5672 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 09:45:01,244 basehttp 9824 3512 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 09:45:01,317 basehttp 9824 21984 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 09:45:26,254 log 9824 8372 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-12 09:45:26,261 basehttp 9824 8372 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-12 09:45:26,278 log 9824 21372 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-12 09:45:26,291 basehttp 9824 21372 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-12 09:45:26,388 log 9824 5500 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-12 09:45:26,610 log 9824 21372 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-12 09:45:26,760 basehttp 9824 5500 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-12 09:45:26,878 basehttp 9824 21372 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-12 09:45:26,929 log 9824 8372 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-12 09:45:26,991 basehttp 9824 8372 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-12 09:45:27,110 log 9824 21372 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-12 09:45:27,112 basehttp 9824 21372 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-12 09:46:13,559 log 9824 4620 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-12 09:46:13,589 basehttp 9824 4620 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-12 09:46:13,608 log 9824 15300 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-12 09:46:13,687 basehttp 9824 15300 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-12 09:46:13,780 log 9824 17012 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-12 09:46:13,795 basehttp 9824 17012 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-12 09:46:13,796 log 9824 4620 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-12 09:46:13,820 basehttp 9824 4620 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-12 09:46:14,002 log 9824 15300 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-12 09:46:14,004 basehttp 9824 15300 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-12 09:46:14,090 log 9824 17012 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-12 09:46:14,096 basehttp 9824 17012 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-12 09:50:39,799 basehttp 9824 19540 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 09:50:39,814 basehttp 9824 1256 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 09:50:39,994 basehttp 9824 9896 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 09:50:40,096 basehttp 9824 5764 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 09:50:46,869 basehttp 9824 17268 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 09:50:46,882 basehttp 9824 21948 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 09:50:46,986 basehttp 9824 20024 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 09:50:47,040 basehttp 9824 22068 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 09:50:49,049 basehttp 9824 12952 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 09:50:49,116 basehttp 9824 22344 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 09:50:49,177 basehttp 9824 19464 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 09:50:49,230 basehttp 9824 20852 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 10:48:15,760 basehttp 10392 19284 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 10:48:15,799 basehttp 10392 18488 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 10:48:15,854 log 10392 6156 Not Found: /uploaded_images/046d5ada90ee44dc89000692c81ee4ba.webp
+WARNING 2025-12-12 10:48:15,861 basehttp 10392 6156 "GET /uploaded_images/046d5ada90ee44dc89000692c81ee4ba.webp HTTP/1.1" 404 3327
+WARNING 2025-12-12 10:48:15,918 basehttp 10392 15796 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 10:48:15,986 basehttp 10392 18676 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 10:48:38,143 log 10392 22248 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-12 10:48:38,175 basehttp 10392 22248 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-12 10:48:38,185 log 10392 21716 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-12 10:48:38,186 basehttp 10392 21716 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-12 10:48:38,242 log 10392 4728 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-12 10:48:38,243 basehttp 10392 4728 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-12 10:48:38,360 log 10392 21716 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-12 10:48:38,361 basehttp 10392 21716 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-12 10:48:38,386 log 10392 4728 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-12 10:48:38,388 basehttp 10392 4728 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-12 10:48:38,408 log 10392 22248 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-12 10:48:38,409 basehttp 10392 22248 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-12 10:48:43,065 log 10392 4728 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-12 10:48:43,072 basehttp 10392 4728 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-12 10:48:43,117 log 10392 13144 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-12 10:48:43,156 basehttp 10392 13144 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-12 10:48:43,229 log 10392 21716 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-12 10:48:43,232 basehttp 10392 21716 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-12 10:48:43,335 log 10392 4728 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-12 10:48:43,343 log 10392 21716 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-12 10:48:43,361 basehttp 10392 4728 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-12 10:48:43,404 basehttp 10392 21716 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-12 10:48:43,612 log 10392 13144 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-12 10:48:43,638 basehttp 10392 13144 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-12 10:52:37,224 basehttp 10392 13396 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 10:52:37,225 basehttp 10392 10108 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 10:52:37,243 basehttp 10392 14404 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 10:52:37,268 basehttp 10392 18156 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 10:52:37,316 log 10392 13504 Not Found: /uploaded_images/046d5ada90ee44dc89000692c81ee4ba.webp
+WARNING 2025-12-12 10:52:37,322 basehttp 10392 13504 "GET /uploaded_images/046d5ada90ee44dc89000692c81ee4ba.webp HTTP/1.1" 404 3327
+WARNING 2025-12-12 10:52:40,191 log 10392 13504 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-12 10:52:40,197 basehttp 10392 13504 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-12 11:07:42,334 basehttp 10392 1576 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 11:07:42,348 basehttp 10392 19776 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 11:07:42,525 basehttp 10392 236 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 11:07:42,581 basehttp 10392 12604 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 11:08:23,318 basehttp 10392 15712 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 11:08:23,319 basehttp 10392 18484 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 11:08:23,335 basehttp 10392 20680 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 11:08:23,360 basehttp 10392 7132 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 11:12:39,415 log 10392 20688 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-12 11:12:39,416 basehttp 10392 20688 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-12 11:12:39,431 log 10392 14160 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-12 11:12:39,433 basehttp 10392 14160 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-12 11:12:39,564 log 10392 20688 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-12 11:12:39,565 basehttp 10392 20688 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-12 11:12:39,583 log 10392 19016 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-12 11:12:39,584 basehttp 10392 19016 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-12 11:12:39,599 log 10392 14160 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-12 11:12:39,600 basehttp 10392 14160 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-12 11:12:39,644 log 10392 14160 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-12 11:12:39,645 basehttp 10392 14160 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-12 11:12:42,995 log 10392 14160 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-12 11:12:43,026 basehttp 10392 14160 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-12 11:12:43,145 log 10392 6800 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-12 11:12:43,156 basehttp 10392 6800 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-12 11:12:43,178 log 10392 19392 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-12 11:12:43,180 basehttp 10392 19392 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-12 11:12:43,261 log 10392 6800 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-12 11:12:43,262 basehttp 10392 6800 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-12 11:12:43,360 log 10392 16420 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-12 11:12:43,361 basehttp 10392 16420 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-12 11:12:43,409 log 10392 16420 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-12 11:12:43,410 basehttp 10392 16420 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-12 11:13:47,960 basehttp 10392 14160 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 11:13:47,960 basehttp 10392 19480 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 11:13:47,972 basehttp 10392 16420 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 11:13:47,960 basehttp 10392 15068 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 11:30:01,597 basehttp 9716 19616 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 11:30:01,611 basehttp 9716 2492 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 11:30:01,672 basehttp 9716 12412 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 11:30:01,673 basehttp 9716 19932 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 11:30:04,470 log 9716 19200 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-12 11:30:04,482 log 9716 13396 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-12 11:30:04,486 basehttp 9716 19200 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-12 11:30:04,503 basehttp 9716 13396 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-12 11:30:04,524 log 9716 8696 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-12 11:30:04,540 basehttp 9716 8696 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-12 11:30:04,709 log 9716 19200 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-12 11:30:04,724 basehttp 9716 19200 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-12 11:30:04,741 log 9716 13396 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-12 11:30:04,745 basehttp 9716 13396 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-12 11:30:04,778 log 9716 8696 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-12 11:30:04,793 basehttp 9716 8696 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+ERROR 2025-12-12 11:30:10,581 log 9716 8696 Internal Server Error: /admin-custom/ajax/upload-image/
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\teddy_admin\views_custom.py", line 379, in upload_image_ajax
+    logger = logging.getLogger(__name__)
+             ^^^^^^^
+NameError: name 'logging' is not defined. Did you mean: 'login'? Or did you forget to import 'logging'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\teddy_admin\views_custom.py", line 452, in upload_image_ajax
+    logger = logging.getLogger(__name__)
+             ^^^^^^^
+NameError: name 'logging' is not defined. Did you mean: 'login'? Or did you forget to import 'logging'?
+ERROR 2025-12-12 11:30:10,593 basehttp 9716 8696 "POST /admin-custom/ajax/upload-image/ HTTP/1.1" 500 119940
+ERROR 2025-12-12 11:30:19,201 log 9716 8696 Internal Server Error: /admin-custom/ajax/upload-image/
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\teddy_admin\views_custom.py", line 379, in upload_image_ajax
+    logger = logging.getLogger(__name__)
+             ^^^^^^^
+NameError: name 'logging' is not defined. Did you mean: 'login'? Or did you forget to import 'logging'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\teddy_admin\views_custom.py", line 452, in upload_image_ajax
+    logger = logging.getLogger(__name__)
+             ^^^^^^^
+NameError: name 'logging' is not defined. Did you mean: 'login'? Or did you forget to import 'logging'?
+ERROR 2025-12-12 11:30:19,205 basehttp 9716 8696 "POST /admin-custom/ajax/upload-image/ HTTP/1.1" 500 119913
+WARNING 2025-12-12 11:30:22,326 log 9716 8696 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-12 11:30:22,333 basehttp 9716 8696 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+ERROR 2025-12-12 11:37:09,146 log 9716 22388 Internal Server Error: /admin-custom/ajax/upload-image/
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\teddy_admin\views_custom.py", line 379, in upload_image_ajax
+    logger = logging.getLogger(__name__)
+             ^^^^^^^
+NameError: name 'logging' is not defined. Did you mean: 'login'? Or did you forget to import 'logging'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Евгения\Desktop\Projects_web\TeddysTale_with-BackEnd\TeddyTale\teddy_admin\views_custom.py", line 452, in upload_image_ajax
+    logger = logging.getLogger(__name__)
+             ^^^^^^^
+NameError: name 'logging' is not defined. Did you mean: 'login'? Or did you forget to import 'logging'?
+ERROR 2025-12-12 11:37:09,151 basehttp 9716 22388 "POST /admin-custom/ajax/upload-image/ HTTP/1.1" 500 119623

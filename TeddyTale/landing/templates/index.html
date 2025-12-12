@@ -50,7 +50,11 @@
                 <a href="#collection" class="btn btn-hero">Смотреть коллекцию</a>
             </div>
             <div class="hero-content_image">
+                {% if hero_image %}
+                <img src="/media/{{ hero_image }}" alt="Мишки Тедди ручной работы" loading="lazy">
+                {% else %}
                 <img src="{% static 'assets/image/Hero_pic.webp' %}" alt="Мишки Тедди ручной работы" loading="lazy">
+                {% endif %}
             </div>
         </div>
     </div>
@@ -116,7 +120,11 @@
         <div class="about-content">
             <div class="about-content_left">
                 <div class="about-content_avatar">
-                    <img src="{% static 'assets/image/Avatar.webp' %}" alt="фото мастера" class="avatar" loading="lazy">
+                    {% if about_image %}
+                    <img src="/media/{{ about_image }}" alt="Фото мастера" class="avatar">
+                    {% else %}
+                    <img src="{% static 'assets/image/Avatar.webp' %}" alt="Фото мастера" class="avatar">
+                    {% endif %}
                 </div>
                 <a href="#contacts" class="btn btn-about">Задать вопрос</a>
 

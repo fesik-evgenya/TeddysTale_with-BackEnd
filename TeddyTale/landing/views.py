@@ -71,12 +71,14 @@ def index(request):
                                                            'история, созданная'
                                                            ' специально для '
                                                            'вас.')
+            context['hero_image'] = hero_contents.get('heroImage', '')
         else:
             context['hero_title'] = 'Уникальные мишки Тедди с душой'
             context['hero_description'] = ('Ручная работа, наполненная теплом'
                                            ' и заботой. Каждый мишка — это'
                                            ' отдельная история, созданная '
                                            'специально для вас.')
+            context['hero_image'] = ''
 
         # 3. Товары магазина
         shop_items = (ShopItem.objects.filter(is_active=True)
@@ -139,6 +141,7 @@ def index(request):
             context['about_item4'] = about_contents.get('aboutSlot4Block2',
                                                         'Индивидуальный подход'
                                                         ' к каждому заказу')
+            context['about_image'] = about_contents.get('aboutImage', '')
         else:
             context['about_title1'] = 'История мастера'
             context['about_description1'] = ('Добро пожаловать в мой мир '
@@ -160,6 +163,7 @@ def index(request):
             context['about_item2'] = '200+ довольных клиентов'
             context['about_item3'] = 'Натуральные материалы премиум-класса'
             context['about_item4'] = 'Индивидуальный подход к каждому заказу'
+            context['about_image'] = ''
 
         # 5. Контакты
         contacts_section = (PageSection.objects.filter(section_key='contacts')

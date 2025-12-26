@@ -1,37 +1,26 @@
 #!/usr/bin/env bash
-# start.sh
+# start.sh - универсальный скрипт запуска
 set -o errexit
 
-echo "=== Запуск TeddyTale на Render ==="
-echo "Текущая директория: $(pwd)"
+echo "=== ЗАПУСК DJANGO ПРИЛОЖЕНИЯ ==="
 echo "Порт: ${PORT:-8000}"
 
-# Проверка базы данных
-echo "Проверка базы данных..."
-python -c "
-import os
-import django
-from django.db import connection
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'TeddyTale.settings')
-django.setup()
-
-try:
-    with connection.cursor() as cursor:
-        cursor.execute('SELECT 1')
-    print('✓ База данных подключена')
-except Exception as e:
-    print(f'⚠️  Ошибка базы данных: {e}')
-"
-
-# Проверка статики
+# Проверка статики (создаём если нет)
 if [ ! -d "staticfiles" ] || [ -z "$(ls -A staticfiles/ 2>/dev/null)" ]; then
-    echo "⚠️  Статические файлы не найдены. Собираем..."
+    echo "Статические файлы не найдены, собираем..."
     python manage.py collectstatic --noinput
 fi
 
+# Проверка необходимых директорий
+for dir in logs media staticfiles; do
+    if [ ! -d "$dir" ]; then
+        echo "Создаём директорию: $dir"
+        mkdir -p "$dir"
+    fi
+done
+
 # Запуск Gunicorn
-echo "🚀 Запуск Gunicorn..."
+echo "Запуск сервера..."
 exec gunicorn TeddyTale.wsgi:application \
     --bind 0.0.0.0:${PORT:-8000} \
     --workers 2 \

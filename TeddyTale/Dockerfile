@@ -15,7 +15,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Копируем проект
-COPY . .
+COPY .. .
 
 # Создаем необходимые директории
 RUN mkdir -p logs media staticfiles

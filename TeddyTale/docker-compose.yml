@@ -1,0 +1,34 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: teddystale
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  web:
+    build: ..
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+      - static_volume:/app/staticfiles
+      - media_volume:/app/media
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/teddystale
+      - DJANGO_SECRET_KEY=dev-secret-key-change-in-production
+      - DJANGO_DEBUG=True
+      - YANDEX_MAPS_API_KEY=test-key
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:

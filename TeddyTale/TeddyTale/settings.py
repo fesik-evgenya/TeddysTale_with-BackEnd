@@ -255,13 +255,15 @@ SHORT_DATETIME_FORMAT = 'd.m.Y H:i'  # 15.01.2024 14:30
 STATIC_URL = '/static/'
 
 # Где ищем статические файлы
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    ]
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Для продакшена (когда DEBUG = False)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
+WHITENOISE_MANIFEST_STRICT = False  # Игнорировать отсутствующие файлы
+WHITENOISE_USE_FINDERS = True  # Искать файлы в STATICFILES_DIRS
+WHITENOISE_AUTOREFRESH = True  # Автообновление в dev-режиме
 
 # Настройки для медиафайлов (изображения)
 MEDIA_URL = '/media/'

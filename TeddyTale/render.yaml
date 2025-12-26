@@ -1,12 +1,11 @@
-# render.yaml
 services:
   - type: web
     name: teddystale
-    env: docker
-    dockerfilePath: ./Dockerfile
-    dockerContext: .
+    env: python
+    region: frankfurt  # Европа, важно для GDPR
     plan: free
-    numInstances: 1
+    buildCommand: chmod +x build.sh && ./build.sh
+    startCommand: chmod +x start.sh && ./start.sh
     healthCheckPath: /
     envVars:
       - key: DATABASE_URL
@@ -18,15 +17,15 @@ services:
       - key: DJANGO_DEBUG
         value: false
       - key: DJANGO_ALLOWED_HOSTS
-        value: teddystale.onrender.com
+        value: teddystale-with-backend.onrender.com
       - key: YANDEX_MAPS_API_KEY
         sync: false
+      - key: CSRF_TRUSTED_ORIGINS
+        value: https://teddystale-with-backend.onrender.com
       - key: CSRF_COOKIE_SECURE
         value: true
       - key: SESSION_COOKIE_SECURE
         value: true
-      - key: CSRF_TRUSTED_ORIGINS
-        value: https://teddystale.onrender.com
       - key: SECURE_SSL_REDIRECT
         value: true
 
@@ -35,3 +34,4 @@ databases:
     databaseName: teddystale
     user: teddystale_user
     plan: free
+    region: frankfurt

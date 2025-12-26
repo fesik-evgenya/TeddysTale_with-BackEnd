@@ -126,8 +126,13 @@ TeddysTale/          # Проект Django 5.2
 │       ├── footer_admin.html    # Подвал админ-панели
 │       ├── header.html          # Шапка для основной части сайта
 │       ├── header_admin.html    # Шапка для админ-панели
-│       └── waves.html               # Элемент с волнами (декор)
+│       └── waves.html           # Элемент с волнами (декор)
 ├── db.sqlite3                   # Файл базы данных SQLite
+├── Dockerfile                   # Docker конфигурация
+├── docker-compose.yml           # Локальная разработка
+├── render.yaml                  # Конфигурация Render.com
+├── build.sh                     # Скрипт сборки
+├── start.sh                     # Скрипт запуска
 ├── manage.py                    # Точка входа для управления Django-проектом
 └── requirements.txt             # Зависимости Python
 

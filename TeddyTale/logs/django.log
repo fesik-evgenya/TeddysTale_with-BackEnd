@@ -2875,3 +2875,65 @@ Traceback (most recent call last):
              ^^^^^^^
 NameError: name 'logging' is not defined. Did you mean: 'login'? Or did you forget to import 'logging'?
 ERROR 2025-12-12 11:37:09,151 basehttp 9716 22388 "POST /admin-custom/ajax/upload-image/ HTTP/1.1" 500 119623
+WARNING 2025-12-12 11:40:46,482 log 1560 10388 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-12 11:40:46,489 log 1560 18924 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-12 11:40:46,518 log 1560 4724 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-12 11:40:46,521 basehttp 1560 18924 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-12 11:40:46,524 basehttp 1560 4724 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-12 11:40:46,521 basehttp 1560 10388 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-12 11:40:46,709 log 1560 18664 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-12 11:40:46,756 basehttp 1560 18664 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-12 11:40:46,777 log 1560 18924 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-12 11:40:46,821 basehttp 1560 18924 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-12 11:40:46,842 log 1560 10388 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-12 11:40:46,848 basehttp 1560 10388 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-12 11:40:47,004 log 1560 17100 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-12 11:40:47,006 basehttp 1560 17100 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-12 11:41:11,003 log 1560 18664 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-12 11:41:11,015 basehttp 1560 18664 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3312
+WARNING 2025-12-12 11:41:11,052 log 1560 17100 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2
+WARNING 2025-12-12 11:41:11,053 basehttp 1560 17100 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 3375
+WARNING 2025-12-12 11:41:11,150 log 1560 10388 Not Found: /media/uploaded_images/11b45d5769f94a92bb4068ea3498f1d0.webp
+WARNING 2025-12-12 11:41:11,200 basehttp 1560 10388 "GET /media/uploaded_images/11b45d5769f94a92bb4068ea3498f1d0.webp HTTP/1.1" 404 3656
+WARNING 2025-12-12 11:41:11,203 log 1560 4724 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff2
+WARNING 2025-12-12 11:41:11,308 log 1560 18924 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2
+WARNING 2025-12-12 11:41:11,309 basehttp 1560 4724 "GET /TeddysTale/assets/fonts/Lora/Lora.woff2 HTTP/1.1" 404 3285
+WARNING 2025-12-12 11:41:11,330 basehttp 1560 18924 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff2 HTTP/1.1" 404 3306
+WARNING 2025-12-12 11:41:11,484 log 1560 17100 Not Found: /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff
+WARNING 2025-12-12 11:41:11,496 basehttp 1560 17100 "GET /TeddysTale/assets/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 3372
+WARNING 2025-12-12 11:41:11,611 log 1560 18924 Not Found: /TeddysTale/assets/fonts/Lora/Lora.woff
+WARNING 2025-12-12 11:41:11,619 basehttp 1560 18924 "GET /TeddysTale/assets/fonts/Lora/Lora.woff HTTP/1.1" 404 3282
+WARNING 2025-12-12 11:41:11,628 log 1560 16140 Not Found: /TeddysTale/assets/fonts/Lora/Lora-Italic.woff
+WARNING 2025-12-12 11:41:11,634 basehttp 1560 16140 "GET /TeddysTale/assets/fonts/Lora/Lora-Italic.woff HTTP/1.1" 404 3303
+WARNING 2025-12-12 11:41:51,203 basehttp 1560 17100 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 11:41:51,238 basehttp 1560 16140 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 11:41:51,254 basehttp 1560 18924 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 11:41:51,237 basehttp 1560 10388 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 11:44:47,892 basehttp 1560 20104 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 11:44:47,893 basehttp 1560 22356 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 11:44:47,925 basehttp 1560 21216 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 11:44:47,925 basehttp 1560 21852 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 11:45:09,544 basehttp 1560 13952 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 11:45:09,563 basehttp 1560 15192 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 11:45:09,698 basehttp 1560 19632 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 11:45:09,732 basehttp 1560 15964 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 11:45:46,015 basehttp 1560 21944 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 11:45:46,016 basehttp 1560 8912 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 11:45:46,045 basehttp 1560 21748 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 11:45:46,046 basehttp 1560 16204 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 11:47:24,621 basehttp 1560 1160 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 11:47:24,622 basehttp 1560 8448 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 11:47:24,651 basehttp 1560 16320 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 11:47:24,686 basehttp 1560 20724 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 11:48:03,618 basehttp 1560 13156 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 11:48:03,619 basehttp 1560 17240 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 11:48:03,633 basehttp 1560 5608 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 11:48:03,649 basehttp 1560 21248 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 11:48:13,171 basehttp 1560 15816 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 11:48:13,189 basehttp 1560 18144 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 11:48:13,201 basehttp 1560 21776 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 11:48:13,217 basehttp 1560 17380 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874
+WARNING 2025-12-12 11:48:25,315 basehttp 1560 20692 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff2 HTTP/1.1" 404 1967
+WARNING 2025-12-12 11:48:25,352 basehttp 1560 19508 "GET /static/fonts/Montserrat/Montserrat-VariableFont_wght.woff HTTP/1.1" 404 1964
+WARNING 2025-12-12 11:48:25,353 basehttp 1560 17212 "GET /static/fonts/Lora/Lora.woff2 HTTP/1.1" 404 1877
+WARNING 2025-12-12 11:48:25,366 basehttp 1560 22180 "GET /static/fonts/Lora/Lora.woff HTTP/1.1" 404 1874

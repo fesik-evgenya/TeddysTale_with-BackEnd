@@ -30,11 +30,20 @@ TeddysTale/          # Проект Django 5.2
 │   ├── __init__.py               # Инициализация приложения
 │   ├── admin.py                  # Регистрация моделей в админ-панели
 │   ├── apps.py                   # Конфигурация приложения
+│   ├── context_processors.py     # Добавляет ключ Яндекс.Карт в контекст всех шаблонов
 │   ├── models.py                 # Модели данных приложения
-│   ├── tests.py                  # Тесты приложения
 │   ├── urls.py                   # URL-маршруты приложения
 │   └── views.py                  # Основные представления
+├── logs/                         # Логи
+│   ├── audit/   
+│   ├── debug/
+│   ├── requests/            
+│   ├── django.log               
+│   ├── errors.log                
+│   └── landing.log               
 ├── media/                        # Директория для загружаемых пользователями файлов
+│   ├── shop_items/               # Изображения каталога
+│   └── uploaded_images/          # Пользовательские изображения
 ├── static/                       # Статические файлы
 │   │   │ └── assets/
 │   │   │     │   ├── fonts/                # Шрифты
@@ -98,10 +107,8 @@ TeddysTale/          # Проект Django 5.2
 │   ├── models.py                  # Модели данных приложения
 │   ├── permissions_custom.py      # Кастомные права доступа  
 │   ├── signals.py                 # Django-сигналы
-│   ├── tests.py                   # Тесты
 │   ├── urls.py                    # URL-маршруты
 │   ├── urls_custom.py             # Дополнительные URL
-│   ├── views.py                   # Основные представления
 │   └── views_custom.py            # Кастомные представления
 ├── TeddyTale/                   # Основной проект Django
 │   ├── __init__.py              # Инициализация пакета Python
@@ -122,10 +129,11 @@ TeddysTale/          # Проект Django 5.2
 │       └── waves.html               # Элемент с волнами (декор)
 ├── db.sqlite3                   # Файл базы данных SQLite
 ├── manage.py                    # Точка входа для управления Django-проектом
+└── requirements.txt             # Зависимости Python
 
 ┌── shema_db.png                 # Схема таблиц Базы Данных
-├── README.md                    # Описание проекта
-└── requirements.txt             # Зависимости Python
+└── README.md                    # Описание проекта
+
 ```
 ---
 

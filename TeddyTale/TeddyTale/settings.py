@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+import logging
 from dotenv import load_dotenv
 import dj_database_url
 import environ
@@ -35,6 +36,43 @@ env = environ.Env(
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # ====================
+# АВТОМАТИЧЕСКОЕ СОЗДАНИЕ ДИРЕКТОРИЙ
+# ====================
+
+def ensure_directories_exist():
+    """
+    Создает необходимые директории при запуске приложения.
+    Вызывается автоматически при импорте настроек.
+    """
+    directories = [
+        BASE_DIR / 'logs',
+        BASE_DIR / 'media',
+        BASE_DIR / 'static',
+        ]
+
+    # Добавляем STATIC_ROOT, если он определен
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    if STATIC_ROOT:
+        directories.append(Path(STATIC_ROOT))
+
+    for directory in directories:
+        try:
+            directory.mkdir(exist_ok=True, mode=0o755)
+            # Проверяем права на запись
+            test_file = directory / '.write_test'
+            test_file.touch(exist_ok=True)
+            test_file.unlink(missing_ok=True)
+        except Exception as e:
+            # Используем базовый логгер, так как наши настройки еще не загружены
+            logging.basicConfig(level=logging.WARNING)
+            logger = logging.getLogger(__name__)
+            logger.warning(f"Не удалось создать директорию {directory}: {e}")
+            # Не прерываем выполнение, так как приложение может работать без некоторых директорий
+
+# Создаем необходимые директории
+ensure_directories_exist()
+
+# ====================
 # БЕЗОПАСНОСТЬ
 # ====================
 
@@ -43,12 +81,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+DEBUG = env.bool('DJANGO_DEBUG', default=False)
 
 # Разрешенные хосты
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS')
 
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('*')
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
@@ -75,45 +113,24 @@ INSTALLED_APPS = [
 # БАЗА ДАННЫХ
 # ====================
 
-# Настройки базы данных из переменных окружения
-# DATABASES = {
-#     'default': {
-#         'ENGINE': env('DATABASE_ENGINE', default='django.db.backends.sqlite3'),
-#         'NAME': BASE_DIR / env('DATABASE_NAME', default='db.sqlite3'),
-#         'USER': env('DATABASE_USER', default=''),
-#         'PASSWORD': env('DATABASE_PASSWORD', default=''),
-#         'HOST': env('DATABASE_HOST', default=''),
-#         'PORT': env('DATABASE_PORT', default=''),
-#         'OPTIONS': {
-#             'charset': 'utf8mb4',
-#         } if env('DATABASE_ENGINE', default='') ==
-#                                             'django.db.backends.mysql' else {},
-#     }
-# }
-
-# Альтернативный вариант с DATABASE_URL (более современный)
-# DATABASES = {
-#     'default': env.db(default='sqlite:///db.sqlite3')
-# }
-
 # Разделяем настройки для разработки и продакшена
-# if 'DATABASE_URL' in os.environ:
-#     # Используем PostgreSQL на Render
-#     DATABASES = {
-#         'default': dj_database_url.config(
-#             default=os.environ.get('DATABASE_URL'),
-#             conn_max_age=600,
-#             conn_health_checks=True,
-#         )
-#     }
-# else:
-#     # Локальная разработка с SQLite
-DATABASES = {
-    'default': {
-    'ENGINE': 'django.db.backends.sqlite3',
-    'NAME': BASE_DIR / 'db.sqlite3',
+if 'DATABASE_URL' in os.environ:
+    # Используем PostgreSQL на Render
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.environ.get('DATABASE_URL'),
+            conn_max_age=600,
+            conn_health_checks=True,
+        )
     }
-}
+else:
+    # Локальная разработка с SQLite
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # ====================
 # НАСТРОЙКИ БЕЗОПАСНОСТИ
@@ -336,6 +353,11 @@ LOGGING = {
         },
         'teddy_admin': {
             'handlers': ['console', 'error_file'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'TeddyTale': {
+            'handlers': ['console', 'file'],
             'level': 'INFO',
             'propagate': False,
         },

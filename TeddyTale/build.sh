@@ -3,6 +3,7 @@
 set -o errexit
 
 echo "=== Начало сборки TeddyTale на Render ==="
+echo "База данных: ${DATABASE_URL##*@}"  # Логируем только хост (без пароля)
 date
 
 # 1. Установка зависимостей
@@ -10,18 +11,37 @@ echo "1. Установка зависимостей..."
 pip install --upgrade pip
 pip install -r requirements.txt
 
-# 2. Создание необходимых директорий
-echo "2. Создание директорий..."
+# 2. Проверка структуры проекта
+echo "2. Проверка структуры проекта..."
+ls -la
+ls -la teddy_admin/ || echo "⚠️  Директория teddy_admin не найдена"
+ls -la landing/ || echo "⚠️  Директория landing не найдена"
+
+# 3. Создание необходимых директорий
+echo "3. Создание директорий..."
 mkdir -p logs/audit logs/debug logs/requests
 mkdir -p media/shop_items media/uploaded_images
-mkdir -p staticfiles/{css,js,assets}  # Используем brace expansion
+mkdir -p staticfiles/{css,js,assets}
 
-# 3. Применение миграций
-echo "3. Применение миграций..."
+# 4. Проверка и применение миграций
+echo "4. Проверка миграций..."
+# Сначала смотрим, какие миграции есть
+python manage.py showmigrations 2>/dev/null || echo "⚠️  Не удалось проверить миграции"
+
+echo "5. Применение миграций..."
+# Применяем миграции для всех приложений
 python manage.py migrate --noinput
 
-# 4. Создание суперпользователя по умолчанию (если нет)
-echo "4. Проверка суперпользователя..."
+# 5.1 Явно применяем миграции для teddy_admin (если они существуют)
+echo "5.1 Применение миграций для teddy_admin..."
+python manage.py migrate teddy_admin --noinput 2>/dev/null || echo "⚠️  Нет миграций для teddy_admin"
+
+# 5.2 Явно применяем миграции для landing (если они существуют)
+echo "5.2 Применение миграций для landing..."
+python manage.py migrate landing --noinput 2>/dev/null || echo "⚠️  Нет миграций для landing"
+
+# 6. Создание суперпользователя
+echo "6. Создание суперпользователя..."
 python manage.py shell -c "
 from django.contrib.auth import get_user_model
 User = get_user_model()
@@ -32,38 +52,8 @@ else:
     print('✓ Суперпользователь уже существует')
 "
 
-# 5. Создание базовых данных если база пуста
-echo "5. Создание базовых данных..."
-python manage.py shell -c "
-from teddy_admin.models import PageSection, SectionContent
-import os
-
-# Создаем секцию контактов если ее нет
-contacts_section, created = PageSection.objects.get_or_create(
-    section_key='contacts',
-    defaults={'title': 'Контакты'}
-)
-
-if created:
-    # Создаем поля для контактов
-    SectionContent.objects.bulk_create([
-        SectionContent(section=contacts_section, content_key='contactsCity', value='Санкт-Петербург'),
-        SectionContent(section=contacts_section, content_key='contactsAddress', value='ул. Среднерогатская'),
-        SectionContent(section=contacts_section, content_key='contactsPhone', value='+7 (911) 999-99-99'),
-        SectionContent(section=contacts_section, content_key='contactsEmail', value='example@example.ru'),
-        SectionContent(section=contacts_section, content_key='contactsVK', value='https://vk.com/id39146412'),
-        SectionContent(section=contacts_section, content_key='contactsWhatsApp', value='https://wa.me/79111292655'),
-        SectionContent(section=contacts_section, content_key='contactsTelegramm', value='https://t.me/Elen0Fil'),
-        SectionContent(section=contacts_section, content_key='contactsPoints_latitude', value='59.819987'),
-        SectionContent(section=contacts_section, content_key='contactsPoints_longitude', value='30.337649'),
-    ])
-    print('✓ Создана секция контактов с базовыми данными')
-else:
-    print('✓ Секция контактов уже существует')
-"
-
-# 6. Сбор статических файлов
-echo "6. Сбор статических файлов..."
+# 7. Сбор статических файлов
+echo "7. Сбор статических файлов..."
 python manage.py collectstatic --noinput --clear
 
 echo "=== Сборка успешно завершена ==="

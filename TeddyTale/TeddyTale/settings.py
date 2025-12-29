@@ -28,8 +28,11 @@ load_dotenv()
 env = environ.Env(
     # Устанавливаем значения по умолчанию для разработки
     DEBUG=(bool, True),
-    SECRET_KEY=(str, 'django-insecure-fallback-key-for-development-only'),
-    ALLOWED_HOSTS=(list, ['127.0.0.1', 'localhost']),
+    SECRET_KEY=(str, ''),
+    ALLOWED_HOSTS=(list, []),
+    DATABASE_URL=(str, 'sqlite:///db.sqlite3'), # Строка для SQLite
+    YANDEX_MAPS_API_KEY=(str, ''),
+
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -78,10 +81,10 @@ ensure_directories_exist()
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Читаем секретный ключ из переменной окружения или используем fallback
-SECRET_KEY = env('DJANGO_SECRET_KEY')
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DJANGO_DEBUG', default=False)
+DEBUG = env.bool('DEBUG', default=False)
 
 # Разрешенные хосты
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS')
@@ -121,6 +124,7 @@ if 'DATABASE_URL' in os.environ:
             default=os.environ.get('DATABASE_URL'),
             conn_max_age=600,
             conn_health_checks=True,
+            ssl_require=True,
         )
     }
 else:
@@ -191,7 +195,7 @@ TEMPLATES = [
         'DIRS': [
             BASE_DIR / 'templates',            # Глобальные шаблоны
             BASE_DIR / 'landing/templates',    # Шаблоны приложения landing
-            BASE_DIR / 'templates/templates',  # Шаблоны кастомной админки
+            BASE_DIR / 'teddy_admin/templates',  # Шаблоны кастомной админки
         ],
         'APP_DIRS': True,
         'OPTIONS': {

@@ -270,7 +270,6 @@ def update_section_content_ajax(request, section_key):
 
     try:
         data = json.loads(request.body)
-        section = PageSection.objects.get(section_key=section_key)
 
         content_key = data.get('content_key')
         if not content_key:
@@ -278,6 +277,49 @@ def update_section_content_ajax(request, section_key):
                 'status': 'error',
                 'message': 'Не указан ключ контента'
             }, status=400)
+
+        # Пытаемся получить секцию, если нет - создаем с логикой для разных секций
+        try:
+            section = PageSection.objects.get(section_key=section_key)
+        except PageSection.DoesNotExist:
+            # Создаем секцию в зависимости от типа
+            if section_key == 'contacts':
+                section = PageSection.objects.create(
+                    section_key='contacts',
+                    name='Контакты',
+                    is_active=True,
+                    order_index=4  # После about
+                )
+
+                # Автоматически создаем стандартные поля для контактов
+                contacts_fields = [
+                    ('contactsPhone', 'Телефон', 'tel', '+7 (911) 129-26-55'),
+                    ('contactsEmail', 'Email', 'email', 'ev.filenko@rambler.ru'),
+                    ('contactsCity', 'Город', 'text', 'Санкт-Петербург'),
+                    ('contactsAddress', 'Адрес', 'text', 'ул. Среднерогатская'),
+                    ('contactsVK', 'ВКонтакте', 'url', ''),
+                    ('contactsWhatsApp', 'WhatsApp', 'tel', ''),
+                    ('contactsTelegramm', 'Telegram', 'url', ''),
+                    ('mapCoords', 'Координаты карты', 'coordinates', '59.819987,30.337649'),
+                ]
+
+                for order_index, (key, label, content_type, default_value) in enumerate(contacts_fields):
+                    SectionContent.objects.create(
+                        section=section,
+                        content_key=key,
+                        label=label,
+                        content_type=content_type,
+                        value=default_value,
+                        order_index=order_index
+                    )
+            else:
+                # Для других секций создаем базовую секцию
+                section = PageSection.objects.create(
+                    section_key=section_key,
+                    name=section_key.capitalize(),
+                    is_active=True,
+                    order_index=999  # В конец списка
+                )
 
         content, created = SectionContent.objects.get_or_create(
             section=section,

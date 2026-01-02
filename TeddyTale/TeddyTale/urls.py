@@ -11,12 +11,13 @@ urlpatterns = [
     path('panel/', admin.site.urls),  # Стандартная админка
 
     # Кастомная админка с префиксом admin-custom/
-    path('admin-custom/', include('teddy_admin.urls_custom')),
+    path('admin-custom/', include(('teddy_admin.urls_custom', 'teddy_admin'),
+                                  namespace='teddy_admin_custom')),
     path('', include(('landing.urls', 'landing'), namespace='landing')),
 
     # Перенаправления для старых путей
-    path('enter-admin-panel/', RedirectView.as_view(url='/admin-custom/enter/',
-                                                    permanent=False)),
+    path('enter-admin-panel/', RedirectView.as_view(
+        url='/admin-custom/enter/', permanent=False), name='old-admin-enter'),
 ]
 
 # Добавляем обработку медиафайлов в режиме DEBUG

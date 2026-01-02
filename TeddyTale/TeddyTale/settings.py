@@ -176,6 +176,7 @@ CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', default=False)
 CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=[
     'http://127.0.0.1:8000',
     'http://localhost:8000',
+    'https://*.onrender.com',
 ])
 
 # Дополнительные настройки безопасности для продакшена

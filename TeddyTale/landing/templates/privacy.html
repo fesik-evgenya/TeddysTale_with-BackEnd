@@ -135,9 +135,9 @@
             <div class="privacy-contacts">
                 <h3>Контактная информация Оператора</h3>
                 <p>Елена Филенко</p>
-                <p>Адрес: г. Санкт-Петербург, ул. Среднерогатская</p>
-                <p>Телефон: <a href="tel:+79999999999">+7 (999) 999-99-99</a></p>
-                <p>Email: <a href="mailto:example@example.ru">example@example.ru</a></p>
+                <p>Адрес: г. {{ contacts_city|default:"Санкт-Петербург" }}, {{ contacts_address|default:"ул. Среднерогатская" }}</p>
+                <p>Телефон: <a href="tel:{{ contacts_phone|default:'+79111292655'|cut:' '|cut:'-'|cut:'('|cut:')' }}">{{ contacts_phone|default:"+7 (911) 129-26-55" }}</a></p>
+                <p>Email: <a href="mailto:{{ contacts_email|default:'ev.filenko@rambler.ru' }}">{{ contacts_email|default:"ev.filenko@rambler.ru" }}</a></p>
             </div>
         </div>
     </div>

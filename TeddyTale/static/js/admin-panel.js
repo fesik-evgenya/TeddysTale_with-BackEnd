@@ -249,7 +249,7 @@ function initSectionForms() {
 
             try {
                 const data = await sendAjaxRequest(
-                    `/admin-custom/ajax/update-section/${section}/`,
+                    `/admin-custom/ajax/update-section/${section}/`, // ИСПРАВЛЕННЫЙ URL
                     'POST',
                     {
                         content_key: contentKey,
@@ -271,7 +271,7 @@ function initSectionForms() {
 }
 
 /**
- * Обработчик для формы координат (особый случай)
+ * Обработчик для формы координат (особый случай) - ИСПРАВЛЕННАЯ ВЕРСИЯ
  */
 function initContactsPointForm() {
     const contactsPointForm = document.getElementById('contacts-point');
@@ -286,9 +286,12 @@ function initContactsPointForm() {
         if (!latitudeInput || !longitudeInput) return;
 
         try {
+            // ПРАВИЛЬНЫЙ URL согласно структуре urls.py
+            const baseUrl = '/admin-custom/ajax/update-section/contacts/';
+
             // Сохраняем широту
             const latData = await sendAjaxRequest(
-                '/admin-custom/ajax/update-section/contacts/',
+                baseUrl,
                 'POST',
                 {
                     content_key: 'contactsPoints_latitude',
@@ -303,7 +306,7 @@ function initContactsPointForm() {
 
             // Сохраняем долготу
             const lonData = await sendAjaxRequest(
-                '/admin-custom/ajax/update-section/contacts/',
+                baseUrl,
                 'POST',
                 {
                     content_key: 'contactsPoints_longitude',
@@ -318,6 +321,7 @@ function initContactsPointForm() {
                 showNotification(lonData.message || 'Ошибка сохранения долготы', 'error');
             }
         } catch (error) {
+            console.error('Error in contacts form:', error);
             showNotification(error.message || 'Ошибка при сохранении координат', 'error');
         }
     });

@@ -53,24 +53,42 @@
     --color-gray: #4A4A4A;
     --color-white: #FFFFFF;
 
+    /* Радиусы */
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+
+    /* Тени */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.12);
+    --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.16);
+
+    /* Отступы */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-6: 24px;
+
     /* Максимальная ширина контента */
     --max-width: 1200px;
 
-    /* Отступы */
-    --section-padding: 30px 20px;
+    /* Отступы секций */
+    --section-padding: 15px 20px;
     --card-gap: 20px;
 }
 
 /* ===== БАЗОВЫЕ СТИЛИ ===== */
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 120px;
+    scroll-padding-top: 80px;
     margin: 0;
     padding: 0;
 }
 
 section[id] {
-    scroll-margin-top: 120px;
+    scroll-margin-top: 80px;
 }
 
 body {
@@ -144,7 +162,7 @@ li, a {
     box-shadow: 0 4px 12px rgba(232, 180, 184, 0.3);
 }
 
-.btn-card, .btn-about {
+.btn-card {
     width: 200px;
     height: 48px;
     margin: 0 auto 5px;
@@ -159,7 +177,7 @@ header {
     width: 100%;
     z-index: 1000;
     padding: 15px 0;
-    min-height: 80px;
+    height: 80px;
     background: rgba(242, 239, 233, 0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -268,16 +286,14 @@ header {
     height: 100%;
     background: rgba(255, 249, 245, 0.98);
     backdrop-filter: blur(10px);
-    /* Плавное появление/скрытие */
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    /* Центровка основного содержимого */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Горизонтальная центровка всех дочерних элементов */
-    justify-content: flex-start; /* Начинаем с верхней части */
-    padding: 100px 20px 60px; /* отступ сверху под логотип и снизу под крестик */
+    align-items: center;
+    justify-content: flex-start;
+    padding: 80px 20px 60px;
     z-index: 1001;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -293,17 +309,6 @@ header {
     visibility: visible;
     pointer-events: auto;
     transform: translateY(0);
-}
-
-@keyframes menuSlideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .mobile-logo {
@@ -541,6 +546,33 @@ header {
     object-fit: cover;
 }
 
+/* Стили для изображения-заполнителя */
+.image-placeholder {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    background: radial-gradient(circle,
+    rgba(248, 237, 235, 0.4),
+    rgba(232, 180, 184, 0.4) 50%,
+    rgba(212, 193, 236, 0.4) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-logo {
+    padding: 20px;
+
+    border: 1px solid var(--color-pink_dark);
+}
+
+.image-placeholder .placeholder-logo {
+    padding: 20px;
+    background-color: rgba(255, 249, 245, 0.8); /* Полупрозрачный цвет cream */
+    border: 1px solid rgba(212, 193, 236, 0.4); /* Полупрозрачная лаванда */
+    border-radius: 8px;
+}
+
 .card-content {
     display: flex;
     flex-direction: column;
@@ -574,31 +606,58 @@ header {
     margin-bottom: 5px;
 }
 
-/* Стили для карточек-заглушек */
-.card-placeholder {
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
+/* ===== СТИЛИ ДЛЯ РЕЗЕРВНОЙ КАРТОЧКИ ===== */
+.card .image-placeholder .placeholder-card__badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--color-pink);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 2;
 }
 
-.card-placeholder:hover {
-    opacity: 1;
+.placeholder-card__meta {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(212, 193, 236, 0.4);
 }
 
-.placeholder-image {
-    filter: grayscale(30%);
-    opacity: 0.7;
-    background: linear-gradient(45deg, #f8f9fa 25%, #e9ecef 25%, #e9ecef 50%, #f8f9fa 50%, #f8f9fa 75%, #e9ecef 75%);
-    background-size: 40px 40px;
-    min-height: 200px;
+.card .card-content .placeholder-card__status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.card .card-content .placeholder-card__status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4caf50;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+
+.card .card-content .placeholder-card__status-text {
+    font-size: 12px;
+    color: #666;
+}
+
+.card .card-content .placeholder-card__button {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.placeholder-image img {
-    max-width: 60%;
-    max-height: 60%;
-    opacity: 0.5;
+    gap: 8px;
 }
 
 /* ===== О МАСТЕРЕ ===== */
@@ -1328,11 +1387,11 @@ footer {
     }
 
     html {
-        scroll-padding-top: 80px;
+        scroll-padding-top: 70px;
     }
 
     section[id] {
-        scroll-margin-top: 80px;
+        scroll-margin-top: 70px;
     }
 
     body {
@@ -1347,7 +1406,7 @@ footer {
 
     header {
         z-index: 1000;
-        height: auto;
+        height: 70px;
         min-height: 70px;
         padding: 10px 0;
     }
@@ -1356,7 +1415,11 @@ footer {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: 0 20%; /* 20% отступ от каждого края */
+        padding: 0 20%;
+    }
+
+    .mobile-menu {
+        padding-top: 70px;
     }
 
     .main {
@@ -1407,7 +1470,7 @@ footer {
         height: 55px;
     }
 
-    .btn-card, .btn-about {
+    .btn-card {
         width: 100%;
         max-width: 280px;
     }
@@ -1434,6 +1497,10 @@ footer {
     .card-image {
         height: 200px;
         object-fit: fill;
+    }
+
+    .image-placeholder {
+        height: 200px;
     }
 
     .card-content {
@@ -1566,6 +1633,23 @@ footer {
 
 /* Маленькие мобильные (480px и меньше) */
 @media (max-width: 480px) {
+    html {
+        scroll-padding-top: 60px;
+    }
+
+    section[id] {
+        scroll-margin-top: 60px;
+    }
+
+    header {
+        height: 60px;
+        min-height: 60px;
+    }
+
+    .mobile-menu {
+        padding-top: 60px;
+    }
+
     .menu {
         padding: 0 30px;
         justify-content: space-between;

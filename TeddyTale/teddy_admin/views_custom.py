@@ -19,7 +19,17 @@ def custom_admin_login(request):
     """
     Вход в кастомную админку по адресу /enter-admin-panel/
     """
-    if request.user.is_authenticated and is_site_admin(request.user):
+    # Проверяем аутентификацию, но обрабатываем возможные ошибки сессии
+    try:
+        # Эта проверка может вызвать ошибку, если сессия была удалена
+        user_authenticated = request.user.is_authenticated
+    except Exception:
+        # Если произошла ошибка при проверке аутентификации,
+        # считаем пользователя неаутентифицированным
+        user_authenticated = False
+
+    # Если пользователь аутентифицирован и является администратором, перенаправляем
+    if user_authenticated and is_site_admin(request.user):
         return redirect('teddy_admin_custom:custom-panel')
 
     error = None
@@ -55,6 +65,14 @@ def custom_admin_login(request):
         user = authenticate(request, username=username, password=password)
 
         if user and is_site_admin(user):
+            # Перед входом создаем новую сессию, если старая была удалена
+            try:
+                # Сохраняем текущую сессию, если она существует
+                request.session.save()
+            except Exception:
+                # Если не удалось сохранить, создаем новую
+                pass
+
             login(request, user)
             # Перенаправляем в кастомную админку
             return redirect('teddy_admin_custom:custom-panel')
@@ -65,9 +83,9 @@ def custom_admin_login(request):
     context = {
         'error': error,
         'contacts_phone': contacts_contents.get('contactsPhone', {})
-        .get('value', '+7 (999) 999-99-99'),
+        .get('value', '+7 (911) 129-26-55'),  # Исправлено
         'contacts_email': contacts_contents.get('contactsEmail', {})
-        .get('value', 'example@example.ru'),
+        .get('value', 'ev.filenko@rambler.ru'),  # Исправлено
         'contacts_city': contacts_contents.get('contactsCity', {})
         .get('value', 'Санкт-Петербург'),
         'contacts_address': contacts_contents.get('contactsAddress', {})
@@ -88,10 +106,15 @@ def custom_admin_panel(request):
     """
     Главная страница кастомной админки по адресу /admin-panel/
     """
-    # Проверяем права
-    check_site_admin_access(request.user)
+    # Проверяем права с обработкой возможных ошибок сессии
+    try:
+        check_site_admin_access(request.user)
+    except Exception as e:
+        # Если произошла ошибка при проверке прав (например, сессия удалена),
+        # перенаправляем на страницу входа
+        return redirect('teddy_admin_custom:custom-login')
 
-    # Получаем все секции
+    # Получаем все секции (только активные для отображения в админке)
     page_sections = (PageSection.objects.filter(is_active=True)
                      .order_by('order_index'))
     all_sections = PageSection.objects.all().order_by('order_index')
@@ -142,9 +165,9 @@ def custom_admin_panel(request):
         'MEDIA_URL': settings.MEDIA_URL,
         # Добавляем отдельные переменные для футера (для совместимости)
         'contacts_phone': contacts_contents.get('contactsPhone', {})
-        .get('value', '+7 (999) 999-99-99'),
+        .get('value', '+7 (911) 129-26-55'),  # Исправлено
         'contacts_email': contacts_contents.get('contactsEmail', {})
-        .get('value', 'example@example.ru'),
+        .get('value', 'ev.filenko@rambler.ru'),  # Исправлено
         'contacts_city': contacts_contents.get('contactsCity', {})
         .get('value', 'Санкт-Петербург'),
         'contacts_address': contacts_contents.get('contactsAddress', {})

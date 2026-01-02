@@ -27,11 +27,11 @@
                     <h4 class="footer-right_title">Контакты</h4>
                     <div class="footer-right_contacts">
                         <!-- Динамические данные из базы -->
-                        <p>Телефон: <a href="tel:{{ contacts_phone|default:'+7 (999) 999-99-99'|slice:'2:'|cut:' '|cut:'-'|cut:'('|cut:')' }}" class="footer-phone">
-                            {{ contacts_phone|default:'+7 (999) 999-99-99' }}
+                        <p>Телефон: <a href="tel:{{ contacts_phone|default:'+7 (911) 129-26-55'|slice:'2:'|cut:' '|cut:'-'|cut:'('|cut:')' }}" class="footer-phone">
+                            {{ contacts_phone|default:'+7 (911) 129-26-55' }}
                         </a></p>
-                        <p>Email: <a href="mailto:{{ contacts_email|default:'example@example.ru' }}" class="footer-email">
-                            {{ contacts_email|default:'example@example.ru' }}
+                        <p>Email: <a href="mailto:{{ contacts_email|default:'ev.filenko@rambler.ru' }}" class="footer-email">
+                            {{ contacts_email|default:'ev.filenko@rambler.ru' }}
                         </a></p>
                         <p class="address-footer">Адрес: г. {{ contacts_city|default:'Санкт-Петербург' }},<br>{{ contacts_address|default:'ул. Среднерогатская' }}</p>
                     </div>

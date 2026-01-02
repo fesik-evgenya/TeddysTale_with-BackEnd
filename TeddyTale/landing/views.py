@@ -2,10 +2,12 @@ import logging
 
 from django.shortcuts import render
 from teddy_admin.models import PageSection, SectionContent, ShopItem
+from .db_utils import safe_db_query  # Импортируем декоратор для безопасных запросов
 
 # Настройка логгера для отслеживания ошибок
 logger = logging.getLogger(__name__)
 
+@safe_db_query
 def index(request):
     """
     Обработчик главной страницы с динамическим контентом
@@ -46,20 +48,41 @@ def index(request):
                                            'Каждый мишка — это отдельная история, созданная специально для вас.')
             context['hero_image'] = ''
 
-        # 3. Товары магазина
-        shop_items = (ShopItem.objects.filter(is_active=True).order_by('slot_number'))
+        # 3. Товары магазина - ОСНОВНОЕ ИЗМЕНЕНИЕ
+        shop_items = list(ShopItem.objects.filter(is_active=True).order_by('slot_number'))
         context['shop_items'] = shop_items
 
-        # Определяем, нужно ли показывать статические карточки
-        static_items_count = 9 - shop_items.count()
-        if static_items_count > 0:
-            context['has_static_shop_items'] = True
-        else:
-            context['has_static_shop_items'] = False
+        # Определяем, сколько товаров из БД
+        db_items_count = len(shop_items)
+
+        # Создаем список из 9 элементов для отображения
+        # Сначала добавляем все товары из БД, затем заглушки до 9
+        display_items = []
+        placeholder_count = 0
+
+        # Добавляем реальные товары из БД
+        for i, item in enumerate(shop_items):
+            if i < 9:  # Ограничиваем 9 слотами
+                display_items.append({
+                    'type': 'real',
+                    'item': item,
+                    'index': i
+                })
+
+        # Добавляем заглушки до 9 элементов
+        for i in range(db_items_count, 9):
+            display_items.append({
+                'type': 'placeholder',
+                'index': i
+            })
+            placeholder_count += 1
+
+        context['display_items'] = display_items
+        context['has_placeholders'] = placeholder_count > 0
 
         # Логируем информацию о товарах для отладки
-        logger.debug(f"Загружено товаров из базы: {shop_items.count()}")
-        logger.debug(f"Показывать статические карточки: {context['has_static_shop_items']}")
+        logger.debug(f"Загружено товаров из базы: {db_items_count}")
+        logger.debug(f"Показывать заглушки: {placeholder_count > 0}, количество: {placeholder_count}")
 
         # 4. Секция "О мастере"
         about_section = PageSection.objects.filter(section_key='about').first()
@@ -96,15 +119,15 @@ def index(request):
             context['about_item4'] = 'Индивидуальный подход к каждому заказу'
             context['about_image'] = ''
 
-        # 5. Контакты - КРИТИЧЕСКИЙ ИСПРАВЛЕННЫЙ БЛОК
+        # 5. Контакты
         # Устанавливаем значения по умолчанию (всегда в контексте)
         default_contacts = {
             'contacts_city': 'Санкт-Петербург',
             'contacts_address': 'ул. Среднерогатская',
             'contacts_latitude': '59.819987',
             'contacts_longitude': '30.337649',
-            'contacts_phone': '+7 (911) 999-99-99',
-            'contacts_email': 'example@example.ru',
+            'contacts_phone': '+7 (911) 129-26-55',
+            'contacts_email': 'ev.filenko@rambler.ru',
             'contacts_vk': 'https://vk.com/id39146412',
             'contacts_whatsapp': 'https://wa.me/79111292655',
             'contacts_telegram': 'https://t.me/Elen0Fil',
@@ -138,7 +161,7 @@ def index(request):
             logger.warning("Секция 'contacts' не найдена в базе данных, используются значения по умолчанию")
 
         # Общая информация о загрузке
-        logger.info(f"Главная страница успешно загружена. Товаров: {shop_items.count()}, " +
+        logger.info(f"Главная страница успешно загружена. Товаров: {db_items_count}, " +
                     f"Координаты: {context['contacts_latitude']}, {context['contacts_longitude']}")
 
     except Exception as e:
@@ -146,12 +169,19 @@ def index(request):
         logger.error(f"КРИТИЧЕСКАЯ ОШИБКА при загрузке данных главной страницы: {str(e)}",
                      exc_info=True, stack_info=True)
 
-        # Безопасный фоллбэк
+        # Безопасный фоллбэк - все 9 карточек как заглушки
         context['static_fallback'] = True
-
-        # Товары - пустой список
         context['shop_items'] = []
-        context['has_static_shop_items'] = True
+        context['has_placeholders'] = True
+
+        # Создаем список из 9 заглушек
+        display_items = []
+        for i in range(9):
+            display_items.append({
+                'type': 'placeholder',
+                'index': i
+            })
+        context['display_items'] = display_items
 
         # Критически важные значения для работы сайта
         context['meta_title'] = 'Мишки Тедди ручной работы'
@@ -169,9 +199,55 @@ def index(request):
 
     return render(request, 'index.html', context)
 
+@safe_db_query
 def privacy(request):
     """
     Обработчик для страницы политики конфиденциальности
-    Простая статическая страница без динамического контента
+    с динамическими контактами из базы данных
     """
-    return render(request, 'privacy.html')
+    # Устанавливаем значения по умолчанию
+    default_contacts = {
+        'contacts_city': 'Санкт-Петербург',
+        'contacts_address': 'ул. Среднерогатская',
+        'contacts_phone': '+7 (911) 129-26-55',
+        'contacts_email': 'ev.filenko@rambler.ru',
+        'contacts_vk': '',
+        'contacts_whatsapp': '',
+        'contacts_telegram': '',
+    }
+
+    context = {}
+
+    try:
+        # Пытаемся получить контакты из базы данных
+        contacts_section = PageSection.objects.filter(section_key='contacts').first()
+
+        if contacts_section:
+            # Получаем содержимое секции контактов
+            contacts_contents = {c.content_key: c.value for c in contacts_section.contents.all()}
+
+            # Обновляем контекст данными из базы
+            context['contacts_city'] = contacts_contents.get('contactsCity', default_contacts['contacts_city'])
+            context['contacts_address'] = contacts_contents.get('contactsAddress', default_contacts['contacts_address'])
+            context['contacts_phone'] = contacts_contents.get('contactsPhone', default_contacts['contacts_phone'])
+            context['contacts_email'] = contacts_contents.get('contactsEmail', default_contacts['contacts_email'])
+
+            # Дополнительные контакты (могут быть пустыми)
+            context['contacts_vk'] = contacts_contents.get('contactsVK', '')
+            context['contacts_whatsapp'] = contacts_contents.get('contactsWhatsApp', '')
+            context['contacts_telegram'] = contacts_contents.get('contactsTelegramm', '')
+
+            logger.debug(f"Контакты для страницы privacy загружены из базы данных")
+        else:
+            # Если секция не найдена, используем значения по умолчанию
+            context.update(default_contacts)
+            logger.warning("Секция 'contacts' не найдена в базе данных, используются значения по умолчанию для страницы privacy")
+
+    except Exception as e:
+        # В случае ошибки используем значения по умолчанию
+        logger.error(f"Ошибка при загрузке контактов для страницы privacy: {str(e)}",
+                     exc_info=True, stack_info=True)
+        context.update(default_contacts)
+        logger.warning("Используются резервные данные контактов для страницы privacy")
+
+    return render(request, 'privacy.html', context)

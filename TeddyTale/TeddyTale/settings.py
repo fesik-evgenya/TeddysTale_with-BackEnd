@@ -118,15 +118,27 @@ INSTALLED_APPS = [
 
 # Разделяем настройки для разработки и продакшена
 if 'DATABASE_URL' in os.environ:
-    # Используем PostgreSQL на Render
+    # Используем PostgreSQL на Supabase.com
+    import dj_database_url
     DATABASES = {
         'default': dj_database_url.config(
             default=os.environ.get('DATABASE_URL'),
-            conn_max_age=600,
-            conn_health_checks=True,
+            conn_max_age=300,  # 5 минут
             ssl_require=True,
+            engine='django.db.backends.postgresql',
         )
     }
+    # Дополнительные настройки для Supabase
+    DATABASES['default'].update({
+        'OPTIONS': {
+            'connect_timeout': 10,
+            'keepalives': 1,
+            'keepalives_idle': 30,
+            'keepalives_interval': 10,
+            'keepalives_count': 5,
+            'sslmode': 'require',
+        }
+    })
 else:
     # Локальная разработка с SQLite
     DATABASES = {
@@ -149,6 +161,7 @@ CSRF_COOKIE_NAME = 'teddy_admin_csrftoken'
 
 SESSION_COOKIE_AGE = env.int('SESSION_COOKIE_AGE', default=1209600)  # 2 недели
 SESSION_SAVE_EVERY_REQUEST = True
+SESSION_COOKIE_SAMESITE = 'Lax'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
 SECURE_BROWSER_XSS_FILTER = True
@@ -185,6 +198,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'TeddyTale.middleware.SupabaseConnectionMiddleware',
 ]
 
 ROOT_URLCONF = 'TeddyTale.urls'

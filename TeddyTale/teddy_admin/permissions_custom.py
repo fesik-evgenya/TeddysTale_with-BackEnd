@@ -17,7 +17,14 @@ def is_site_admin(user):
     return user.groups.filter(name='SiteAdmins').exists()
 
 def check_site_admin_access(user):
-    """Проверка с выбрасыванием исключения"""
+    """
+    Проверяет, имеет ли пользователь доступ к админке сайта.
+    Вызывает PermissionDenied, если доступ запрещен.
+    """
+    if not user.is_authenticated:
+        raise PermissionDenied("Пользователь не аутентифицирован")
+
     if not is_site_admin(user):
-        raise PermissionDenied("У вас нет доступа к админ-панели")
+        raise PermissionDenied("Недостаточно прав для доступа к админке")
+
     return True

@@ -8,14 +8,44 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
-    // Получаем координаты из data-атрибутов или используем значения по умолчанию
-    const latitude = mapElement.getAttribute('data-latitude') ||
-        window.contacts_latitude ||
-        59.819987;
+    // Получаем координаты из глобальной переменной mapData (из шаблона Django)
+    let latitude, longitude;
 
-    const longitude = mapElement.getAttribute('data-longitude') ||
-        window.contacts_longitude ||
-        30.337649;
+    // Проверяем наличие глобальной переменной mapData из шаблона
+    if (window.mapData && window.mapData.latitude && window.mapData.longitude) {
+        latitude = parseFloat(window.mapData.latitude);
+        longitude = parseFloat(window.mapData.longitude);
+        console.log('Карта: координаты из mapData', latitude, longitude);
+    }
+    // Если нет mapData, проверяем старые глобальные переменные
+    else if (window.contacts_latitude && window.contacts_longitude) {
+        latitude = parseFloat(window.contacts_latitude);
+        longitude = parseFloat(window.contacts_longitude);
+        console.log('Карта: координаты из window переменных', latitude, longitude);
+    }
+    // Если нет глобальных переменных, проверяем data-атрибуты
+    else {
+        const dataLatitude = mapElement.getAttribute('data-latitude');
+        const dataLongitude = mapElement.getAttribute('data-longitude');
+
+        if (dataLatitude && dataLongitude) {
+            latitude = parseFloat(dataLatitude);
+            longitude = parseFloat(dataLongitude);
+            console.log('Карта: координаты из data-атрибутов', latitude, longitude);
+        } else {
+            // Резервные координаты (Санкт-Петербург)
+            latitude = 59.819987;
+            longitude = 30.337649;
+            console.log('Карта: использованы резервные координаты');
+        }
+    }
+
+    // Проверяем валидность координат
+    if (isNaN(latitude) || isNaN(longitude)) {
+        console.error('Некорректные координаты, используем резервные');
+        latitude = 59.819987;
+        longitude = 30.337649;
+    }
 
     const logoPath = mapElement.getAttribute('data-logo-path') ||
         '/static/assets/icon/teedy-logo.svg';

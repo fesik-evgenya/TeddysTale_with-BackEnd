@@ -138,6 +138,7 @@ TeddyTale/          # Проект Django 5.2
 └── requirements.txt             # Зависимости Python
 
 ┌── shema_db.png                 # Схема таблиц Базы Данных
+├── render.yaml                  
 └── README.md                    # Описание проекта
 
 ```

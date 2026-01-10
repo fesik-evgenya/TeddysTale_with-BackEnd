@@ -1,0 +1,53 @@
+# Конфигурация для автоматического деплоя на Render
+# Полная документация: https://render.com/docs/yaml-spec
+
+services:
+  - type: web
+    name: teddytale-web
+    env: python
+    region: frankfurt  # Ближайший к России регион
+    plan: free  # Бесплатный тариф (можно изменить на starter/pro)
+
+    # Автоматический деплой при пуше в ветку main
+    autoDeploy: true
+
+    # Переменные окружения (настраиваются в панели Render)
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.6
+      - key: DISABLE_COLLECTSTATIC
+        value: 0
+      - key: RENDER
+        value: true
+      - key: SECRET_KEY
+        generateValue: true  # Render сам создаст безопасный ключ
+      - key: DEBUG
+        value: false  # В продакшене всегда false!
+      - key: ALLOWED_HOSTS
+        value: ".onrender.com"  # Разрешаем все поддомены Render
+
+    # Команды сборки и запуска
+    buildCommand: |
+      chmod +x build.sh  # Делаем скрипт исполняемым
+      ./build.sh         # Запускаем нашу сборку
+
+    startCommand: |
+      chmod +x start.sh  # Делаем скрипт исполняемым
+      ./start.sh         # Запускаем наше приложение
+
+    # Health-check для мониторинга работоспособности
+    healthCheckPath: /health/
+
+    # Политика перезапуска при сбоях
+    restartPolicy: always
+
+    # Ресурсы (для free плана минимальные)
+    resources:
+      cpu: shared
+      memory: 512MB
+      ephemeralStorage: 1GB
+
+    # Автоскейлинг (для бесплатного плана отключен)
+    autoscaling:
+      minInstances: 1
+      maxInstances: 1

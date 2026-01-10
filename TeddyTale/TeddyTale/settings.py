@@ -79,11 +79,9 @@ ensure_directories_exist()
 # БЕЗОПАСНОСТЬ
 # ====================
 
-# SECURITY WARNING: keep the secret key used in production secret!
 # Читаем секретный ключ из переменной окружения или используем fallback
 SECRET_KEY = env('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUG', default=False)
 
 # Разрешенные хосты
@@ -116,29 +114,62 @@ INSTALLED_APPS = [
 # БАЗА ДАННЫХ
 # ====================
 
+# Определяем, работаем ли мы на Render
+IS_RENDER = os.environ.get('RENDER') is not None
+
 # Разделяем настройки для разработки и продакшена
 if 'DATABASE_URL' in os.environ:
-    # Используем PostgreSQL на Supabase.com
-    import dj_database_url
     DATABASES = {
         'default': dj_database_url.config(
             default=os.environ.get('DATABASE_URL'),
-            conn_max_age=300,  # 5 минут
-            ssl_require=True,
-            engine='django.db.backends.postgresql',
+            conn_max_age=300 if IS_RENDER else 600,  # Разные настройки для Render
+            conn_health_checks=True,
+            ssl_require=True
         )
     }
-    # Дополнительные настройки для Supabase
-    DATABASES['default'].update({
-        'OPTIONS': {
-            'connect_timeout': 10,
-            'keepalives': 1,
+
+    # Указываем движок базы данных
+    DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
+
+    # Эти настройки помогают избежать таймаутов при "засыпании" приложения
+    connection_options = {
+        'connect_timeout': 15,
+        'keepalives': 1,
+        'keepalives_idle': 60,
+        'keepalives_interval': 10,
+        'keepalives_count': 5,
+        'sslmode': 'require',
+    }
+
+    # Получаем DATABASE_URL для проверок
+    database_url = os.environ.get('DATABASE_URL', '')
+
+    # Если мы на Render, добавляем дополнительные оптимизации
+    if IS_RENDER:
+        # Специальные настройки для Render.com
+        connection_options.update({
+            'connect_timeout': 20,
             'keepalives_idle': 30,
-            'keepalives_interval': 10,
-            'keepalives_count': 5,
-            'sslmode': 'require',
-        }
-    })
+            'application_name': 'teddytale_render_app',  # Идентификатор приложения для мониторинга
+        })
+
+        # Проверяем, содержит ли DATABASE_URL правильный хост для пулера соединений
+        if 'pooler.supabase.com' not in database_url and 'supabase.com' in database_url:
+            print("ВНИМАНИЕ: Рекомендуется использовать Supabase Connection Pooler для production.")
+            print("Измените DATABASE_URL, заменив 'db.' на 'aws-0-eu-central-1.pooler.'")
+
+    # Применяем настройки соединения
+    DATABASES['default'].setdefault('OPTIONS', {}).update(connection_options)
+
+    # Эта настройка помогает автоматически восстанавливать соединения после "засыпания"
+    DATABASES['default']['DISABLE_SERVER_SIDE_CURSORS'] = True
+
+    # Логируем информацию о подключении (только при DEBUG)
+    if DEBUG:
+        print(f"База данных настроена для {'Render' if IS_RENDER else 'продакшена'}")
+        print(f"CONN_MAX_AGE: {DATABASES['default'].get('CONN_MAX_AGE', 'не задан')}")
+        print(f"Используется Connection Pooler: {'pooler.supabase.com' in database_url}")
+
 else:
     # Локальная разработка с SQLite
     DATABASES = {
@@ -178,6 +209,16 @@ CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=[
     'http://localhost:8000',
     'https://*.onrender.com',
 ])
+
+if IS_RENDER:
+    # Получаем домен Render из переменной окружения
+    render_domain = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+    if render_domain and render_domain not in ALLOWED_HOSTS:
+        ALLOWED_HOSTS.append(render_domain)
+
+    # Также добавляем общий домен для health-check мониторинга
+    if '*.onrender.com' not in ALLOWED_HOSTS:
+        ALLOWED_HOSTS.append('*.onrender.com')
 
 # Дополнительные настройки безопасности для продакшена
 if not DEBUG:
@@ -350,6 +391,16 @@ LOGGING = {
             'backupCount': env.int('LOG_BACKUP_COUNT', default=3),
             'encoding': 'utf-8',
         },
+        # Добавляем логгер для базы данных (важно для отладки подключений)
+        'db_file': {
+            'level': 'WARNING',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': BASE_DIR / 'logs' / 'database.log',
+            'formatter': 'detailed',
+            'maxBytes': env.int('LOG_MAX_BYTES', default=1048576),
+            'backupCount': env.int('LOG_BACKUP_COUNT', default=3),
+            'encoding': 'utf-8',
+        },
     },
     'loggers': {
         'django': {
@@ -358,7 +409,7 @@ LOGGING = {
             'propagate': True,
         },
         'django.db.backends': {
-            'handlers': ['console'],
+            'handlers': ['console', 'db_file'],
             'level': 'WARNING',
             'propagate': False,
         },
@@ -467,3 +518,49 @@ JAZZMIN_UI_TWEAKS = {
 
 # Ключ Яндекс.Карт
 YANDEX_MAPS_API_KEY = env('YANDEX_MAPS_API_KEY', default='')
+
+# ====================
+# НОВЫЕ НАСТРОЙКИ ДЛЯ RENDER И SUPABASE
+# ====================
+
+# ИСПРАВЛЕНИЕ 11: Константа для проверки окружения Render
+RENDER = IS_RENDER
+
+# Настройки для health-check эндпоинтов (важно для мониторинга)
+# Эти настройки помогут UptimeRobot отслеживать доступность приложения
+HEALTH_CHECK = {
+    'ENABLED': True,
+    'PATH': '/health/',
+    'PING_PATH': '/ping/',
+    'TIMEOUT': 30,  # Секунды для health-check таймаута
+}
+
+# Информация для разработчика
+if DEBUG and IS_RENDER:
+    print("\n" + "="*80)
+    print("ВАЖНО ДЛЯ НАСТРОЙКИ RENDER + SUPABASE:")
+    print("="*80)
+    print("1. Убедитесь, что в переменных окружения Render заданы:")
+    print("   - DATABASE_URL (с использованием Connection Pooler)")
+    print("   - RENDER_EXTERNAL_HOSTNAME (автоматически)")
+    print("2. Используйте Supabase Connection Pooler URL:")
+    print("   Пример: postgresql://postgres.[id]:[password]@aws-0-eu-central-1.pooler.supabase.com:5432/postgres")
+    print("3. Настройте UptimeRobot для мониторинга health-эндпоинтов:")
+    print("   - Основной: https://ваш-проект.onrender.com/health")
+    print("   - Резервный: https://ваш-проект.onrender.com/ping")
+    print("4. Добавьте в requirements.txt для надежности:")
+    print("   - requests>=2.31.0")
+    print("="*80 + "\n")
+
+# Эта функция будет вызвана в wsgi.py для инициализации менеджера соединений
+def initialize_render_specific_settings():
+    """
+    Инициализирует специфичные для Render настройки.
+    Вызывается в wsgi.py и asgi.py при запуске приложения.
+    """
+    if IS_RENDER:
+        # Логируем информацию о конфигурации базы данных
+        logger = logging.getLogger(__name__)
+        logger.info(f"Приложение запущено на Render")
+        logger.info(f"CONN_MAX_AGE настроен на {DATABASES['default'].get('CONN_MAX_AGE', 'не задан')} секунд")
+        logger.info(f"Таймаут подключения: {DATABASES['default'].get('OPTIONS', {}).get('connect_timeout', 'не задан')} секунд")

@@ -80,6 +80,9 @@ def log_startup_info():
 
     logger.info("=" * 50)
 
+# Определяем, находимся ли мы на Render
+IS_RENDER = os.environ.get('RENDER') is not None
+
 # Инициализация при импорте модуля
 try:
     # Проверяем папку logs
@@ -96,4 +99,4 @@ except Exception as e:
     logging.error(f"Критическая ошибка при инициализации TeddyTale: {e}", exc_info=True)
 
 # Экспортируем логгер для использования в других модулях
-__all__ = ['logger']
+__all__ = ['logger', 'IS_RENDER']

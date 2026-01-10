@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
+from .health_views import health_check, ping
 
 # Меняем URL стандартной админки
 admin.site.site_url = '/panel/'  # Для ссылок "Вернуться на сайт"
@@ -18,6 +19,12 @@ urlpatterns = [
     # Перенаправления для старых путей
     path('enter-admin-panel/', RedirectView.as_view(
         url='/admin-custom/enter/', permanent=False), name='old-admin-enter'),
+
+    # Health check маршруты
+    path('health/', health_check),
+    path('health', health_check),
+    path('ping/', ping),
+    path('ping', ping),
 ]
 
 # Добавляем обработку медиафайлов в режиме DEBUG

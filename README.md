@@ -114,7 +114,10 @@ TeddyTale/          # Проект Django 5.2
 ├── TeddyTale/                   # Основной проект Django
 │   ├── __init__.py              # Инициализация пакета Python
 │   ├── asgi.py                  # ASGI-конфигурация для асинхронных серверов
-│   ├── middleware.py              # Основные настройки проекта
+│   ├── connection_manager.py    # Менеджер для поддержания активного соединения с Supabase
+│   ├── health_views.py          # health-check
+│   ├── middleware.py            # Основные настройки проекта
+│   ├── self_ping.py             # Сервис для периодического самопина на Render
 │   ├── settings.py              # Основные настройки проекта
 │   ├── urls.py                  # Корневые URL-маршруты проекта
 │   ├── wsgi.py                  # WSGI-конфигурация для развертывания

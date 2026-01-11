@@ -561,9 +561,21 @@ def upload_shop_item_image_ajax(request, item_id):
         # Логируем информацию о файле
         import logging
         logger = logging.getLogger(__name__)
+
+        # Получаем полный путь к файлу
+        image_path = shop_item.image.path if hasattr(shop_item.image, 'path') else ''
         logger.info(f"Изображение загружено: {shop_item.image.name}")
         logger.info(f"Полный путь: {shop_item.image.path if hasattr(shop_item.image, 'path') else 'N/A'}")
         logger.info(f"URL: {shop_item.image.url if hasattr(shop_item.image, 'url') else 'N/A'}")
+        logger.info(f"MEDIA_ROOT: {settings.MEDIA_ROOT}")
+
+        # Проверяем существование файла
+        if os.path.exists(image_path):
+            logger.info(f"Файл существует по пути: {image_path}")
+            file_size = os.path.getsize(image_path)
+            logger.info(f"Размер файла: {file_size} байт")
+        else:
+            logger.warning(f"Файл НЕ существует по пути: {image_path}")
 
         # Удаляем старый файл изображения, если он существует
         if old_image and old_image.name:

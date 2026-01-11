@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.static import serve
 from .health_views import health_check, ping
 
 # Меняем URL стандартной админки

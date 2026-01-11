@@ -1,6 +1,7 @@
 import logging
 
 from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseServerError
 from teddy_admin.models import PageSection, SectionContent, ShopItem
 from .db_utils import safe_db_query  # Импортируем декоратор для безопасных запросов
 
@@ -251,3 +252,47 @@ def privacy(request):
         logger.warning("Используются резервные данные контактов для страницы privacy")
 
     return render(request, 'privacy.html', context)
+
+def page_not_found(request, exception):
+    """Обработчик для ошибки 404"""
+    context = {
+        'contacts_email': 'ev.filenko@rambler.ru',
+        'contacts_phone': '+7 (911) 129-26-55',
+        'contacts_vk': 'https://vk.com/id39146412',
+    }
+    return render(request, '404.html', context, status=404)
+
+def server_error(request):
+    """Обработчик для ошибки 500"""
+    context = {
+        'contacts_email': 'ev.filenko@rambler.ru',
+        'contacts_phone': '+7 (911) 129-26-55',
+        'contacts_vk': 'https://vk.com/id39146412',
+    }
+    return render(request, '503.html', context, status=500)
+
+def permission_denied(request, exception):
+    """Обработчик для ошибки 403"""
+    context = {
+        'contacts_email': 'ev.filenko@rambler.ru',
+        'contacts_phone': '+7 (911) 129-26-55',
+        'contacts_vk': 'https://vk.com/id39146412',
+    }
+    return render(request, '403.html', context, status=403)
+
+def bad_request(request, exception):
+    """Обработчик для ошибки 400"""
+    context = {
+        'contacts_email': 'ev.filenko@rambler.ru',
+        'contacts_phone': '+7 (911) 129-26-55',
+        'contacts_vk': 'https://vk.com/id39146412',
+    }
+    return render(request, '400.html', context, status=400)
+
+def service_unavailable_view(request):
+    """Специальная страница 503 для ошибок базы данных"""
+    context = {
+        'contacts_email': 'ganef85@mail.ru',
+        'contacts_phone': '+7 (950) 012-40-11',
+    }
+    return render(request, '503.html', context, status=503)

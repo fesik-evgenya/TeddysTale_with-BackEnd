@@ -309,6 +309,18 @@ SHORT_DATE_FORMAT = 'd.m.Y'  # 15.01.2024
 SHORT_DATETIME_FORMAT = 'd.m.Y H:i'  # 15.01.2024 14:30
 
 # ====================
+# ОБРАБОТКА ОШИБОК
+# ====================
+
+# При DEBUG = False Django будет использовать эти шаблоны для ошибок
+if not DEBUG:
+    handler404 = 'landing.views.page_not_found'
+    handler500 = 'landing.views.server_error'
+    handler403 = 'landing.views.permission_denied'
+    handler400 = 'landing.views.bad_request'
+    handler503 = 'landing.views.service_unavailable_view'
+
+# ====================
 # СТАТИЧЕСКИЕ И МЕДИА ФАЙЛЫ
 # ====================
 

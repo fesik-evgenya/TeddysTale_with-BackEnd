@@ -26,8 +26,13 @@ mkdir -p media/shop_items
 mkdir -p media/uploaded_images
 mkdir -p media/tmp
 
-# Проверяем права на запись
-touch media/shop_items/.test_write && rm media/shop_items/.test_write
+# Устанавливаем правильные права на запись
+chmod -R 755 media/
+chmod 777 media/tmp/ 2>/dev/null || true
+
+# Проверяем создание директорий
+echo "media/ структура:"
+ls -la media/ 2>/dev/null || echo "media/ не создана"
 echo "✅ Медиа-директории созданы"
 
 # 3. ПРОВЕРКА ПОДКЛЮЧЕНИЯ К БАЗЕ ДАННЫХ (Supabase)

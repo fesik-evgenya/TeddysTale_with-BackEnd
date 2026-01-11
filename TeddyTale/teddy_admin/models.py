@@ -106,9 +106,12 @@ class ShopItem(models.Model):
 
     def delete(self, *args, **kwargs):
         # удаляем файл изображения при удалении записи
-        if self.image:
-            if os.path.isfile(self.image.path):
-                os.remove(self.image.path)
+        if self.image and hasattr(self.image, 'path'):
+            try:
+                if os.path.isfile(self.image.path):
+                    os.remove(self.image.path)
+            except Exception:
+                pass
         super().delete(*args, **kwargs)
 
 

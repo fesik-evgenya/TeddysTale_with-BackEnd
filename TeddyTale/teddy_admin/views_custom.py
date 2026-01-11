@@ -514,6 +514,9 @@ def upload_image_ajax(request):
 @require_POST
 @login_required
 @csrf_protect
+@require_POST
+@login_required
+@csrf_protect
 def upload_shop_item_image_ajax(request, item_id):
     """
     AJAX-загрузка изображения для товара ShopItem
@@ -551,16 +554,26 @@ def upload_shop_item_image_ajax(request, item_id):
 
         # Обновляем изображение товара
         shop_item.image = image_file
+
+        # Принудительно сохраняем модель
         shop_item.save()
+
+        # Логируем информацию о файле
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.info(f"Изображение загружено: {shop_item.image.name}")
+        logger.info(f"Полный путь: {shop_item.image.path if hasattr(shop_item.image, 'path') else 'N/A'}")
+        logger.info(f"URL: {shop_item.image.url if hasattr(shop_item.image, 'url') else 'N/A'}")
 
         # Удаляем старый файл изображения, если он существует
         if old_image and old_image.name:
-            old_image_path = os.path.join(settings.MEDIA_ROOT, old_image.name)
-            if os.path.isfile(old_image_path):
-                try:
+            try:
+                old_image_path = os.path.join(settings.MEDIA_ROOT, old_image.name)
+                if os.path.isfile(old_image_path):
                     os.remove(old_image_path)
-                except Exception as e:
-                    print(f"Ошибка при удалении старого файла: {e}")
+                    logger.info(f"Старый файл удален: {old_image_path}")
+            except Exception as e:
+                logger.error(f"Ошибка при удалении старого файла: {e}")
 
         ChangeLog.objects.create(
             user=request.user,
@@ -571,14 +584,16 @@ def upload_shop_item_image_ajax(request, item_id):
             new_value=str(shop_item.image)
         )
 
+        # Возвращаем правильный URL
+        image_url = shop_item.image.url if hasattr(shop_item.image, 'url') else f"{settings.MEDIA_URL}{shop_item.image.name}"
+
         return JsonResponse({
             'status': 'success',
             'message': 'Изображение товара загружено',
             'data': {
                 'id': shop_item.id,
-                'image_url': shop_item.image.url,
-                'image_name': shop_item.image.name
-                .split('/')[-1] if shop_item.image else '',
+                'image_url': image_url,
+                'image_name': shop_item.image.name.split('/')[-1] if shop_item.image else '',
             }
         })
 
@@ -588,6 +603,11 @@ def upload_shop_item_image_ajax(request, item_id):
             'message': f'Товар с ID {item_id} не найден'
         }, status=404)
     except Exception as e:
+        # Логируем ошибку
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.error(f"Ошибка при загрузке изображения товара: {str(e)}")
+
         return JsonResponse({
             'status': 'error',
             'message': f'Ошибка при загрузке изображения товара: {str(e)}'

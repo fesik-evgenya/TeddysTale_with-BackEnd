@@ -31,6 +31,12 @@ urlpatterns = [
 # Разрешаем обслуживание медиафайлов ВСЕГДА
 # ====================
 
-# На Render в production режиме (DEBUG=False) Django не обслуживает медиа-файлы по умолчанию
-# WhiteNoise будет обслуживать их через wsgi.py, но для совместимости добавляем и здесь
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# На Render (production) используем специальный маршрут
+if settings.IS_RENDER and not settings.DEBUG:
+    # Добавляем маршрут для обслуживания медиа-файлов в production
+    urlpatterns += [
+        path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT}),
+    ]
+else:
+    # В development используем стандартный способ
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

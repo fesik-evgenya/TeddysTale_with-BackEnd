@@ -578,25 +578,23 @@ def initialize_render_specific_settings():
 # ====================
 
 if IS_RENDER:
-    # Убедимся, что медиа-директории созданы
+    # Создаем поддиректории для медиа-файлов
     import os
     from pathlib import Path
 
-    # Создаем поддиректории внутри media
     media_subdirs = ['shop_items', 'uploaded_images', 'tmp']
     for subdir in media_subdirs:
         dir_path = Path(MEDIA_ROOT) / subdir
         dir_path.mkdir(parents=True, exist_ok=True)
 
-    # Логируем информацию о медиа-конфигурации
-    import logging
-    logger = logging.getLogger(__name__)
-    logger.info(f"Render mode: MEDIA_ROOT={MEDIA_ROOT}")
+    # Настройки безопасности для медиа-файлов
+    # Разрешаем обслуживание медиа-файлов через Django в production (только на Render)
+    if not DEBUG:
+        # Максимальный размер загружаемого файла
+        DATA_UPLOAD_MAX_MEMORY_SIZE = 2 * 1024 * 1024  # 2MB
+        FILE_UPLOAD_MAX_MEMORY_SIZE = 2 * 1024 * 1024  # 2MB
 
-    # Настройки WhiteNoise для работы с медиа-файлами
-    WHITENOISE_USE_FINDERS = True
-    WHITENOISE_MANIFEST_STRICT = False
-    WHITENOISE_ALLOW_ALL_ORIGINS = True
-
-    # Увеличиваем максимальный размер файла для WhiteNoise (по умолчанию 1MB)
-    WHITENOISE_MAX_AGE = 31536000  # 1 год кэширования для статических файлов
+        # Настройки для статических и медиа-файлов
+        WHITENOISE_USE_FINDERS = True
+        WHITENOISE_MANIFEST_STRICT = False
+        WHITENOISE_ALLOW_ALL_ORIGINS = True

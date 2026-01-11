@@ -2,10 +2,7 @@ from django.contrib.auth.models import Group
 from django.core.exceptions import PermissionDenied
 
 def is_site_admin(user):
-    """Проверяет, может ли пользователь использовать кастомную админку
-        Возвращает True если пользователь:
-        1. Суперпользователь (is_superuser=True)
-        2. Входит в группу "SiteAdmins"""
+    """Проверяет, может ли пользователь использовать кастомную админку"""
     if not user.is_authenticated:
         return False
 
@@ -14,7 +11,10 @@ def is_site_admin(user):
         return True
 
     # Проверяем группу "SiteAdmins"
-    return user.groups.filter(name='SiteAdmins').exists()
+    if user.groups.filter(name='SiteAdmins').exists():
+        return True
+
+    return False
 
 def check_site_admin_access(user):
     """

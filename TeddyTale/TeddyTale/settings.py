@@ -572,3 +572,31 @@ def initialize_render_specific_settings():
         logger.info(f"Приложение запущено на Render")
         logger.info(f"CONN_MAX_AGE настроен на {DATABASES['default'].get('CONN_MAX_AGE', 'не задан')} секунд")
         logger.info(f"Таймаут подключения: {DATABASES['default'].get('OPTIONS', {}).get('connect_timeout', 'не задан')} секунд")
+
+# ====================
+# РАБОТА С МЕДИА-ФАЙЛАМИ НА RENDER
+# ====================
+
+if IS_RENDER:
+    # Убедимся, что медиа-директории созданы
+    import os
+    from pathlib import Path
+
+    # Создаем поддиректории внутри media
+    media_subdirs = ['shop_items', 'uploaded_images', 'tmp']
+    for subdir in media_subdirs:
+        dir_path = Path(MEDIA_ROOT) / subdir
+        dir_path.mkdir(parents=True, exist_ok=True)
+
+    # Логируем информацию о медиа-конфигурации
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.info(f"Render mode: MEDIA_ROOT={MEDIA_ROOT}")
+
+    # Настройки WhiteNoise для работы с медиа-файлами
+    WHITENOISE_USE_FINDERS = True
+    WHITENOISE_MANIFEST_STRICT = False
+    WHITENOISE_ALLOW_ALL_ORIGINS = True
+
+    # Увеличиваем максимальный размер файла для WhiteNoise (по умолчанию 1MB)
+    WHITENOISE_MAX_AGE = 31536000  # 1 год кэширования для статических файлов

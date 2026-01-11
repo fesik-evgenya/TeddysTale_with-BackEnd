@@ -19,11 +19,16 @@ echo "1. 📦 Установка зависимостей Python..."
 pip install --upgrade pip
 pip install -r requirements.txt
 
-# 2. СОЗДАНИЕ СТРУКТУРЫ ДИРЕКТОРИЙ
-echo "2. 📁 Создание структуры директорий..."
-mkdir -p logs media staticfiles
-mkdir -p media/shop_items media/uploaded_images 2>/dev/null || true
-mkdir -p staticfiles/{css,js,assets} 2>/dev/null || true
+# 2. СОЗДАНИЕ МЕДИА-ДИРЕКТОРИЙ
+echo "2. 📁 Создание медиа-директорий..."
+# Создаем основную медиа-директорию и поддиректории
+mkdir -p media/shop_items
+mkdir -p media/uploaded_images
+mkdir -p media/tmp
+
+# Проверяем права на запись
+touch media/shop_items/.test_write && rm media/shop_items/.test_write
+echo "✅ Медиа-директории созданы"
 
 # 3. ПРОВЕРКА ПОДКЛЮЧЕНИЯ К БАЗЕ ДАННЫХ (Supabase)
 echo "3. 🔍 Проверка подключения к Supabase..."

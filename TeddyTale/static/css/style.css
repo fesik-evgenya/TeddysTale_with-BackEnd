@@ -1166,7 +1166,6 @@ footer {
     display: none;
     flex-direction: column;
     animation: slideInUp 0.5s ease-out;
-    border: 2px solid var(--color-lavender);
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     max-height: calc(100vh - 120px);
@@ -1742,7 +1741,6 @@ footer {
 
     .hero-content_image {
         max-width: 100%;
-        height: 280px;
     }
 
     .hero-content_title {
@@ -1987,10 +1985,6 @@ footer {
         line-height: 24px;
     }
 
-    .hero-content_image {
-        height: 200px;
-    }
-
     .btn-hero {
         width: 100%;
         max-width: 280px;
@@ -2091,6 +2085,7 @@ footer {
         height: 250px;
         width: 100%;
         max-width: 100%;
+        order: 1;
     }
 
     .contacts-content_right {
@@ -2219,7 +2214,7 @@ footer {
     }
 
     .hero-content_image {
-        height: 180px;
+        height: 280px;
     }
 
     .about-content_avatar {
